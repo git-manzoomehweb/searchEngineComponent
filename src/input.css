@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+	border-width: 0;
+	border-style: solid;
+	border-color: #e5e7eb;
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+    --primary: #153FAB;
+	--primary-700: #1370DD;
+    --primary-600: #0E82F0;
+	--primary-500: #0091FF;
+    --primary-300: #5CB1FF;
+	--secondary:#FE6806;
+	--secondary-600: #FFAD00;
+    --secondary-500: #FFBB00;
+	--textColor: #18181b;
+	--bgColor: #18181b;
+	--bgColor-100: #f4f4f5;
+	--bgColor-500: #71717a;
+}
+.border-type-1 {border:1px solid #737373}
+.rounded-type-1 {border-radius: 0.25rem;}
+.radius-type-2 {border-radius: 100%;}
+@font-face {
+	font-display: swap;
+	font-family: 'IRANSansWeb';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/IRANSansWeb.ttf') format('truetype');
+}
+@font-face {
+	font-display: swap;
+	font-family: 'fontawesome-webfont';
+	font-style: normal;
+	font-weight: normal;
+	src: url('fonts/fontawesome-webfont.ttf') format('truetype');
+}
+.dir-ltr {direction: ltr;}
+.dir-rtl {direction: rtl;}
+.clr{clear:both;margin:0 auto;display:block}
+html {font-family: 'IRANSansWeb';}
+input,select,button{border: unset;font-family: 'IRANSansWeb';}
+i.fa,i.fas,i.far,i.fal {font-family: 'fontawesome-webfont';font-style: normal;}
+.spinner-label-icon::before {content: "\f110";font-family: 'fontawesome-webfont';font-style: normal;}
+.map-label-icon::before {content: "\f041";font-family: 'fontawesome-webfont';font-style: normal;}
+.exchange-icon::before {content: "\f0ec";font-family: 'fontawesome-webfont';font-style: normal;}
+.calendar-label-icon::before {content: "\f073";font-family: 'fontawesome-webfont';font-style: normal;}
+.down-label-icon::before {content: "\f107";font-family: 'fontawesome-webfont';font-style: normal;}
+.close-label-icon::before{content: "\f00d";font-family: 'fontawesome-webfont';font-style: normal;}
+.passenger-label-icon::before{content: "\f007";font-family: 'fontawesome-webfont';font-style: normal;}
+.flightclass-label-icon::before{content: "\f00c";font-family: 'fontawesome-webfont';font-style: normal;}
+.remove-multiroute-icon::before{content: "\f014";font-family: 'fontawesome-webfont';font-style: normal;}
+.Basis_Date_Box .no-activedate {background-color: var(--bgColor-100);opacity: .5;}
+.add-routs.deactive-addmc {opacity: .2;cursor: no-drop;}
+.add-routs.deactive-addmc:hover{color: var(--primary);}

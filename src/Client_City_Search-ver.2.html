@@ -1,0 +1,273 @@
+<basis core="group" name="flight" if="[##cms.query.type##] in (1,2)">
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+        <member method="cms" name="city_Search" query='{ 
+            "name": "db", 
+            "mid": "20", 
+            "member":[ 
+                { 
+                    "type":"list", 
+                    "name": "q", 
+                    "request": "citySearch", 
+                    "functype": "1", 
+                    "title": "[##cms.query.term##]",   
+                    "status": "flight",
+                    "lid":"[##cms.query.lid##]"
+                }
+            ]
+        }' preview="" />
+    </basis>
+    <basis core="group" name="search">
+        <basis core="inlinesource" name="db">
+            <member name="city" format="json"
+                postsql="select Id,ParentId, case when trim(Field) is null then (select field from [db.city] where id=a.parentid) else field end as field,value,type, path from [db.city] as a">
+                {"root":[##db.city_Search.result##]}</member>
+        </basis>
+        <basis core="tree" datamembername="db.city" idcol="id" parentidcol="parentid" nullvalue="null">
+            <face filter="Field='root' and type='object'">
+                <div class="selectLocation" onclick="select_item(this)">@Child<div class="clr"></div>
+                </div>
+            </face>
+            <face filter="Field='parentid' and value = 0">
+                <span class="parent-item">
+                    <i class="fa fa-plane"></i>
+            </face>
+            <face filter="Field='parentid' and value <> 0">
+                <span class="child-item">
+                    <i class="fa fa-arrow-right"></i>
+            </face>
+            <face filter="Field='id'">
+                <input type="hidden" value="@value" class="itemId" />
+            </face>
+            <face filter="Field='title'">
+                <span class="textlocation">@value</span>
+                </span>
+            </face>
+            <face filter="type in ('array','object')">@child</face>
+        </basis>
+        <input type="hidden" value="[##cms.query.term##]" class="term" />
+        <input type="hidden" value="[##cms.query.select_value##]" class="select_value" />
+
+    <script type="text/javascript">
+    function select_item(element) {
+    if (document.querySelector(".select_value").value === "") {
+        element.closest(".reserve-field").querySelector(".reserve-location").value = element.querySelector(".textlocation").textContent;
+    } else {
+        element.closest(".reserve-field").querySelector(".text-value").value = element.querySelector(".textlocation").textContent;
+        element.closest(".reserve-field").querySelector(".searchList").classList.add("hidden");
+    }
+    var textCountry = element.querySelector(".textlocation").textContent;
+    if (textCountry.indexOf("-") > -1) {
+        var element_Split = textCountry.split("-");
+        element.closest(".reserve-field").querySelector(".auto-fit").textContent = element_Split[1];
+    } else {
+        var element_Split = textCountry.split("(");
+        element.closest(".reserve-field").querySelector(".auto-fit").textContent = element_Split[0];
+    }
+    element.closest(".reserve-field").querySelector(".locationId").value = element.querySelector(".itemId").value;
+    element.closest(".reserve-field").querySelector(".locationResult").innerHTML = "";
+    }
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('.selectLocation')) {
+            const firstSelectLocation = document.querySelector('.selectLocation');
+            if (firstSelectLocation) {
+                select_item(firstSelectLocation);
+            }
+        }
+    });
+     </script>
+    </basis>
+</basis>
+<basis core="group" name="hotel" if="[##cms.query.type##] in (3)">
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+        <member method="cms" name="city_Search" query='{ 
+            "name": "db", 
+            "mid": "20", 
+            "member":[ 
+                { 
+                    "type":"list", 
+                    "name": "q", 
+                    "request": "citySearch", 
+                    "functype": "1", 
+                    "title": "[##cms.query.term##]",   
+                    "status": "hotel",
+                    "lid":"[##cms.query.lid##]"
+                }
+            ]
+        }' preview="" />
+    </basis>
+
+    <basis core="group" name="search">
+        <basis core="inlinesource" name="db">
+            <member name="city" format="json"
+                postsql="select Id,ParentId, case when trim(Field) is null then (select field from [db.city] where id=a.parentid) else field end as field,value,type, path from [db.city] as a">
+                {"root":[##db.city_Search.result##]}</member>
+        </basis>
+
+        <basis core="tree" datamembername="db.city" idcol="id" parentidcol="parentid" nullvalue="null">
+            <face filter="Field='root' and type='object'">
+                <div class="selectLocation" onclick="select_item(this)"><i class="fa fa-arrow-right"></i>@Child<div
+                        class="clr"></div>
+                </div>
+            </face>
+
+            <face filter="Field='id'">
+                <input type="hidden" value="@value" class="itemId" />
+            </face>
+
+            <face filter="Field='title'">
+                <span class="textlocation">@value</span>
+            </face>
+
+            <face filter="type in ('array','object')">@child</face>
+        </basis>
+        <input type="hidden" value="[##cms.query.term##]" class="term" />
+        <input type="hidden" value="[##cms.query.select_value##]" class="select_value" />
+
+        <script type="text/javascript">
+function select_item(element) {
+    if (document.querySelector(".select_value").value === "") {
+        element.closest(".reserve-field").querySelector(".reserve-location").value = element.querySelector(".textlocation").textContent;
+    } else {
+        element.closest(".reserve-field").querySelector(".text-value").value = element.querySelector(".textlocation").textContent;
+        element.closest(".reserve-field").querySelector(".searchList").classList.add("hidden");
+    }
+
+    var textCountry = element.querySelector(".textlocation").textContent;
+    if (textCountry.indexOf("-") > -1) {
+        var element_Split = textCountry.split("-");
+        element.closest(".reserve-field").querySelector(".auto-fit").textContent = element_Split[1];
+    } else {
+        var element_Split = textCountry.split("(");
+        element.closest(".reserve-field").querySelector(".auto-fit").textContent = element_Split[0];
+    }
+    element.closest(".reserve-field").querySelector(".locationId").value = element.querySelector(".itemId").value;
+    element.closest(".reserve-field").querySelector(".locationResult").innerHTML = "";
+}
+
+document.addEventListener('click', function (event) {
+        if (!event.target.closest('.selectLocation')) {
+            const firstSelectLocation = document.querySelector('.selectLocation');
+            if (firstSelectLocation) {
+                select_item(firstSelectLocation);
+            }
+        }
+    });
+
+        </script>
+    </basis>
+</basis>
+<basis core="group" name="insurance" if="[##cms.query.type##] in (5)">
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+        <member method="cms" name="city_Search" query='{ 
+            "name": "db", 
+            "mid": "20", 
+            "member":[ 
+                { 
+                    "type":"list", 
+                    "name": "q", 
+                    "request": "citySearch", 
+                    "functype": "1", 
+                    "title": "[##cms.query.term##]",   
+                    "schemaid": "986",
+                    "couid": "",
+                    "lid":"[##cms.query.lid##]"
+                }
+            ]
+        }' preview="" />
+    </basis>
+
+    <basis core="group" name="search">
+        <basis core="inlinesource" name="db">
+            <member name="city" format="json"
+                postsql="select Id,ParentId, case when trim(Field) is null then (select field from [db.city] where id=a.parentid) else field end as field,value,type, path from [db.city] as a">
+                {"root":[##db.city_Search.result##]}</member>
+        </basis>
+
+        <basis core="tree" datamembername="db.city" idcol="id" parentidcol="parentid" nullvalue="null">
+            <face filter="Field='root' and type='object'">
+                <div class="selectLocation" onclick="select_item(this)"><i class="fa fa-arrow-right"></i>@Child<div
+                        class="clr"></div>
+                </div>
+            </face>
+
+            <face filter="Field='id'">
+                <input type="hidden" value="@value" class="itemId" />
+            </face>
+
+            <face filter="Field='title'">
+                <span class="textlocation">@value</span>
+            </face>
+
+            <face filter="type in ('array','object')">@child</face>
+        </basis>
+        <input type="hidden" value="[##cms.query.term##]" class="term" />
+        <input type="hidden" value="[##cms.query.select_value##]" class="select_value" />
+
+        <script type="text/javascript">
+function select_item(element) {
+    if (document.querySelector(".select_value").value === "") {
+        element.closest(".reserve-field").querySelector(".reserve-location").value = element.querySelector(".textlocation").textContent;
+    } else {
+        element.closest(".reserve-field").querySelector(".text-value").value = element.querySelector(".textlocation").textContent;
+        element.closest(".reserve-field").querySelector(".searchList").classList.add("hidden");
+    }
+    element.closest(".reserve-field").querySelector(".locationId").value = element.querySelector(".itemId").value;
+    element.closest(".reserve-field").querySelector(".locationResult").innerHTML = "";
+}
+document.addEventListener('click', function (event) {
+        if (!event.target.closest('.selectLocation')) {
+            const firstSelectLocation = document.querySelector('.selectLocation');
+            if (firstSelectLocation) {
+                select_item(firstSelectLocation);
+            }
+        }
+    });
+        </script>
+    </basis>
+</basis>
+<basis core="group" name="tour" if="[##cms.query.type##] in (4)">
+    <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+        <member name="list-tour" method="cms"
+            query='{ "name": "db", "mid": "20", "member":[ {"type":"list", "name": "q","lid":"[##cms.query.lid##]",  "request": "tournames", "fromdate": "[##cms.cms.date##]" }]} ' />
+    </basis>
+    <basis core="group" name="search">
+        <basis core="inlinesource" name="db">
+            <member name="tour" format="json" preview="">{"root":[##db.list-tour.result##]}</member>
+        </basis>
+
+        <basis core="tree" datamembername="db.tour" idcol="id" nullvalue="null" parentidcol="ParentId">
+            <else-layout>
+                <div class="selectLocation"><i class="fa fa-arrow-left"></i>
+
+
+                    <span class="textlocation">-</span>
+                    <div class="clr"></div>
+                </div>
+            </else-layout>
+            <layout>@child</layout>
+            <face filter="field='tourid'">
+                <div class="selectLocation" onclick="select_item(this)"><i class="fa fa-arrow-left"></i>
+                    <input type="hidden" value="@value" class="itemId" />
+            </face>
+            <face filter="field='tourname'">
+                <span class="textlocation">@value</span>
+                <div class="clr"></div>
+                </div>
+            </face>
+            <face filter="Type in ('array','object')">@child</face>
+        </basis>
+        <script type="text/javascript">
+          function select_item(element) {
+            element.closest(".reserve-field").querySelector(".tour-search-text").value = element.querySelector(".textlocation").textContent;
+            element.closest(".reserve-field").querySelector(".locationId").value = element.querySelector(".itemId").value;
+            element.closest(".reserve-field").querySelector(".locationResult").classList.add("hidden");
+            element.closest(".reserve-field").querySelector(".searchList").classList.add("hidden");
+            var selectValue = document.querySelector(".select_value");
+            if (selectValue && selectValue.value !== "") {
+                element.closest(".reserve-field").querySelector(".searchList").classList.add("hidden");
+            }
+        }
+        </script>
+    </basis>
+</basis>
+<META NAME="robots" CONTENT="noindex">

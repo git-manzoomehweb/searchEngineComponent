@@ -1,0 +1,1267 @@
+<div class="m-auto w-full">
+    <div class="search-nav select float-right mb-4 max-xl:w-full max-xl:mb-5">
+      <ul class="rezervation-item rounded-2xl bg-white dir-rtl overflow-auto py-2.5 px-2 DanaFaNum-Bold max-xl:p-2">
+        <li class="selected active-module flight-btn w-[122px] h-14 leading-[56px] hover:bg-primary-300 cursor-pointer inline-block text-xl text-center rounded-2xl max-xl:text-base max-xl:w-full max-xl:mb-2 max-xl:border max-xl:border-solid max-xl:leading-[56px]" data-id="r-flight" onclick="check_searchHistory('flight')">
+          <svg class="inline-block ml-3 align-middle" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M21.656 11.4018C21.4601 10.7058 21.034 10.1727 20.425 9.85973C19.25 9.25573 17.848 9.65173 17.3 9.84973C16.212 10.2427 15.163 10.7038 14.07 11.1458C12.855 10.0207 11.62 8.93573 10.467 7.93073C9.64109 7.20873 8.79309 6.94373 7.94009 7.14773C7.49709 7.25573 7.07809 7.41673 6.67309 7.57173C6.46709 7.65173 6.25709 7.73173 6.04109 7.80673C5.84509 7.87373 5.68709 8.01873 5.60209 8.20673C5.51709 8.39573 5.51309 8.61073 5.59209 8.80173L7.66209 13.8208C6.94809 14.1208 6.07109 14.4928 5.24409 14.8438L3.99909 15.3718C3.87609 15.0738 3.74309 14.7538 3.69409 14.6318C3.53609 14.2498 3.10009 14.0638 2.71609 14.2218C2.33209 14.3788 2.14809 14.8168 2.30509 15.1998C2.39509 15.4208 2.75409 16.2848 2.84809 16.5098C2.86709 16.5548 2.88709 16.5988 2.90609 16.6428L2.90809 16.6458C2.91409 16.6598 2.92009 16.6738 2.92709 16.6878C3.81509 18.6308 5.29309 19.6608 7.08309 19.6608C7.75909 19.6608 8.48109 19.5128 9.23209 19.2118C12.531 17.8948 15.698 16.5708 19.5 14.9748C20.857 14.3938 22.112 13.0268 21.656 11.4018Z" fill="#18181B"/>
+          </svg>
+          <p class="inline-block">پرواز</li>
+        <li class="selected hotel-btn w-[122px] h-14 leading-[56px] hover:bg-primary-300 inactive cursor-pointer inline-block text-xl text-center rounded-2xl max-xl:text-base max-xl:w-full max-xl:mb-2 max-xl:border max-xl:border-solid max-xl:leading-[56px]" data-id="r-hotel" onclick="check_searchHistory('hotel')">
+          <svg class="inline-block ml-3 align-middle" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.62109 10.6431H6.83909C6.94954 10.6431 7.03854 10.5535 7.03761 10.4431C7.03538 10.1766 7.03865 9.90433 7.12609 9.65306C7.28009 9.22606 7.60909 8.89706 8.03109 8.74606C8.27809 8.65706 8.52709 8.65706 8.97909 8.65706H9.59909C10.0521 8.65706 10.3021 8.65706 10.5481 8.74706C10.9691 8.89706 11.2981 9.22606 11.4501 9.64706C11.5383 9.90074 11.5424 10.1745 11.5405 10.4431C11.5397 10.5535 11.6287 10.6431 11.7391 10.6431H12.3391C12.4496 10.6431 12.5386 10.5535 12.5377 10.4431C12.5354 10.1766 12.5387 9.90433 12.6261 9.65306C12.7801 9.22606 13.1091 8.89706 13.5311 8.74606C13.7781 8.65706 14.0271 8.65706 14.4791 8.65706H15.0991C15.5521 8.65706 15.8021 8.65706 16.0481 8.74706C16.4691 8.89706 16.7981 9.22606 16.9501 9.64706C17.0383 9.90074 17.0424 10.1745 17.0405 10.4431C17.0397 10.5535 17.1287 10.6431 17.2391 10.6431H19.4581C19.7351 10.6431 19.9581 10.4191 19.9581 10.1431V6.92906C19.9581 6.15806 19.9581 5.77106 19.8261 5.40306C19.5981 4.77106 19.1041 4.27906 18.4801 4.05606C18.1061 3.91406 17.7171 3.91406 16.9401 3.91406H7.14009C6.36309 3.91406 5.97409 3.91406 5.61009 4.05306C4.97609 4.27906 4.48209 4.77106 4.25409 5.40306C4.12109 5.77006 4.12109 6.15806 4.12109 6.92906V10.1431C4.12109 10.4191 4.34509 10.6431 4.62109 10.6431Z" fill="#09090B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.6501 13.1449C21.4171 12.4929 20.9051 11.9749 20.2231 11.7169C19.8421 11.5869 19.4481 11.5869 18.7341 11.5869H5.34206C4.62806 11.5869 4.23506 11.5869 3.83106 11.7259C3.17306 11.9749 2.66206 12.4919 2.42906 13.1399C2.28906 13.5239 2.28906 13.9189 2.28906 14.6369V19.3369C2.28906 19.7509 2.62506 20.0869 3.03906 20.0869C3.45306 20.0869 3.78906 19.7509 3.78906 19.3369V19.0469C3.78906 18.9364 3.87861 18.8469 3.98906 18.8469H20.0891C20.1995 18.8469 20.2891 18.9364 20.2891 19.0469V19.3369C20.2891 19.7509 20.6251 20.0869 21.0391 20.0869C21.4531 20.0869 21.7891 19.7509 21.7891 19.3369V14.6369C21.7891 13.9189 21.7891 13.5239 21.6501 13.1449Z" fill="#09090B"/>
+            </svg>
+          <p class="inline-block">هتل</p></li>
+        <li class="selected flighthotel-btn w-[176px] h-14 leading-[56px] hover:bg-primary-300 inactive cursor-pointer inline-block text-xl text-center rounded-2xl max-xl:text-base max-xl:w-full max-xl:border max-xl:border-solid max-xl:leading-[56px]" data-id="r-flighthotel" onclick="check_searchHistory('flightHotel')">
+          <svg class="inline-block ml-3 align-middle" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.158 17.6211C16.158 18.0351 15.822 18.3711 15.408 18.3711C14.994 18.3711 14.658 18.0351 14.658 17.6211V12.4411C14.658 12.0271 14.994 11.6911 15.408 11.6911C15.822 11.6911 16.158 12.0271 16.158 12.4411V17.6211ZM14.285 8.40109H9.71698V6.00109C9.71698 5.51609 10.111 5.12109 10.596 5.12109H13.405C13.89 5.12109 14.285 5.51609 14.285 6.00109V8.40109ZM12.752 17.6211C12.752 18.0351 12.416 18.3711 12.002 18.3711C11.588 18.3711 11.252 18.0351 11.252 17.6211V12.4411C11.252 12.0271 11.588 11.6911 12.002 11.6911C12.416 11.6911 12.752 12.0271 12.752 12.4411V17.6211ZM9.35198 17.6211C9.35198 18.0351 9.01598 18.3711 8.60198 18.3711C8.18798 18.3711 7.85198 18.0351 7.85198 17.6211V12.4411C7.85198 12.0271 8.18798 11.6911 8.60198 11.6911C9.01598 11.6911 9.35198 12.0271 9.35198 12.4411V17.6211ZM15.785 8.43209V6.00109C15.785 4.68809 14.717 3.62109 13.405 3.62109H10.596C9.28398 3.62109 8.21698 4.68809 8.21698 6.00109V8.43209C5.92098 8.59309 4.50098 10.1561 4.50098 12.6211V17.3011C4.50098 19.6391 5.76898 21.1731 7.84998 21.4681V22.3711C7.84998 22.7851 8.18598 23.1211 8.59998 23.1211C9.01398 23.1211 9.34998 22.7851 9.34998 22.3711V21.5311H14.656V22.3711C14.656 22.7851 14.992 23.1211 15.406 23.1211C15.82 23.1211 16.156 22.7851 16.156 22.3711V21.4681C18.234 21.1731 19.499 19.6421 19.499 17.3101V12.6211C19.499 10.1551 18.08 8.59209 15.785 8.43209Z" fill="#09090B"/>
+            </svg>
+            <p class="inline-block">پرواز+هتل</p></li>
+      </ul>
+    </div>
+      <div class="clear-both float-right w-full"> 
+        <div id="r-flight" class="r-flight dir-rtl relative">
+          <div class="absolute -top-[91px] left-0 z-30 max-xl:-top-[86px]">
+            <div class="float-left flight-items p-4 cursor-pointer bg-white w-[172px] rounded-2xl" onclick="show_flighttype(this)">
+              <div class="h-[44px] text-base">
+                <span class="Flighttype-text float-right leading-[44px]">یک طرفه</span>
+                <svg class="h-full float-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4139 8.2501L11.9999 16.6641L3.58594 8.2501L4.99994 6.8361L11.9999 13.8361L18.9999 6.8361L20.4139 8.2501Z" fill="#18181B"/></svg>
+              </div>
+              <ul class="show-flighttype w-full clear-both border-t border-zinc-100 border-solid hidden">
+                <li id="direct" class="r-btn active-r-btn leading-6 text-right cursor-pointer text-base text-zinc-900 hover:text-primary" onclick="document.getElementById('flightSearch').action='/Tem3_Oneway_Search.bc';">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary" for="direct-input">یک طرفه</label>
+                  <div class="bullet"> </div>
+                </li>
+                <li id="return" class="r-btn text-right leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" onclick="document.getElementById('flightSearch').action='/Tem3_Roundtrip_Search.bc';">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary" for="return-input">رفت و برگشت</label>
+                  <div class="bullet"> </div>
+                </li>
+                <li id="multi" class="r-btn text-right leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" onclick="showMultiCity(this)">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary" for="multi-input">چند مسیره</label>
+                  <div class="bullet"> </div>
+                </li>
+                <div class="clr"></div>
+              </ul>
+            </div>
+          </div>
+          <form action="/Tem3_Oneway_Search.bc" method="get" data-form="flight" data-flightType="1" class="form-search fa frm formflight clear-both relative bg-white rounded-2xl p-2.5 max-xl:mt-[80px]" id="flightSearch" onsubmit="form_search_isSubmited(this,event)">
+            <input type="hidden" name="persiancurrent" class="persiancurrent" value />
+            <input type="hidden" value="0" name="select-age" class="select-age-value" aria-label="select-age"/>
+            <div class="city departure-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+              <div class="inner-city inner-container h-[62px]">
+              <div onclick="empty_value(this)" class="click-content h-full">
+                  <div class="relative w-full float-right flex">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="departure1">
+                      <img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon">
+                      <span class="absolute top-0 right-12">مبدا</span></label>
+                    <input id="departure1" type="text" class="FCD1 departure text-value text-zinc-500 font-bold  w-full cursor-pointer relative bg-inherit h-6 leading-6 float-left mt-8 text-sm" required="" aria-label="departure" autocomplete="off" value="" placeholder="مبدا خود را انتخاب کنید"/>
+                  </div>
+              </div>
+              <input value="1203548" class="co-id FCDid1 from" type="hidden" name="from" aria-label="co-id"/>
+              <div
+                                            class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                                            <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                                <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                                        class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                                            fill="#FFAD00" />
+                                                    </svg>
+                                                </div>
+                                                <input type="text" aria-label="cities" placeholder="مبدا"
+                                                    oninput="city_search(this)" data-type="1"
+                                                    class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                                    autocomplete="off" value="" />
+                                            </div><span class="mini-loading absolute hidden top-6 left-4"
+                                                aria-label="spinner">
+                                                <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                                            <div class="countryFlight"></div>
+                                            <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                                <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                                        <span>داخلی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203548">
+                                                        <span>تهران</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211083">
+                                                        <span>مشهد</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1270505">
+                                                        <span>ایلام</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211087">
+                                                        <span>اهواز</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203561">
+                                                        <span>رشت</span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                                        <span>خارجی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1177676">
+                                                        <span>استانبول</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1173505">
+                                                        <span>دبی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1182289">
+                                                        <span>مسقط</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1189731">
+                                                        <span>تفلیس</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1198686">
+                                                        <span>دوحه</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+              <span class="absolute top-2 left-0 z-[1] w-12 h-12 leading-[48px] text-center rounded-full bg-secondary-600 hover:bg-primary-500 max-xl:rotate-90 max-xl:top-[50px]" data-index="0" onclick="ExchangeRoute(this)">
+                <svg class="inline-block align-middle" fill="none" width="25" height="19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg"><path d="M19.1885 3.99063H9.83021V6.66042H19.1885V10.6511L24.5 5.33958L19.1885 0V3.99063ZM0.5 13.3208L5.83958 18.6604V14.6698H15.1698V12H5.83958V8.00937L0.5 13.3208Z" fill="#FAFAFA"/></svg>
+              </span>
+              </div>
+            </div>
+            <div class="city destination-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+              <div class="inner-city inner-container h-[62px]">
+              <div onclick="empty_value(this)" class="click-content h-full">
+                  <div class="relative w-full float-right flex">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="destination1"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مقصد</span></label>
+                    <input id="destination1" type="text" class="FCD2 destination text-value text-zinc-500 font-bold  w-full cursor-pointer relative bg-inherit h-6 leading-6 float-left mt-8 text-sm" required="" autocomplete="off" value="" aria-label="Destination" placeholder="مقصد خود را انتخاب کنید"/>
+                  </div>
+              </div>
+              <input value="1178542" class="co-id FCDid2 to" type="hidden" name="to" aria-label="co-id"/>
+              <div
+              class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+              <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                  <div class="float-right w-12 h-12 leading-[48px] text-center">
+                      <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                          class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                              fill="#FFAD00" />
+                      </svg>
+                  </div>
+                  <input type="text" aria-label="cities" placeholder="مقصد"
+                      oninput="city_search(this)" data-type="1"
+                      class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                      autocomplete="off" value="" />
+              </div><span class="mini-loading absolute hidden top-6 left-4"
+                  aria-label="spinner">
+                  <i class="fas fa-spinner fa-spin not-italic"></i></span>
+              <div class="countryFlight"></div>
+              <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                  <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                      <li
+                          class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                          <span>داخلی</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                          onclick="SelectPlace(this)" data-id="1203548">
+                          <span>تهران</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                          onclick="SelectPlace(this)" data-id="1211083">
+                          <span>مشهد</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                          onclick="SelectPlace(this)" data-id="1270505">
+                          <span>ایلام</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                          onclick="SelectPlace(this)" data-id="1211087">
+                          <span>اهواز</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                          onclick="SelectPlace(this)" data-id="1203561">
+                          <span>رشت</span>
+                      </li>
+                  </ul>
+                  <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                      <li
+                          class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                          <span>خارجی</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                          onclick="SelectPlace(this)" data-id="1177676">
+                          <span>استانبول</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                          onclick="SelectPlace(this)" data-id="1173505">
+                          <span>دبی</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                          onclick="SelectPlace(this)" data-id="1182289">
+                          <span>مسقط</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                          onclick="SelectPlace(this)" data-id="1189731">
+                          <span>تفلیس</span>
+                      </li>
+                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                          onclick="SelectPlace(this)" data-id="1198686">
+                          <span>دوحه</span>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+              </div>
+            </div>
+            <div class="Basis_Date_Box w-[336px] float-right pl-1 max-xl:w-full max-xl:mb-5">
+              <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                  <div class="inner-city inner-container h-[62px] overflow-hidden">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate1"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ رفت:</span></label>
+                    <input type="text" aria-label ="تاریخ رفت" value="" class="Basis_Date text-zinc-500 font-bold  start_date sp-start cursor-pointer h-full pt-8 w-full text-right bg-inherit leading-6 float-right absolute top-0 text-sm" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate1" required="" placeholder=""/>
+                    <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+                  </div>
+              </div>
+              <div class="city date-city return-date-city disabled-date float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                  <div class="inner-city inner-container rounded-[10px] rounded-r-none h-[62px] overflow-hidden">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="inp2-flight"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ برگشت:</span></label>
+                    <input type="text" aria-label="تاریخ برگشت" value="" class="Basis_Date text-zinc-500 font-bold  cursor-pointer h-full pt-8 end_date end_date_filled Noactive-date sp-end w-full text-right bg-inherit leading-6 float-right absolute top-0 text-sm" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="tdate" required="" disabled id="inp2-flight" placeholder=""/>
+                    <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+                  </div>
+              </div>
+            </div>
+            <div class="absolute -top-[91px] left-[190px] z-10 max-xl:-top-[86px] max-xl:left-[unset] max-xl:right-0">
+              <div class="float-left flightclass-box p-4 cursor-pointer bg-white w-[172px] rounded-2xl" onclick="show_flightclass(this)">
+                <div class="h-[44px] text-base">
+                  <span class="FlightClass-text float-right leading-[44px]">اکونومی</span>
+                  <svg class="h-full float-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4139 8.2501L11.9999 16.6641L3.58594 8.2501L4.99994 6.8361L11.9999 13.8361L18.9999 6.8361L20.4139 8.2501Z" fill="#18181B"/></svg>
+                  <input type="hidden" name="FlightClass" value="Economy" class="FlightClass-value" id="FlightClass1"/>
+                </div>
+                <ul class="show-flightclass FlightClass w-full clear-both border-t border-zinc-100 border-solid hidden">
+                  <li class="leading-6 text-right cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="Economy">
+                    <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">اکونومی</label>
+                  </li>
+                  <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="BusinessClass">
+                    <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">بیزینس</label>
+                  </li>
+                  <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="FirstClass">
+                    <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">فرست</label>
+                  </li>
+                  <div class="clr"></div>
+                </ul>
+              </div>
+            </div>
+            <div class="city pass-box float-right relative w-[157px] cursor-pointer pr-1 max-xl:w-full max-xl:mb-5">
+              <div class="inner-city inner-container h-[62px]">
+              <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="passenger1"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/pass-icon.png" width="30" height="30" alt="pass icon"><span class="absolute top-0 right-12 w-[100px]">تعداد مسافران:</span></label>
+              <input id="passenger1" type="text" aria-label="تعداد مسافران" placeholder="" readonly  class="hotel-inputF hotel-input bg-none cursor-pointer  z-20 absolute top-0 right-0 h-full w-full bg-inherit text-right">
+              <span class="passenger-counts w-[60px]  text-zinc-500 font-bold  count-adult h-6 leading-6 absolute top-8 right-12 text-sm"><span class="count">1</span> بزرگسال</span><span class="passenger-counts w-[60px]  text-zinc-500 font-bold  count-child h-6 leading-6 absolute top-8 right-28 text-sm"><span class="count">0</span> کودک</span>
+              <div class="HotelPassengers hidden w-[197px] p-4 shadow-lg float-right text-sm absolute clear-both top-[80px] bg-white rounded-[10px] z-10 right-0 text-left leading-6 border border-third border-solid max-xl:w-full">
+                <div class="countRoom">
+                  <div class="contentRooms contentRoom">
+                    <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                      <label for="textbox-adultcount1" class="float-right text-sm leading-12 mb-1"><span>بزرگسال</span></label>
+                      <ul class="button-click float-left w-full h-[30px] leading-12">
+                        <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">+</span></div></li>
+                        <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">-</span></div></li>
+                      </ul>
+                      <input id="textbox-adultcount1" type="text" class="cat_textbox adultcount adult adult-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" name="adult" maxlength="4000" value="1">
+                    </div>
+                    <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                      <label for="textbox-childcount1" class="float-right text-sm leading-12 mb-1"><span>کودک</span></label>
+                      <input type="hidden" value="0" class="childcountinput" id="textbox-childcount1" name="child" aria-label="childcount">
+                      <ul class="button-click-child float-left w-full h-[30px] leading-[30px]">
+                        <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">+</span></div></li>
+                        <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span  class="hide">-</span></div></li>
+                      </ul>
+                      <input type="text" aria-label="chcount" class="cat_textbox chcount child-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" name="chcount" maxlength="4000" value="0">
+                    </div>
+                    <div class="childDropdowns section-select-age clear-both"></div>
+                  </div>
+                </div>
+                <div class="close-hotel-psg hidden clear-both text-center text-primary cursor-pointer w-full font-bold text-sm h-[47px] leading-[45px] float-right border border-solid border-primary px-1 rounded-[7px] hover:bg-primary hover:text-white">تایید اطلاعات</div>
+              </div>
+              </div>
+            </div>
+            <section class="w-[64px] h-[64px] text-center float-left max-xl:w-full">
+              <button type="submit" class="search-flight w-full h-full m-auto rounded-2xl bg-primary-500 cursor-pointer hover:bg-secondary">
+                <svg class="inline-block align-middle" width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.4946 24.0389C24.01 23.527 24.8361 23.527 25.3515 24.0389L28.7577 26.7884H28.8168C29.5059 27.4849 29.5059 28.6142 28.8168 29.3108C28.1277 30.0073 27.0104 30.0073 26.3213 29.3108L23.4946 26.0711L23.3873 25.9501C23.1875 25.6972 23.0772 25.3818 23.0772 25.055C23.0772 24.6737 23.2274 24.308 23.4946 24.0389ZM14.1038 3.1665C17.1371 3.1665 20.0461 4.38442 22.1909 6.55232C24.3357 8.72022 25.5407 11.6605 25.5407 14.7264C25.5407 21.1108 20.4202 26.2863 14.1038 26.2863C7.78745 26.2863 2.66699 21.1108 2.66699 14.7264C2.66699 8.34205 7.78745 3.1665 14.1038 3.1665Z" fill="white"/>
+                </svg>                  
+              </button>
+            </section>
+            <p class="alert-text warning clear-both text-red-600 text-base text-right dir-rtl"></p>
+          </form>
+          <form id="multi-flight-form" method="post" action="/Tem3_Multicity_Search.bc" data-form="" onsubmit="formMulticity_search_isSubmited(this,event)"
+          class="frm formflight form-search multicity-form hidden fa clear-both relative max-xl:mt-[80px] max-xl:bg-white max-xl:rounded-2xl max-xl:p-2.5"><input type="hidden"
+              name="persiancurrent" class="persiancurrent" value /><input type="hidden" name="select-age"
+              class="select-age-value" value="0" />
+          <div class="route-container">
+              <div class="route-content clear-both float-right w-full" data-index="1">
+                  <div class="multi-route-tlt mb-4 text-white text-base max-xl:text-zinc-950">مقصد اول</div>
+                  <div class="bg-white rounded-2xl p-2.5 float-right w-full max-xl:p-0">
+                      <div class="first-part Wrapper-DesDep">
+                          <div class="city fromcity_container first-rout-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                            <div class="inner-city h-[62px]">
+                              <div onclick="empty_value(this)" class="click-content h-full">
+                                  <div class="relative w-full float-right flex">
+                                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="departure1-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مبدا</span></label>
+                                      <input id="departure1-3" type="text" class="FCD1 text-value fromcity-text text-zinc-500 font-bold w-full mt-8 cursor-pointer relative bg-inherit h-6 leading-6 float-left text-sm" required="" aria-label="مبدا" autocomplete="off" value="" placeholder="مبدا خود را انتخاب کنید" />
+                                  </div>
+                              </div>
+                              <input value="1203548" class="co-id FCDid1 fromcity" type="hidden" name="from" aria-label="co-id"/>
+                              <div
+                                            class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                                            <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                                <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                                        class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                                            fill="#FFAD00" />
+                                                    </svg>
+                                                </div>
+                                                <input type="text" aria-label="cities" placeholder="مبدا"
+                                                    oninput="city_search(this)" data-type="1"
+                                                    class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                                    autocomplete="off" value="" />
+                                            </div><span class="mini-loading absolute hidden top-6 left-4"
+                                                aria-label="spinner">
+                                                <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                                            <div class="countryFlight"></div>
+                                            <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                                <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                                        <span>داخلی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203548">
+                                                        <span>تهران</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211083">
+                                                        <span>مشهد</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1270505">
+                                                        <span>ایلام</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211087">
+                                                        <span>اهواز</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203561">
+                                                        <span>رشت</span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                                        <span>خارجی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1177676">
+                                                        <span>استانبول</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1173505">
+                                                        <span>دبی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1182289">
+                                                        <span>مسقط</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1189731">
+                                                        <span>تفلیس</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1198686">
+                                                        <span>دوحه</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                              <span class="absolute top-2 left-0 z-[1] w-12 h-12 leading-[48px] text-center rounded-full bg-secondary-600 hover:bg-primary-500 max-xl:rotate-90 max-xl:top-[50px]" data-index="0" onclick="ExchangeRoute(this)">
+                                <svg class="inline-block align-middle" fill="none" width="25" height="19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg"><path d="M19.1885 3.99063H9.83021V6.66042H19.1885V10.6511L24.5 5.33958L19.1885 0V3.99063ZM0.5 13.3208L5.83958 18.6604V14.6698H15.1698V12H5.83958V8.00937L0.5 13.3208Z" fill="#FAFAFA"/></svg>
+                              </span>
+                              </div>
+                          </div>
+                          <div class="city tocity_container second-rout-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                            <div class="inner-city  h-[62px]">
+                              <div onclick="empty_value(this)" class="click-content h-full">
+                                  <div class="relative w-full float-right flex">
+                                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="destination1-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مقصد</span></label>
+                                      <input id="destination1-3" type="text" class="FCD2 text-value tocity-text text-zinc-500 font-bold w-full mt-8 cursor-pointer relative bg-inherit h-6 leading-6 float-left text-sm" required="" autocomplete="off" value="" aria-label="مقصد" placeholder="مقصد خود را انتخاب کنید"/>
+                                  </div>
+                              </div>
+                              <input value="1177676" class="co-id FCDid2 tocity" type="hidden" name="to" aria-label="co-id"/>
+                              <div
+                                            class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                                            <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                                <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                                        class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                                            fill="#FFAD00" />
+                                                    </svg>
+                                                </div>
+                                                <input type="text" aria-label="cities" placeholder="مبدا"
+                                                    oninput="city_search(this)" data-type="1"
+                                                    class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                                    autocomplete="off" value="" />
+                                            </div><span class="mini-loading absolute hidden top-6 left-4"
+                                                aria-label="spinner">
+                                                <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                                            <div class="countryFlight"></div>
+                                            <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                                <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                                        <span>داخلی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203548">
+                                                        <span>تهران</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211083">
+                                                        <span>مشهد</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1270505">
+                                                        <span>ایلام</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211087">
+                                                        <span>اهواز</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203561">
+                                                        <span>رشت</span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                                        <span>خارجی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1177676">
+                                                        <span>استانبول</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1173505">
+                                                        <span>دبی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1182289">
+                                                        <span>مسقط</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1189731">
+                                                        <span>تفلیس</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1198686">
+                                                        <span>دوحه</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class=" Basis_Date_Box w-[336px] float-right pl-1 max-xl:w-full max-xl:mb-5 max-xl:mb-0">
+                          <div class="frm-other date" id="Fdate">
+                            <div class="city date-city float-right relative cursor-pointer w-full max-xl:w-full max-xl:mb-5">
+                              <div class="inner-city rounded-[10px] h-[62px] overflow-hidden">
+                                <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate1-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ رفت:</span></label>
+                                <input type="text" aria-label ="تاریخ رفت" value=""
+                                class="Basis_Date start_date sp-start first cal cursor-pointer absolute top-0 h-full pt-8 text-zinc-500 font-bold w-full text-right bg-inherit leading-6 float-right text-sm"
+                                onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" placeholder=""
+                                name="fdate" id="fromdate1-3" required="" />
+                            <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+                             </div>
+                            </div>
+                            <div class="city date-city hidden">
+                              <div class="inner-city">
+                                <label for="inp2-multi1"><span class="absolute top-0 right-12">تاریخ برگشت:</span></label>
+                              <input type="text" aria-label="تاریخ برگشت" value=""
+                              class="Basis_Date text-zinc-500 font-bold  end_date sp-end end_date_filled cursor-pointer Noactive-date"
+                              onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly=""
+                              name="tdate" id="inp2-multi1" disabled/>
+                          <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+                         </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="clr"></div>
+                  </div>
+              </div>
+              <div class="route-content clear-both pt-4 float-right w-full max-xl:pt-0" data-index="2">
+                  <div class="multi-route-tlt mb-4 text-white text-base max-xl:text-zinc-950">مقصد دوم</div>
+                  <div class="bg-white rounded-2xl p-2.5 float-right w-full max-xl:p-0">
+                      <div class="first-part Wrapper-DesDep">
+                          <div class="city fromcity_container first-rout-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                            <div class="inner-city h-[62px]">
+                              <div onclick="empty_value(this)" class="click-content h-full">
+                                  <div class="relative w-full float-right flex">
+                                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="departure1-2-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مبدا</span></label>
+                                      <input id="departure1-2-3" type="text" class="FCD1 text-value fromcity-text text-zinc-500 font-bold w-full mt-8 cursor-pointer relative bg-inherit h-6 leading-6 float-left text-sm" required="" aria-label="مبدا" autocomplete="off" value="" placeholder="مبدا خود را انتخاب کنید"/>
+                                  </div>
+                              </div>
+                              <input value="1203548" class="co-id FCDid1 fromcity" type="hidden" name="from" aria-label="co-id"/>
+                              <div
+                                            class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                                            <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                                <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                                        class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                                            fill="#FFAD00" />
+                                                    </svg>
+                                                </div>
+                                                <input type="text" aria-label="cities" placeholder="مقصد"
+                                                    oninput="city_search(this)" data-type="1"
+                                                    class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                                    autocomplete="off" value="" />
+                                            </div><span class="mini-loading absolute hidden top-6 left-4"
+                                                aria-label="spinner">
+                                                <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                                            <div class="countryFlight"></div>
+                                            <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                                <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                                        <span>داخلی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203548">
+                                                        <span>تهران</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211083">
+                                                        <span>مشهد</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1270505">
+                                                        <span>ایلام</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211087">
+                                                        <span>اهواز</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203561">
+                                                        <span>رشت</span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                                        <span>خارجی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1177676">
+                                                        <span>استانبول</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1173505">
+                                                        <span>دبی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1182289">
+                                                        <span>مسقط</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1189731">
+                                                        <span>تفلیس</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1198686">
+                                                        <span>دوحه</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                              <span class="absolute top-2 left-0 z-[1] w-12 h-12 leading-[48px] text-center rounded-full bg-secondary-600 hover:bg-primary-500 max-xl:rotate-90 max-xl:top-[50px]" data-index="0" onclick="ExchangeRoute(this)">
+                                <svg class="inline-block align-middle" fill="none" width="25" height="19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg"><path d="M19.1885 3.99063H9.83021V6.66042H19.1885V10.6511L24.5 5.33958L19.1885 0V3.99063ZM0.5 13.3208L5.83958 18.6604V14.6698H15.1698V12H5.83958V8.00937L0.5 13.3208Z" fill="#FAFAFA"/></svg>
+                              </span>
+                              </div>
+                          </div>
+                          <div class="city tocity_container second-rout-city float-right relative w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                            <div class="inner-city  h-[62px]">
+                              <div onclick="empty_value(this)" class="click-content h-full">
+                                  <div class="relative w-full float-right flex">
+                                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="destination1-2-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مقصد</span></label>
+                                      <input id="destination1-2-3" type="text" class="FCD2 text-value tocity-text text-zinc-500 font-bold w-full mt-8 cursor-pointer relative bg-inherit h-6 leading-6 float-left text-sm" required="" autocomplete="off" value="" aria-label="مقصد" placeholder="مقصد خود را انتخاب کنید"/>
+                                  </div>
+                              </div>
+                              <input value="1177676" class="co-id FCDid2 tocity" type="hidden" name="to" aria-label="co-id"/>
+                              <div
+                              class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                              <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                  <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                      <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                          class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                              d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                              fill="#FFAD00" />
+                                      </svg>
+                                  </div>
+                                  <input type="text" aria-label="cities" placeholder="مقصد"
+                                      oninput="city_search(this)" data-type="1"
+                                      class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                      autocomplete="off" value="" />
+                              </div><span class="mini-loading absolute hidden top-6 left-4"
+                                  aria-label="spinner">
+                                  <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                              <div class="countryFlight"></div>
+                              <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                  <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                      <li
+                                          class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                          <span>داخلی</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                          onclick="SelectPlace(this)" data-id="1203548">
+                                          <span>تهران</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                          onclick="SelectPlace(this)" data-id="1211083">
+                                          <span>مشهد</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                          onclick="SelectPlace(this)" data-id="1270505">
+                                          <span>ایلام</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                          onclick="SelectPlace(this)" data-id="1211087">
+                                          <span>اهواز</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                          onclick="SelectPlace(this)" data-id="1203561">
+                                          <span>رشت</span>
+                                      </li>
+                                  </ul>
+                                  <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                      <li
+                                          class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                          <span>خارجی</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                          onclick="SelectPlace(this)" data-id="1177676">
+                                          <span>استانبول</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                          onclick="SelectPlace(this)" data-id="1173505">
+                                          <span>دبی</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                          onclick="SelectPlace(this)" data-id="1182289">
+                                          <span>مسقط</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                          onclick="SelectPlace(this)" data-id="1189731">
+                                          <span>تفلیس</span>
+                                      </li>
+                                      <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                          onclick="SelectPlace(this)" data-id="1198686">
+                                          <span>دوحه</span>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class=" Basis_Date_Box w-[336px] float-right pl-1 max-xl:w-full max-xl:mb-5 max-xl:mb-0">
+                          <div class="frm-other date" id="Fdate">
+                            <div class="city date-city float-right relative cursor-pointer w-full max-xl:w-full max-xl:mb-5">
+                              <div class="inner-city rounded-[10px] h-[62px] overflow-hidden">
+                                <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate1-2-3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ رفت:</span></label>
+                                <input type="text" aria-label ="تاریخ رفت" value=""
+                                class="Basis_Date text-zinc-500 font-bold  start_date sp-start first cal cursor-pointer h-full pt-8 w-full text-right absolute top-0 bg-inherit leading-6 float-right text-sm"
+                                onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" placeholder=""
+                                name="fdate" id="fromdate1-2-3" required="" />
+                            <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+                             </div>
+                            </div>
+                            <div class="city date-city hidden">
+                              <div class="inner-city">
+                                <label for="inp2-multi2"><span class="absolute top-0 right-12">تاریخ برگشت:</span></label>
+                              <input type="text" aria-label="تاریخ برگشت" value=""
+                              class="Basis_Date text-zinc-500 font-bold  end_date sp-end end_date_filled cursor-pointer Noactive-date"
+                              onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly=""
+                              name="tdate" id="inp2-multi2" disabled/>
+                          <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+                         </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="city pass-box float-right relative w-1/4 cursor-pointer pr-1 clear-both mt-5 bg-white rounded-2xl p-2.5 max-xl:w-full max-xl:mb-5 max-xl:mt-0">
+            <div class="inner-city inner-container h-[62px] relative">
+            <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="passenger1"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/pass-icon.png" width="30" height="30" alt="pass icon"><span class="absolute top-0 right-12 w-[100px]">تعداد مسافران:</span></label>
+            <input id="passenger1" type="text" aria-label="تعداد مسافران" placeholder="" readonly  class="hotel-inputF hotel-input bg-none cursor-pointer  z-20 absolute top-0 right-0 h-full w-full bg-inherit text-right">
+            <span class="passenger-counts w-[60px]  text-zinc-500 font-bold  count-adult h-6 leading-6 absolute top-8 right-12 text-sm"><span class="count">1</span> بزرگسال</span><span class="passenger-counts w-[60px]  text-zinc-500 font-bold  count-child h-6 leading-6 absolute top-8 right-28 text-sm"><span class="count">0</span> کودک</span>
+            <div class="HotelPassengers hidden w-[197px] p-4 shadow-lg float-right text-sm absolute clear-both top-[80px] bg-white rounded-[10px] z-10 right-0 text-left leading-6 border border-third border-solid max-xl:w-full">
+              <div class="countRoom">
+                <div class="contentRooms contentRoom">
+                  <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                    <label for="textbox-adultcount1" class="float-right text-sm leading-12 mb-1"><span>بزرگسال</span></label>
+                    <ul class="button-click float-left w-full h-[30px] leading-12">
+                      <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">+</span></div></li>
+                      <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">-</span></div></li>
+                    </ul>
+                    <input id="textbox-adultcount1" type="text" class="cat_textbox adultcount adult adult-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" name="adult" maxlength="4000" value="1">
+                  </div>
+                  <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                    <label for="textbox-childcount1" class="float-right text-sm leading-12 mb-1"><span>کودک</span></label>
+                    <input type="hidden" value="0" class="childcountinput" id="textbox-childcount1" name="child" aria-label="childcount">
+                    <ul class="button-click-child float-left w-full h-[30px] leading-[30px]">
+                      <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span class="hide">+</span></div></li>
+                      <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]"><span  class="hide">-</span></div></li>
+                    </ul>
+                    <input type="text" aria-label="chcount" class="cat_textbox chcount child-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" name="chcount" maxlength="4000" value="0">
+                  </div>
+                  <div class="childDropdowns section-select-age clear-both"></div>
+                </div>
+              </div>
+              <div class="close-hotel-psg hidden clear-both text-center text-primary cursor-pointer w-full font-bold text-sm h-[47px] leading-[45px] float-right border border-solid border-primary px-1 rounded-[7px] hover:bg-primary hover:text-white font-[Dana]">تایید اطلاعات</div>
+            </div>
+            </div>
+          </div>
+          <div class="absolute -top-[91px] left-[190px] z-10 max-xl:-top-[86px] max-xl:left-[unset] max-xl:right-0">
+            <div class="float-left flightclass-box p-4 cursor-pointer bg-white w-[172px] rounded-2xl" onclick="show_flightclass(this)">
+              <div class="h-[44px] text-base">
+                <span class="FlightClass-text float-right leading-[44px]">اکونومی</span>
+                <svg class="h-full float-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4139 8.2501L11.9999 16.6641L3.58594 8.2501L4.99994 6.8361L11.9999 13.8361L18.9999 6.8361L20.4139 8.2501Z" fill="#18181B"/></svg>
+                <input type="hidden" name="FlightClass" value="Economy" class="FlightClass-value" id="FlightClass2"/>
+              </div>
+              <ul class="show-flightclass FlightClass w-full clear-both border-t border-zinc-100 border-solid hidden">
+                <li class="leading-6 text-right cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="Economy">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">اکونومی</label>
+                </li>
+                <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="BusinessClass">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">بیزینس</label>
+                </li>
+                <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="FirstClass">
+                  <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">فرست</label>
+                </li>
+                <div class="clr"></div>
+              </ul>
+            </div>
+          </div>
+            <div class="float-right w-[400px] mt-[55px] mr-4 max-xl:w-full max-xl:mt-0 max-xl:mr-0">
+              <button class="route-plus-btnsearch-flight float-right ml-4 w-[175px] h-[48px] leading-[48px] text-white text-base m-auto rounded-2xl bg-primary-500 cursor-pointer hover:bg-secondary max-xl:border max-xl:border-solid max-xl:border-secondary-800 max-xl:text-secondary-800 max-xl:bg-white max-xl:mb-5 max-xl:ml-0 max-xl:mt-0 max-xl:w-full" type="button" onclick="addMulticityRoute(this)"><span>افزودن مقصد</span></button>
+              <section class="text-center">
+                <button type="submit" class="search-flight float-right w-[175px] h-[48px] leading-[48px] text-white text-base m-auto rounded-2xl bg-primary-500 cursor-pointer hover:bg-secondary max-xl:w-full">جستجو</button>
+              </section>
+            </div>
+            <p class="alert-text warning clear-both text-red-600 text-base text-right dir-rtl"></p>
+          </form>
+        </div>
+        <div id="r-hotel" class="r-hotel dir-rtl hidden">
+          <form class="frm form-search fa mt-5 clear-both relative float-right w-full bg-white rounded-2xl p-2.5" data-form="hotel" method="post" action="/Tem3_Hotel_Search.bc" id="hotelsearch" onsubmit="form_search_isSubmited(this,event)">
+            <input type="hidden" name="persiancurrent" class="persiancurrent" value="" aria-label="persiancurrent"/>
+            <div class="city box_city float-right relative pl-1 w-[310px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                <div class="inner-city h-[62px]">
+                    <div onclick="empty_value(this)" class="click-content h-full">
+                        <div class="relative w-full float-right flex">
+                          <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="departure2"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مقصد</span></label>
+                          <input type="text" aria-label="شهر" value="تهران - Tehran" 
+                          class="text-value text-zinc-500 font-bold  w-full cursor-pointer relative bg-inherit h-6 leading-6 float-left mt-8 text-sm departure" id="departure2" name="coHotel" autocomplete="off" required   placeholder=""/>
+                          <input  value="1203548" class="co-id from" type="hidden"  name="cityid" aria-label="cityid"/>
+                        </div>
+                    </div>
+                    <div
+                    class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                    <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                        <div class="float-right w-12 h-12 leading-[48px] text-center">
+                            <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                    fill="#FFAD00" />
+                            </svg>
+                        </div>
+                        <input type="text" aria-label="cities" placeholder="مقصد"
+                            oninput="city_search(this)" data-type="3"
+                            class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                            autocomplete="off" value="" />
+                    </div><span class="mini-loading absolute hidden top-6 left-4"
+                        aria-label="spinner">
+                        <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                    <div class="countryFlight"></div>
+                    <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                        <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                            <li
+                                class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                <span>داخلی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1203548">
+                                <span>تهران</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1211083">
+                                <span>مشهد</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1270505">
+                                <span>ایلام</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1211087">
+                                <span>اهواز</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1203561">
+                                <span>رشت</span>
+                            </li>
+                        </ul>
+                        <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                            <li
+                                class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                <span>خارجی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1177676">
+                                <span>استانبول</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1173505">
+                                <span>دبی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1182289">
+                                <span>مسقط</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1189731">
+                                <span>تفلیس</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1198686">
+                                <span>دوحه</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+            </div>
+            <div class="Basis_Date_Box w-[559px] float-right pl-1 max-xl:w-full max-xl:mb-5">
+              <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                  <div class="inner-city h-[62px] overflow-hidden">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate2"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ ورود</span></label>
+              <input type="text" aria-label="تاریخ ورود به هتل" value=""
+                  class="Basis_Date text-zinc-500 font-bold  start_date sp-start cursor-pointer h-full pt-8 w-full text-right bg-inherit leading-6 float-right absolute top-0 text-sm" id="fromdate2"
+                  onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" placeholder=""
+                  name="fdate" required="" />
+              <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+               </div>
+          </div>
+                <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                  <div class="inner-city rounded-[10px] rounded-r-none h-[62px] overflow-hidden">
+                    <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="inp2-hotel"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ خروج</span></label>
+              <input type="text" aria-label="تاریخ خروج از هتل" value=""
+                  class="Basis_Date text-zinc-500 font-bold  end_date sp-end nextCalOpening end_date_filled cursor-pointer h-full pt-8 w-full text-right absolute top-0 bg-inherit leading-6 float-right text-sm"
+                  onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" placeholder=""
+                  name="tdate" required="" id="inp2-hotel" />
+              <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+             </div>
+          </div>
+                <div class="clr"></div>
+            </div>
+            <div class="city pass-box pass-box float-right relative w-[283px] cursor-pointer pr-1 max-xl:w-full max-xl:mb-5">
+              <div class="inner-city h-[62px]">
+                <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="passenger3"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/pass-icon.png" width="30" height="30" alt="pass icon"><span class="absolute top-0 right-12 w-[100px]">تعداد مسافران:</span></label>
+              <input type="text" aria-label="مسافر هتل" placeholder="" readonly class="hotel-inputH hotel-input bg-none cursor-pointer  z-20 absolute top-0 right-0 h-full w-full bg-inherit text-right" id="passenger2">
+              <div class="passenger-counts w-[60px] text-zinc-500 font-bold  count-room h-6 leading-6 absolute top-8 right-12 text-sm">
+                <span class="clear-both block float-right"> اتاق <span class="count">1</span></span>
+              </div> 
+              <div class="passenger-counts w-[65px] right-28 text-zinc-500 font-bold  count-adultRoom count-adult h-6 leading-6 absolute top-8 text-sm">
+               <span class="clear-both block float-right">بزرگسال <span class="count">2</span></span>
+              </div>
+              <div class="passenger-counts w-[60px] right-48 text-zinc-500 font-bold  count-childRoom count-child h-6 leading-6 absolute top-8 text-sm">
+                <span class="clear-both block float-right">کودک <span class="count">0</span></span>
+              </div>
+                <div class="HotelPassengers hidden w-[197px] p-4 shadow-lg float-right text-sm absolute clear-both top-[80px] bg-white rounded-[10px] z-10 right-0 text-left leading-6 border border-third border-solid max-xl:w-full">
+                  <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                    <label for="textbox-roomcount1" class="float-right text-sm leading-12 mb-1"> <span class="notshow">اتاق</span> </label>
+                    <ul class="button-click-room float-left w-full h-[30px] leading-12">
+                      <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="change_room_count(this)"><span class="hide">+</span></div></li>
+                      <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="change_room_count(this)"><span class="hide">-</span></div></li>
+                    </ul>
+                    <input type="text" id="textbox-roomcount1" class="cat_textbox room w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" maxlength="4000" value="1" aria-label="roomcount1">
+                  </div>
+                  <div class="countRoom countRoomHT ShowRow w-full float-right">
+                    <div class="contentRooms contentRoom">
+                      <div class="numberOfRooms RoomRow text-sm text-primary float-right clear-both w-full mb-1 text-right">اتاق 1</div>
+                      <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                        <label for="textbox-adultcount2" class="float-right text-sm leading-12 mb-1"> <span class="notshow">بزرگسال</span> </label>
+                        <ul class="button-click float-left w-full h-[30px] leading-12">
+                          <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="increaseAdult(this)"><span class="hide">+</span></div></li>
+                          <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="decreaseAdult(this)"><span class="hide">-</span></div></li>
+                        </ul>
+                        <input type="text" class="cat_textbox adultcount adult-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" id="textbox-adultcount2" name="_root.rooms__1.adultcount" maxlength="4000" value="2">
+                      </div>
+                      <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                        <label for="textbox-childcount2" class="float-right text-sm leading-12 mb-1"> <span class="notshow">کودک</span> </label>
+                        <ul class="button-click-childRoom float-left w-full h-[30px] leading-12">
+                          <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="increaseChild(this)"><span class="hide">+</span></div></li>
+                          <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="decreaseChild(this)"><span class="hide">-</span></div></li>
+                        </ul>
+                        <input type="text" class="cat_textbox chcount child-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" id="textbox-childcount2" maxlength="4000" value="0">
+                      </div>
+                      <div class="childDropdowns section-select-age clear-both"></div>
+                      <input type="hidden" name="_root.rooms__1.childcountandage" class="childcountandage" value="0" aria-label="childcountandage"/>
+                    </div>
+                  </div>
+                  <div class="close-hotel-psg hidden clear-both text-center text-primary cursor-pointer w-full font-bold text-sm h-[47px] leading-[45px] float-right border border-solid border-primary px-1 rounded-[7px] hover:bg-primary hover:text-white">تایید اطلاعات</div>
+                </div>
+                </div>
+            </div>
+            <section class="w-[64px] h-[64px] text-center float-left max-xl:w-full">
+              <button type="submit" class="submit search-flight w-full h-full m-auto rounded-2xl bg-primary-500 cursor-pointer hover:bg-secondary">
+                <svg class="inline-block align-middle" width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.4946 24.0389C24.01 23.527 24.8361 23.527 25.3515 24.0389L28.7577 26.7884H28.8168C29.5059 27.4849 29.5059 28.6142 28.8168 29.3108C28.1277 30.0073 27.0104 30.0073 26.3213 29.3108L23.4946 26.0711L23.3873 25.9501C23.1875 25.6972 23.0772 25.3818 23.0772 25.055C23.0772 24.6737 23.2274 24.308 23.4946 24.0389ZM14.1038 3.1665C17.1371 3.1665 20.0461 4.38442 22.1909 6.55232C24.3357 8.72022 25.5407 11.6605 25.5407 14.7264C25.5407 21.1108 20.4202 26.2863 14.1038 26.2863C7.78745 26.2863 2.66699 21.1108 2.66699 14.7264C2.66699 8.34205 7.78745 3.1665 14.1038 3.1665Z" fill="white"/>
+                </svg>                  
+              </button>
+            </section>
+          </form>
+        </div>
+        <div id="r-flighthotel" class="r-flighthotel hidden dir-rtl">
+          <form class="frm form-search fa mt-5 clear-both relative float-right w-full bg-white rounded-2xl p-2.5 max-xl:mt-[80px]" data-form="flightHotel" method="post" action="/Tem3_FlightHotel_Search.bc" id="flightHotelSearch" onsubmit="form_search_isSubmited(this,event)">
+            <input type="hidden" name="persiancurrent" class="persiancurrent" value="" aria-label="persiancurrent"/>
+            <div class="city first-rout-city float-right relative w-[250px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                <div class="inner-city h-[62px]">
+                    <div onclick="empty_value(this)" class="click-content h-full">
+                        <div class="relative w-full float-right flex">
+                          <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="departure4">
+                            <img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon">
+                            <span class="absolute top-0 right-12">مبدا</span></label>
+                            <input type="text" aria-label="مبدا پرواز+هتل" class="FCD1 text-value text-zinc-500 font-bold  w-full cursor-pointer relative bg-inherit h-6 leading-6 float-left mt-8 text-sm departure" id="departure4" required="" autocomplete="off" value="" placeholder="مبدا خود را انتخاب کنید"/>
+                        </div>
+                    </div>
+                    <input value="1203548" class="co-id FCDid1 from" type="hidden" name="from" aria-label="co-id"/>
+                    <div
+                                            class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                                            <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                                                <div class="float-right w-12 h-12 leading-[48px] text-center">
+                                                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                                        class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                                            fill="#FFAD00" />
+                                                    </svg>
+                                                </div>
+                                                <input type="text" aria-label="cities" placeholder="مبدا"
+                                                    oninput="city_search(this)" data-type="1"
+                                                    class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                                                    autocomplete="off" value="" />
+                                            </div><span class="mini-loading absolute hidden top-6 left-4"
+                                                aria-label="spinner">
+                                                <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                                            <div class="countryFlight"></div>
+                                            <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                                                <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                                        <span>داخلی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203548">
+                                                        <span>تهران</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211083">
+                                                        <span>مشهد</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1270505">
+                                                        <span>ایلام</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1211087">
+                                                        <span>اهواز</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                                        onclick="SelectPlace(this)" data-id="1203561">
+                                                        <span>رشت</span>
+                                                    </li>
+                                                </ul>
+                                                <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                                                    <li
+                                                        class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                                        <span>خارجی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1177676">
+                                                        <span>استانبول</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1173505">
+                                                        <span>دبی</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1182289">
+                                                        <span>مسقط</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1189731">
+                                                        <span>تفلیس</span>
+                                                    </li>
+                                                    <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                                        onclick="SelectPlace(this)" data-id="1198686">
+                                                        <span>دوحه</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                    <span class="absolute top-2 left-0 z-[1] w-12 h-12 leading-[48px] text-center rounded-full bg-secondary-600 hover:bg-primary-500 max-xl:rotate-90 max-xl:top-[50px]" data-index="0" onclick="ExchangeRoute(this)">
+                      <svg class="inline-block align-middle" fill="none" width="25" height="19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg"><path d="M19.1885 3.99063H9.83021V6.66042H19.1885V10.6511L24.5 5.33958L19.1885 0V3.99063ZM0.5 13.3208L5.83958 18.6604V14.6698H15.1698V12H5.83958V8.00937L0.5 13.3208Z" fill="#FAFAFA"/></svg>
+                    </span>
+                    </div>
+              </div>
+              <div class="city second-rout-city float-right relative w-[260px] cursor-pointer max-xl:w-full max-xl:mb-5">
+                <div class="inner-city  h-[62px]">
+                    <div onclick="empty_value(this)" class="click-content h-full">
+                        <div class="relative w-full float-right flex">
+                          <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="destination4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/dep-icon.png" width="30" height="30" alt="dep icon"><span class="absolute top-0 right-12">مقصد</span></label>
+                            <input type="text" aria-label="مقصد پرواز+هتل" class="FCD2 text-value text-zinc-500 font-bold  w-full cursor-pointer relative bg-inherit h-6 leading-6 float-left mt-8 text-sm destination" id="destination4" required="" autocomplete="off" value="" placeholder="مقصد خود را انتخاب کنید"/>
+                        </div>
+                    </div>
+                    <input value="1177676" class="co-id FCDid2 to" type="hidden" name="to" aria-label="co-id"/>
+                    <div
+                    class="searchList py-3.5 px-4 shadow-lg w-[290px] hidden float-right text-sm absolute z-50 clear-both top-20 bg-white rounded-lg right-0 text-right leading-6 max-xl:w-full">
+                    <div class="relative border-b border-neutralcolor-300 mb-2 float-right w-full clear-both">
+                        <div class="float-right w-12 h-12 leading-[48px] text-center">
+                            <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                class="inline-block align-middle" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 8.39161C0 7.23543 0.223776 6.15385 0.671329 5.14685C1.10023 4.12121 1.69697 3.23077 2.46154 2.47552C3.22611 1.72028 4.11189 1.11888 5.11888 0.671329C6.14452 0.223776 7.23543 0 8.39161 0C9.54779 0 10.6387 0.223776 11.6643 0.671329C12.6713 1.11888 13.5571 1.72028 14.3217 2.47552C15.0862 3.23077 15.683 4.12121 16.1119 5.14685C16.5594 6.15385 16.7832 7.23543 16.7832 8.39161C16.7832 9.97669 16.345 11.6737 15.4685 13.4825C14.5921 15.31 13.6317 17.0023 12.5874 18.5594C11.5431 20.1166 10.5828 21.4079 9.70629 22.4336C8.82984 23.4779 8.39161 24 8.39161 24C8.39161 24 7.95338 23.4779 7.07692 22.4336C6.20047 21.4079 5.24009 20.1166 4.1958 18.5594C3.15152 17.0023 2.19114 15.31 1.31469 13.4825C0.438228 11.6737 0 9.97669 0 8.39161ZM5.3986 8.39161C5.3986 9.23077 5.69231 9.94406 6.27972 10.5315C6.86713 11.1189 7.5711 11.4126 8.39161 11.4126C9.21212 11.4126 9.91608 11.1189 10.5035 10.5315C11.0909 9.94406 11.3846 9.23077 11.3846 8.39161C11.3846 7.5711 11.0909 6.86713 10.5035 6.27972C9.91608 5.69231 9.21212 5.3986 8.39161 5.3986C7.5711 5.3986 6.86713 5.69231 6.27972 6.27972C5.69231 6.86713 5.3986 7.5711 5.3986 8.39161Z"
+                                    fill="#FFAD00" />
+                            </svg>
+                        </div>
+                        <input type="text" aria-label="cities" placeholder="مقصد"
+                            oninput="city_search(this)" data-type="1"
+                            class="bg-transparent country form-search-input font-danaregular h-12 rounded-2xl text-right float-right w-95per block"
+                            autocomplete="off" value="" />
+                    </div><span class="mini-loading absolute hidden top-6 left-4"
+                        aria-label="spinner">
+                        <i class="fas fa-spinner fa-spin not-italic"></i></span>
+                    <div class="countryFlight"></div>
+                    <div class="flex justify-between w-95per mx-auto ul-list w-full">
+                        <ul class="dir-rtl font-danaregular w-1/2 pl-0.5">
+                            <li
+                                class="bg-zinc-100 text-zinc-950 text-center text-base p-1 mb-1 rounded-lg">
+                                <span>داخلی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1203548">
+                                <span>تهران</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1211083">
+                                <span>مشهد</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1270505">
+                                <span>ایلام</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1211087">
+                                <span>اهواز</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 text-sm "
+                                onclick="SelectPlace(this)" data-id="1203561">
+                                <span>رشت</span>
+                            </li>
+                        </ul>
+                        <ul class="dir-rtl font-danaregular w-1/2 pr-0.5">
+                            <li
+                                class="bg-zinc-100 text-zin-950 text-base text-center p-1 mb-1 rounded-lg">
+                                <span>خارجی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1177676">
+                                <span>استانبول</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1173505">
+                                <span>دبی</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1182289">
+                                <span>مسقط</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1189731">
+                                <span>تفلیس</span>
+                            </li>
+                            <li class="cursor-pointer hover:text-primary-500 text-neutralcolor-600 p-1 pr-1.5 text-sm border-r"
+                                onclick="SelectPlace(this)" data-id="1198686">
+                                <span>دوحه</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+              </div>
+              <div class="Basis_Date_Box w-[380px] float-right">
+                <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                    <div class="inner-city h-[62px] overflow-hidden">
+                      <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ ورود:</span></label>
+                <input type="text" aria-label="تاریخ ورود به هتل" value=""
+                    class="Basis_Date text-zinc-500 font-bold  start_date sp-start start_date_flight h-full pt-8 w-full cursor-pointer text-right absolute top-0 bg-inherit leading-6 float-right text-sm" id="fromdate4"
+                    onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" data-type="0-6" readonly="" placeholder=""
+                    name="fdate" required="" />
+                <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+                 </div>
+            </div>
+                  <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                    <div class="inner-city rounded-[10px] rounded-r-none h-[62px] overflow-hidden">
+                      <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="todate4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ خروج:</span></label>
+                <input type="text" aria-label="تاریخ خروج از هتل" value=""
+                    class="Basis_Date text-zinc-500 font-bold  end_date sp-end nextCalOpening end_date_flight h-full cursor-pointer pt-8 w-full text-right absolute top-0 bg-inherit leading-6 float-right text-sm"
+                    onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" data-type="0-6" readonly="" placeholder=""
+                    name="tdate" required="" id="inp2-fh" />
+                <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+               </div>
+            </div>
+                  <div class="clr"></div>
+              </div>
+              <div class="city pass-box pass-box float-right relative w-[216px] cursor-pointer pr-1 max-xl:w-full max-xl:mb-5">
+                <div class="inner-city rounded-[10px] h-[62px] rounded-l-none border-l-0">
+                  <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="passenger4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/pass-icon.png" width="30" height="30" alt="pass icon"><span class="absolute top-0 right-12 w-[100px]">تعداد مسافران:</span></label>
+                <input type="text" aria-label="مسافر هتل" placeholder="" readonly class="hotel-inputH hotel-input bg-none cursor-pointer  z-20 absolute top-0 right-0 h-full w-full bg-inherit text-right" id="passenger2">
+                <div class="passenger-counts count-room w-[60px] text-zinc-500 font-bold h-6 leading-6 absolute top-8 right-12 text-sm">
+                  <span class="clear-both block float-right"> اتاق <span class="count">1</span></span>
+                </div> 
+                <div class="passenger-counts count-adultRoom count-adult w-[60px] text-zinc-500 font-bold h-6 leading-6 absolute top-8 right-28 text-sm">
+                  <span class="clear-both block float-right">بزرگسال <span class="count">2</span></span>
+                </div>
+                <div class="passenger-counts count-childRoom count-child w-[60px] text-zinc-500 font-bold h-6 leading-6 absolute top-8 right-48 text-sm">
+                   <span class="clear-both block float-right">کودک <span class="count">0</span></span>
+                </div>
+                  <div class="HotelPassengers hidden w-[197px] p-4 shadow-lg float-right text-sm absolute clear-both top-[80px] bg-white rounded-[10px] z-10 right-0 text-left leading-6 border border-third border-solid max-xl:w-full">
+                    <div class="itemlable2 clear-both w-full mb-4 float-right relative">
+                      <label for="textbox-roomcount1" class="float-right text-sm leading-12 mb-1"> <span class="notshow">اتاق</span> </label>
+                      <ul class="button-click-room float-left w-full h-[30px] leading-12">
+                        <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="change_room_count(this)"><span class="hide">+</span></div></li>
+                        <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="change_room_count(this)"><span class="hide">-</span></div></li>
+                      </ul>
+                      <input type="text" id="textbox-roomcount1" class="cat_textbox w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" maxlength="4000" value="1" aria-label="roomcount1">
+                    </div>
+                    <div class="countRoom countRoomHT ShowRow w-full float-right">
+                      <div class="contentRooms contentRoom">
+                        <div class="numberOfRooms RoomRow text-sm text-primary float-right clear-both w-full mb-1 text-right">اتاق 1</div>
+                        <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                          <label for="textbox-adultcount2" class="float-right text-sm leading-12 mb-1"> <span class="notshow">بزرگسال</span> </label>
+                          <ul class="button-click float-left w-full h-[30px] leading-12">
+                            <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="increaseAdult(this)"><span class="hide">+</span></div></li>
+                            <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="decreaseAdult(this)"><span class="hide">-</span></div></li>
+                          </ul>
+                          <input type="text" class="cat_textbox adultcount adult-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" id="textbox-adultcount2" name="_root.rooms__1.adultcount" maxlength="4000" value="2">
+                        </div>
+                        <div class="itemlable2 clear-both w-full mb-4 text-zinc-900 float-right relative">
+                          <label for="textbox-childcount2" class="float-right text-sm leading-12 mb-1"> <span class="notshow">کودک</span> </label>
+                          <ul class="button-click-childRoom float-left w-full h-[30px] leading-12">
+                            <li class="float-right w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="increaseChild(this)"><span class="hide">+</span></div></li>
+                            <li class="float-left w-[30px] h-[30px] leading-[30px] text-center hover:text-primary rounded-full border border-solid border-zinc-100"><div class="button secondary h-full leading-[30px]" onclick="decreaseChild(this)"><span class="hide">-</span></div></li>
+                          </ul>
+                          <input type="text" class="cat_textbox chcount child-count w-[30px] h-[30px] leading-[30px] absolute left-0 right-0 top-[25px] m-auto text-center" id="textbox-childcount2" maxlength="4000" value="0">
+                        </div>
+                        <div class="childDropdowns section-select-age clear-both"></div>
+                        <input type="hidden" name="_root.rooms__1.childcountandage" class="childcountandage" value="0" aria-label="childcountandage"/>
+                      </div>
+                    </div>
+                    <div class="close-hotel-psg hidden clear-both text-center text-primary cursor-pointer w-full font-bold text-sm h-[47px] leading-[45px] float-right border border-solid border-primary px-1 rounded-[7px] hover:bg-primary hover:text-white">تایید اطلاعات</div>
+                  </div>
+                  </div>
+                </div>
+                <div class="absolute -top-[91px] left-0 z-30 max-xl:-top-[86px]">
+                  <div class="float-left flightclass-box p-4 cursor-pointer bg-white w-[172px] rounded-2xl" onclick="show_flightclass(this)">
+                    <div class="h-[44px] text-base">
+                      <span class="FlightClass-text float-right leading-[44px]">اکونومی</span>
+                      <svg class="h-full float-left" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4139 8.2501L11.9999 16.6641L3.58594 8.2501L4.99994 6.8361L11.9999 13.8361L18.9999 6.8361L20.4139 8.2501Z" fill="#18181B"/></svg>
+                      <input type="hidden" name="FlightClass" value="Economy" class="FlightClass-value" id="FlightClass3"/>
+                    </div>
+                    <ul class="show-flightclass FlightClass w-full clear-both border-t border-zinc-100 border-solid hidden">
+                      <li class="leading-6 text-right cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="Economy">
+                        <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">اکونومی</label>
+                      </li>
+                      <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="BusinessClass">
+                        <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">بیزینس</label>
+                      </li>
+                      <li class="leading-6 cursor-pointer text-base text-zinc-900 hover:text-primary" data-value="FirstClass">
+                        <label class="leading-8 cursor-pointer text-sm group-hover:text-primary">فرست</label>
+                      </li>
+                      <div class="clr"></div>
+                    </ul>
+                  </div>
+                </div>
+                <section class="w-[64px] h-[64px] text-center float-left max-xl:w-full">
+                  <button type="submit" class="submit search-flight w-full h-full m-auto rounded-2xl bg-primary-500 cursor-pointer hover:bg-secondary">
+                    <svg class="inline-block align-middle" width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M23.4946 24.0389C24.01 23.527 24.8361 23.527 25.3515 24.0389L28.7577 26.7884H28.8168C29.5059 27.4849 29.5059 28.6142 28.8168 29.3108C28.1277 30.0073 27.0104 30.0073 26.3213 29.3108L23.4946 26.0711L23.3873 25.9501C23.1875 25.6972 23.0772 25.3818 23.0772 25.055C23.0772 24.6737 23.2274 24.308 23.4946 24.0389ZM14.1038 3.1665C17.1371 3.1665 20.0461 4.38442 22.1909 6.55232C24.3357 8.72022 25.5407 11.6605 25.5407 14.7264C25.5407 21.1108 20.4202 26.2863 14.1038 26.2863C7.78745 26.2863 2.66699 21.1108 2.66699 14.7264C2.66699 8.34205 7.78745 3.1665 14.1038 3.1665Z" fill="white"/>
+                    </svg>                  
+                  </button>
+                </section>
+              <div class="city CheckHotelDate mb-4 mt-5 clear-both float-right w-full">
+                  <div class="Wrapper-CheckHotelDate">
+                    <input class="cursor-pointer opacity-0" type="checkbox" value="0" onChange="CheckExteraHoteldate(this)" name="Hotel-Date" id="needhotel" aria-label="Hotel-Date"/>
+                    <label class="needhotel-label text-sm relative pr-7" for="needhotel">من فقط برای بخشی از سفر به هتل نیاز دارم</label>
+                  </div>
+                </div>
+                <div class="Wrapper-ExteraHoteldate Basis_Date_Box w-[380px] float-right hidden">
+                  <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                      <div class="inner-city h-[62px] overflow-hidden">
+                        <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="fromdate4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ ورود:</span></label>
+                  <input type="text" aria-label="تاریخ ورود به هتل" value=""
+                      class="Basis_Date text-zinc-500 font-bold  start_date cal-fill-check checkin h-full pt-8 absolute top-0 w-full cursor-pointer text-right bg-inherit leading-6 float-right text-sm" id="fromdate4"
+                      onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" data-type="0-6" readonly="" placeholder=""
+                      name="checkin" required="" />
+                  <input value="" class="mstring_date mstring_fdate" type="hidden" name="mstring_fdate" aria-label="mstring_fdate"/>
+                   </div>
+                </div>
+                    <div class="city date-city float-right relative cursor-pointer w-1/2 max-xl:w-full max-xl:mb-5">
+                      <div class="inner-city rounded-[10px] rounded-r-none h-[62px] overflow-hidden">
+                        <label class="float-right cursor-pointer  text-zinc-950 text-base w-12 h-12 text-center" for="todate4"><img class="relative top-3" loading="lazy" src="[##cms.cms.cdn##]/images/cal-icon.png" width="30" height="29" alt="cal icon"><span class="absolute top-0 right-12">تاریخ خروج:</span></label>
+                  <input type="text" aria-label="تاریخ خروج از هتل" value=""
+                      class="Basis_Date text-zinc-500 font-bold  end_date end_date_filled nextCalOpeningex cal-fill-check checkout cursor-pointer h-full pt-8 absolute top-0 w-full text-right  bg-inherit leading-6 float-right text-sm"
+                      onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" data-type="0-6" readonly="" placeholder=""
+                      name="checkout" required="" id="inp2-fh" />
+                  <input value="" class="mstring_date mstring_tdate" type="hidden" name="mstring_tdate" aria-label="mstring_tdate"/>
+                 </div>
+                </div>
+                    <div class="clr"></div>
+                </div>
+          </form>
+        </div>
+      </div> 
+  </div>
+  <script src="[##cms.cms.cdn##]/js/sarsara-search.js" type="text/javascript"></script>
+  <basis core="call" file="Client_MultiLang_CalendarFa.inc" />
+    <!---STASRT CSS & JS CODE FOR SEARCH HISTORY-->
+    <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_search_history.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_search_history.js" type="text/javascript"></script>
+    <!---END CSS & JS CODE FOR SEARCH HISTORY-->
+    <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_multiLang_js_calendar.js"></script>

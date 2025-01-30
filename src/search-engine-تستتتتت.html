@@ -1,0 +1,230 @@
+<div class="m-auto w-full">
+  <div class="search-nav mb-4">
+    <ul class="reservation-item">
+      <li class="flight-btn reserve-btn active-module px-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-flight">
+        <span class="module-icon inline-block"><img class="inline-block align-middle" loading="lazy" src="images/flight-search-icon.png" width="25" height="25" alt="flight-icon"></span>
+        <span class="module-name inline-block hover:text-primary">پرواز</span>
+      </li>
+      <li class="hotel-btn reserve-btn px-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-hotel" onclick="check_searchHistory('hotel')">
+        <span class="module-icon inline-block"><img class="inline-block align-middle" loading="lazy" src="images/hotel-search-icon.png" width="25" height="25" alt="hotel-icon"></span>
+        <span class="module-name inline-block hover:text-primary">hotel</span>
+      </li>
+    </ul>
+  </div>
+  <div class="clear-both float-right w-full">
+    <div id="r-flight" class="r-flight module-form relative">
+      <ul class="flighttype-items w-full clear-both mb-3">
+        <li id="oneway" class="active-r-btn group inline-block leading-6 cursor-pointer text-base border-type-1 h-full rounded-type-1 px-2">
+          <span class="cursor-pointer text-sm text-textColor group-hover:text-primary">یک طرفه</span>
+        </li>
+        <li id="backtoback" class="group inline-block leading-6 cursor-pointer text-base border-type-1 h-full rounded-type-1 px-2">
+          <span class="cursor-pointer text-sm text-textColor group-hover:text-primary">رفت و برگشت</span>
+        </li>
+        <li id="multi" class="group inline-block leading-6 cursor-pointer text-base border-type-1 h-full rounded-type-1 px-2">
+          <span class="cursor-pointer text-sm text-textColor group-hover:text-primary">چند مسیره</span>
+        </li>
+        <div class="clr"></div>
+      </ul>
+      <form action="/Tem3_Oneway_Search.bc" method="get" data-form="flight" data-flightType="1" id="flightSearch" onsubmit="form_search_isSubmited(this,event)" class="form-search formflight flex gap-2 max-xl:block max-xl:gap-0">
+        <input type="hidden" name="persiancurrent" class="persiancurrent" value=""/>
+        <input type="hidden" value="0" name="select-age" class="select-age-value" aria-label="select-age"/>
+        <div class="reserve-field w-1/5 h-20 departure-route relative max-xl:w-full max-xl:mb-4">
+          <div onclick="empty_value(this)" class="click-content border-type-1 h-full rounded-type-1 px-2">
+            <label class="float-right w-full" for="departure1">
+              <i class="fa map-label-icon" aria-hidden="true"></i>
+              <span class="text-sm">مبدا</span>
+            </label>
+            <p class="auto-fit clear-both text-base text-textColor">تهران</p>
+            <input id="departure1" type="text" class="departure text-value text-textColor w-full cursor-pointer relative bg-inherit text-sm" required="" aria-label="departure" autocomplete="off" value="تهران - Tehran - همه فرودگاه ها" placeholder="مبدا خود را انتخاب کنید"/>
+          </div>
+          <input value="1203548" class="locationId from" type="hidden" name="from" aria-label="locationId"/>
+          <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+            <div class="flex relative mb-2 float-right w-full clear-both">
+              <div class="h-9 leading-9">
+                <i class="fa map-label-icon" aria-hidden="true"></i>
+              </div>
+              <input type="text" aria-label="reserve-location" placeholder="مبدا" oninput="city_search(this)" data-type="1" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right" autocomplete="off" value="" />
+            </div>
+            <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner"><i class="fas spinner-label-icon fa-spin not-italic"></i></span>
+            <div class="locationResult"></div>
+            <div class="block mx-auto ul-list w-full">
+              <ul class="w-1/2 pl-0.5 float-right">
+                <li class="bg-bgColor-100 rounded-type-1 text-zinc-950 text-center text-base p-1 mb-1"><span>داخلی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1203548"><span>تهران</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1211083"><span>مشهد</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1270505"><span>ایلام</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1211087"><span>اهواز</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1203561"><span>رشت</span></li>
+              </ul>
+              <ul class="w-1/2 pr-0.5 border-r float-left">
+                <li class="bg-bgColor-100 rounded-type-1 text-zin-950 text-base text-center p-1 mb-1"><span>خارجی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1177676"><span>استانبول</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1173505"><span>دبی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1182289"><span>مسقط</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1189731"><span>تفلیس</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1198686"><span>دوحه</span></li>
+              </ul>
+            </div>
+          </div>
+          <span class="absolute top-[25%] left-0 z-[1] cursor-pointer w-10 h-10 leading-10 text-center radius-type-2 text-white bg-bgColor-500 hover:bg-primary max-xl:rotate-90 max-xl:top-[50px]" data-index="0" onclick="ExchangeRoute(this)">
+            <i class="fa exchange-icon" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div class="reserve-field w-1/5 h-20 destination-route relative max-xl:w-full max-xl:mb-4">
+          <div onclick="empty_value(this)" class="click-content border-type-1 h-full rounded-type-1 px-2">
+            <label class="float-right w-full" for="destination1">
+              <i class="fa map-label-icon" aria-hidden="true"></i>
+              <span class="text-sm">مقصد</span>
+            </label>
+            <p class="auto-fit clear-both text-base text-textColor">استانبول</p>
+            <input id="destination1" type="text" class="destination text-value text-textColor w-full cursor-pointer relative bg-inherit text-sm" required="" aria-label="destination" autocomplete="off" value="استانبول - Istanbul - همه فرودگاه ها" placeholder="مقصد خود را انتخاب کنید"/>
+          </div>
+          <input value="1177676" class="locationId to" type="hidden" name="to" aria-label="locationId"/>
+          <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+            <div class="flex relative mb-2 float-right w-full clear-both">
+              <div class="h-9 leading-9">
+                <i class="fa map-label-icon" aria-hidden="true"></i>
+              </div>
+              <input type="text" aria-label="reserve-location" placeholder="مقصد" oninput="city_search(this)" data-type="1" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right" autocomplete="off" value="" />
+            </div>
+            <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner"><i class="fas spinner-label-icon fa-spin not-italic"></i></span>
+            <div class="locationResult"></div>
+            <div class="block mx-auto ul-list w-full">
+              <ul class="w-1/2 pl-0.5 float-right">
+                <li class="bg-bgColor-100 rounded-type-1 text-zinc-950 text-center text-base p-1 mb-1"><span>داخلی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1203548"><span>تهران</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1211083"><span>مشهد</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1270505"><span>ایلام</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1211087"><span>اهواز</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 text-sm" onclick="SelectPlace(this)" data-id="1203561"><span>رشت</span></li>
+              </ul>
+              <ul class="w-1/2 pr-0.5 border-r float-left">
+                <li class="bg-bgColor-100 rounded-type-1 text-zin-950 text-base text-center p-1 mb-1"><span>خارجی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1177676"><span>استانبول</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1173505"><span>دبی</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1182289"><span>مسقط</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1189731"><span>تفلیس</span></li>
+                <li class="cursor-pointer hover:text-primary text-textColor p-1 pr-1.5 text-sm" onclick="SelectPlace(this)" data-id="1198686"><span>دوحه</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="Basis_Date_Box w-1/5 flex gap-2 max-xl:w-full max-xl:mb-4">
+          <div class="reserve-field departure-date w-1/2 h-20 relative">
+            <div class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="fromdate1">
+                <i class="fa calendar-label-icon" aria-hidden="true"></i>
+                <span class="text-sm">تاریخ رفت</span>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span class="selected-month"></span></p>
+              <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+                <input type="text" aria-label ="تاریخ رفت" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate1" required="" placeholder="تاریخ رفت"/>
+              </basis>
+              <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+                <input type="text" aria-label ="تاریخ رفت" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate1" required="" placeholder="تاریخ رفت"/>
+                <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate"/>
+              </basis>
+              <div class="clr"></div>
+            </div>
+          </div>
+          <div class="reserve-field return-date w-1/2 h-20 relative no-activedate">
+            <div class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="todate1">
+                <i class="fa calendar-label-icon" aria-hidden="true"></i>
+                <span class="text-sm">تاریخ برگشت</span>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span class="selected-month"></span></p>
+              <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+                <input type="text" aria-label ="تاریخ برگشت" value="" class="Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="tdate" id="todate1" required="" placeholder="تاریخ برگشت" disabled/>
+              </basis>
+              <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+                <input type="text" aria-label ="تاریخ برگشت" value="" class="Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="tdate" id="todate1" required="" placeholder="تاریخ برگشت" disabled/>
+                <input value="" class="mstring_date mstring_tdate" type="hidden" aria-label="mstring_tdate"/>
+              </basis>
+              <div class="clr"></div>
+            </div>
+          </div>
+        </div>
+        <div class="reserve-field flightclass-field w-auto h-20 relative max-xl:w-full max-xl:mb-4">
+          <div onclick="show_flightclass(this)" class="border-type-1 h-full rounded-type-1 px-2">
+            <label class="float-right w-full" for="FlightClass1">
+              <i class="fa flightclass-label-icon" aria-hidden="true"></i>
+              <span class="text-sm">کلاس پروازی</span>
+              <i class="fa down-label-icon h-full float-left"></i>
+            </label>
+            <input type="hidden" name="FlightClass" value="Economy" class="FlightClass-value" id="FlightClass1"/>
+            <span class="FlightClass-text float-right">اکونومی</span>
+            <div class="clr"></div>
+          </div>
+          <ul class="FlightClass hidden-box hidden relative z-10 bg-white w-full clear-both border-type-1 rounded-type-1 pr-2">
+            <li class="group leading-8 text-right cursor-pointer text-base hover:text-primary" data-value="Economy" onclick="select_flightclass(this)">
+              <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">اکونومی</label>
+            </li>
+            <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="BusinessClass" onclick="select_flightclass(this)">
+              <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">بیزینس</label>
+            </li>
+            <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="FirstClass" onclick="select_flightclass(this)">
+              <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">فرست</label>
+            </li>
+            <div class="clr"></div>
+          </ul>
+        </div>
+        <div class="reserve-field passengers-field w-1/5 h-20 relative max-xl:w-full max-xl:mb-4">
+          <div onclick="show_passengerbox(this)" class="border-type-1 h-full rounded-type-1 px-2">
+            <label class="float-right w-full" for="passenger1">
+              <i class="fa passenger-label-icon" aria-hidden="true"></i>
+              <span class="text-sm">تعداد مسافران</span>
+              <i class="fa down-label-icon h-full float-left"></i>
+            </label>
+            <div class="">
+              <span class="passenger-counts adult-count inline-block text-textColor h-6 leading-6 text-sm"><span class="count">1</span> بزرگسال</span><span class="passenger-counts child-count inline-block text-textColor h-6 leading-6 text-sm mr-2"><span class="count">0</span> کودک</span>
+            </div>
+          </div>
+          <div class="passengerbox hidden-box hidden bg-white w-60 min-w-full relative z-10 border-type-1 rounded-type-1 p-2">
+            <div class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600" onclick="close_passenger(this)"><i class="fa close-label-icon"></i></div>
+            <div class="passenger-item clear-both w-full mb-4 relative">
+              <label for="passenger-adultcount1" class="float-right text-sm leading-8 text-textColor"><span>بزرگسال</span></label>
+              <ul class="float-left h-8 leading-8">
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span>+</span></div></li>
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-adultcount1" type="text" class="adultcount w-full text-center" name="adult" maxlength="4000" value="1" readonly></li>
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span>-</span></div></li>
+              </ul>
+              <div class="clr"></div>
+            </div>
+            <div class="passenger-item clear-both w-full mb-4 relative">
+              <label for="passenger-childcount1" class="float-right text-sm leading-8 text-textColor"><span>کودک</span></label>
+              <input type="hidden" value="0" class="childcountinput" id="passenger-childcount1" name="child" aria-label="childcount">
+              <ul class="float-left h-8 leading-8">
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span>+</span></div></li>
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-childcount1" type="text" class="childcount w-full text-center" maxlength="4000" value="0" readonly></li>
+                <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span>-</span></div></li>
+              </ul>
+              <div class="clr"></div>
+            </div>
+            <div class="section-select-age clear-both"></div>
+            <div class="clr"></div>
+          </div>
+        </div>
+        <div class="reserve-search w-auto h-20 max-xl:w-full">
+          <button type="submit" class="search-flight w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary">جستجو</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="clr"></div>
+<script src="js/engine-scripts-test.js" type="text/javascript"></script>
+<basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+<input type="hidden" class="calendar-type" value="simple-calendar"/>
+<script src="js/reservation_simple_js_calendar-test.js"></script>
+<basis core="call" file="Client_Basis_Calendar.inc" />
+<link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem2_calendar.css" type="text/css" rel="stylesheet" />
+</basis>
+<basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+<input type="hidden" class="calendar-type" value="multi-calendar"/>
+<basis core="call" file="Client_MultiLang_CalendarFa.inc" />
+<link href="https://cdn.basiscore.net/basisfly.com/css/reservation_multiLang_css_calendar.css" type="text/css" rel="stylesheet" />
+<script src="js/reservation_multiLang_js_calendar-test.js"></script>
+</basis>
+<link href="https://cdn.basiscore.net/basisfly.com/css/reservation_search_history.css" type="text/css" rel="stylesheet" />
+<script src="js/reservation_search_history-test.js" type="text/javascript"></script>

@@ -1,0 +1,192 @@
+<div class="m-auto w-full">
+    <div class="search-nav mb-4">
+        <input type="hidden" id="module-order" value="[##cms.Host.module-order##]"/>
+      <ul class="reservation-item">
+        <basis core="group" name="flight-module" if="'[##cms.Host.flight-module##]'='true'">
+          <li data-type="1" class="flight-btn reserve-btn group active-module px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-flight" onclick="check_searchHistory('flight')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#flight-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#flight-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">پرواز</span>
+          </li>
+        </basis>
+        <basis core="group" name="hotel-module" if="'[##cms.Host.hotel-module##]'='true'">
+          <li data-type="3" class="hotel-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-hotel" onclick="check_searchHistory('hotel')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#hotel-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#hotel-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">هتل</span>
+          </li>
+        </basis>
+        <basis core="group" name="flighthotel-module" if="'[##cms.Host.flighthotel-module##]'='true'">
+          <li data-type="6" class="flighthotel-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-flighthotel" onclick="check_searchHistory('flighthotel')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#flighthotel-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#flighthotel-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">پرواز+هتل</span>
+          </li>
+        </basis>
+        <basis core="group" name="tour-module" if="'[##cms.Host.tour-module##]'='true'">
+          <li data-type="4" class="tour-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-tour" onclick="check_searchHistory('tour')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#tour-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#tour-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">تور</span>
+          </li>
+        </basis>
+        <basis core="group" name="insurance-module" if="'[##cms.Host.insurance-module##]'='true'">
+          <li data-type="5" class="insurance-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-insurance" onclick="check_searchHistory('insurance')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#insurance-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#insurance-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">بیمه</span>
+          </li>
+        </basis>
+        <basis core="group" name="cip-module" if="'[##cms.Host.cip-module##]'='true'">
+          <li data-type="11" class="cip-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-cip" onclick="check_searchHistory('cip')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#cip-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#cip-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">Cip</span>
+          </li>
+        </basis>
+        <basis core="group" name="visa-module" if="'[##cms.Host.visa-module##]'='true'">
+          <li data-type="13" class="visa-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-visa" onclick="check_searchHistory('visa')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#visa-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#visa-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">ویزا</span>
+          </li>
+        </basis>
+        <basis core="group" name="service-module" if="'[##cms.Host.service-module##]'='true'">
+          <li data-type="12" class="service-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-service" onclick="check_searchHistory('service')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#service-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#service-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">سرویس</span>
+          </li>
+        </basis>
+        <basis core="group" name="train-module" if="'[##cms.Host.train-module##]'='true'">
+          <li data-type="8" class="train-btn reserve-btn group px-3 my-1 ml-3 cursor-pointer inline-block text-base text-center border-type-1 rounded-type-1 h-8 leading-8" data-id="r-train" onclick="check_searchHistory('train')">
+            <span class="module-icon inline-block">
+              <svg width="25" height="25" class="module-icon-deactive align-middle group-hover:hidden">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#train-search-icon"></use>
+              </svg>
+              <svg width="25" height="25" class="module-icon-active align-middle group-hover:inline-block">
+                <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#train-search-icon-active"></use>
+              </svg>
+            </span>
+            <span class="module-name inline-block hover:text-primary">قطار</span>
+          </li>
+        </basis>
+      </ul>
+    </div>
+    <div class="clear-both float-right w-full">
+      <basis core="group" name="flight-module" if="'[##cms.Host.flight-module##]'='true'">
+        <!-- flight module -->
+        <basis core="call" name="flight.ver.1" file="flight/engine/ver.1/Fa" pageindexid="1"></basis>
+        <!-- flight module -->
+      </basis>
+      <basis core="group" name="hotel-module" if="'[##cms.Host.hotel-module##]'='true'">
+        <!-- hotel module -->
+        <basis core="call" name="hotel.ver.1" file="hotel/engine/ver.1/Fa" pageindexid="1"></basis>
+        <!-- hotel module -->
+      </basis>
+      <basis core="group" name="flighthotel-module" if="'[##cms.Host.flighthotel-module##]'='true'">
+        <!-- flighthotel module -->
+        <basis core="call" name="flighthotel.ver.1" file="flighthotel/engine/ver.1/Fa" pageindexid="1"></basis>
+        <!-- flighthotel module -->
+      </basis>
+      <basis core="group" name="tour-module" if="'[##cms.Host.tour-module##]'='true'">
+       <!-- tour module -->
+        <basis core="call" name="tour.ver.1" file="tour/engine/ver.1/Fa" pageindexid="1"></basis>
+        <!-- tour module -->
+      </basis>
+      <basis core="group" name="insurance-module" if="'[##cms.Host.insurance-module##]'='true'">
+         <!-- insurance module -->
+         <basis core="call" name="insurance.ver.1" file="insurance/engine/ver.1/Fa" pageindexid="1"></basis>
+         <!-- insurance module -->
+      </basis>
+      <basis core="group" name="cip-module" if="'[##cms.Host.cip-module##]'='true'">
+       <!-- cip module -->
+       <basis core="call" name="cip.ver.1" file="cip/engine/ver.1/Fa" pageindexid="1"></basis>
+       <!-- cip module -->
+      </basis>
+      <basis core="group" name="visa-module" if="'[##cms.Host.visa-module##]'='true'">
+       <!-- visa module -->
+       <basis core="call" name="visa.ver.1" file="visa/engine/ver.1/Fa" pageindexid="1"></basis>
+       <!-- visa module -->
+      </basis>
+      <basis core="group" name="service-module" if="'[##cms.Host.service-module##]'='true'">
+        <!-- service module -->
+        <basis core="call" name="service.ver.1" file="service/engine/ver.1/Fa" pageindexid="1"></basis>
+        <!-- service module -->
+      </basis>
+      <basis core="group" name="train-module" if="'[##cms.Host.train-module##]'='true'">
+        <!-- train module -->
+       <basis core="call" name="train.ver.1" file="train/engine/ver.1/Fa" pageindexid="1"></basis>
+       <!-- train module -->
+      </basis>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <!-- engine styles -->
+  <basis core="call" name="engine-styles.ver.1" file="search/engine/ver.1/styles.ver.1/Fa" pageindexid="1"></basis>
+   <!-- engine styles -->
+
+   <!-- engine scripts -->
+  <basis core="call" name="engine-scripts.ver.1" file="search/engine/ver.1/scripts.ver.1/Fa" pageindexid="1"></basis>
+  <!-- engine scripts -->
+
+  <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+    <!-- simple calendar -->
+    <input type="hidden" class="calendar-type" value="simple-calendar"/>
+    <basis core="call" file="Client_Basis_Calendar.inc" />
+    <!-- simple calendar -->
+  </basis>
+  <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+    <!-- multi calendar -->
+    <input type="hidden" class="calendar-type" value="multi-calendar"/>
+    <basis core="call" file="Client_MultiLang_CalendarFa.inc" />
+    <!-- multi calendar -->
+  </basis>

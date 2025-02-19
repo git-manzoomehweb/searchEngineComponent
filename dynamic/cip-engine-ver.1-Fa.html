@@ -1,0 +1,166 @@
+<input type="hidden" class="cip-module" value="[##cms.Host.cip-module##]"/>
+      <div id="r-cip" class="r-cip module-form relative hidden">
+        <form action="/Tem3_Cip_Search.bc" method="post" data-form="cip" id="cipSearch" onsubmit="form_search_isSubmited(this,event)" class="form-search flex gap-2 max-xl:block max-xl:gap-0">
+          <input type="hidden" name="persiancurrent" class="persiancurrent" value=""/>
+          <input type="hidden" value="0" name="select-age" class="select-age-value" aria-label="select-age"/>
+          <div class="reserve-field w-1/3 h-20 departure-route relative max-xl:w-full max-xl:mb-4">
+            <div onclick="empty_value(this)" class="click-content border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="departure6">
+                <svg width="15" height="19" class="align-middle">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-location-icon"></use>
+                  </svg>
+                <span class="text-sm">مبدا</span>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor">تهران</p>
+              <input id="departure6" type="text" class="departure text-value text-textColor w-full cursor-pointer relative bg-inherit text-sm" required="" aria-label="departure" autocomplete="off" value="تهران - Tehran - همه فرودگاه ها" placeholder="مبدا خود را انتخاب کنید"/>
+            </div>
+            <input value="1203548" class="locationId from" type="hidden" name="from" aria-label="locationId"/>
+            <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+              <div class="flex relative mb-2 float-right w-full clear-both">
+                <div class="h-9 leading-9">
+                    <svg width="15" height="19" class="align-middle">
+                        <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-location-icon"></use>
+                      </svg>
+                </div>
+                <input type="text" aria-label="reserve-location" placeholder="مبدا" oninput="city_search(this)" data-type="1" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right" autocomplete="off" value="" />
+              </div>
+              <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+                <svg class="spinner-label-icon align-middle" width="15" height="19">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-spinner-icon"></use>
+                  </svg>
+              </span>
+              <div class="locationResult"></div>
+              <div class="load-location-options"></div>
+            </div>
+          </div>
+          <div class="Basis_Date_Box w-1/5 flex gap-2 max-xl:w-full max-xl:mb-4">
+            <div class="reserve-field departure-date w-full h-20 relative">
+              <div class="border-type-1 h-full rounded-type-1 px-2">
+                <label class="float-right w-full" for="fromdate6">
+                    <svg width="15" height="15" class="align-middle">
+                        <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-calendar-icon"></use>
+                      </svg>
+                  <span class="text-sm">ورود یا خروج</span>
+                </label>
+                <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span class="selected-month"></span></p>
+                <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+                  <input type="text" aria-label ="ورود یا خروج" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate6" required="" placeholder="ورود یا خروج"/>
+                </basis>
+                <basis core="group" name="calendar-type-multi" if="'[##cms.Host.calendar-type##]'='multi'">
+                  <input type="text" aria-label ="ورود یا خروج" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate6" required="" placeholder="ورود یا خروج"/>
+                  <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate"/>
+                </basis>
+                <div class="clr"></div>
+              </div>
+            </div>
+            <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+              <div class="reserve-field return-date hidden">
+                <input type="text" value="" class="Basis_Date end_date" data-lang="fa"  data-active="0" data-cache="0" disabled/>
+              </div>
+            </basis>
+          </div>
+          <div class="reserve-field w-1/5 traveltype-field h-20 relative max-xl:w-full max-xl:mb-4">
+            <div onclick="show_traveltype(this)" class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="traveltype">
+                <svg width="15" height="11" class="align-middle">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-flightclass-icon"></use>
+                  </svg>
+                <span class="text-sm">نوع سفر</span>
+                <svg class="h-full float-left align-middle mt-2" width="15" height="8">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-down-icon"></use>
+                  </svg>
+              </label>
+              <input type="hidden" name="traveltype" value="0" class="traveltype-value" id="traveltype"/>
+              <span class="traveltype-text float-right">همه</span>
+              <div class="clr"></div>
+            </div>
+            <ul class="traveltype hidden-box hidden relative z-10 bg-white w-full clear-both border-type-1 rounded-type-1 pr-2">
+              <li class="group leading-8 text-right cursor-pointer text-base hover:text-primary" data-value="0" onclick="select_traveltype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">همه</label>
+              </li>
+              <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="1" onclick="select_traveltype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">سفر داخلی</label>
+              </li>
+              <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="2" onclick="select_traveltype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">سفر خارجی</label>
+              </li>
+              <div class="clr"></div>
+            </ul>
+          </div>
+          <div class="reserve-field w-1/5 flighttype-field h-20 relative max-xl:w-full max-xl:mb-4">
+            <div onclick="show_flighttype(this)" class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="flighttype">
+                <svg width="15" height="11" class="align-middle">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-flightclass-icon"></use>
+                  </svg>
+                <span class="text-sm">نوع پرواز</span>
+                <svg class="h-full float-left align-middle mt-2" width="15" height="8">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-down-icon"></use>
+                  </svg>
+              </label>
+              <input type="hidden" name="flighttype" value="0" class="flighttype-value" id="flighttype"/>
+              <span class="flighttype-text float-right">همه پروازها</span>
+              <div class="clr"></div>
+            </div>
+            <ul class="flighttype hidden-box hidden relative z-10 bg-white w-full clear-both border-type-1 rounded-type-1 pr-2">
+              <li class="group leading-8 text-right cursor-pointer text-base hover:text-primary" data-value="0" onclick="select_flighttype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">همه پروازها</label>
+              </li>
+              <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="1" onclick="select_flighttype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">پرواز ورودی</label>
+              </li>
+              <li class="group leading-8 cursor-pointer text-base hover:text-primary" data-value="2" onclick="select_flighttype(this)">
+                <label class="cursor-pointer text-sm text-textColor group-hover:text-primary">پرواز خروجی</label>
+              </li>
+              <div class="clr"></div>
+            </ul>
+          </div>
+          <div class="reserve-field passengers-field w-1/5 h-20 relative max-xl:w-full max-xl:mb-4">
+            <div onclick="show_passengerbox(this)" class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="passenger6">
+                <svg width="15" height="15" class="align-middle">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-passenger-icon"></use>
+                  </svg>
+                <span class="text-sm">تعداد مسافران</span>
+                <svg class="h-full float-left align-middle mt-2" width="15" height="8">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-down-icon"></use>
+                  </svg>
+              </label>
+              <div class="">
+                <span class="passenger-counts adult-count inline-block text-textColor h-6 leading-6 text-sm"><span class="count">1</span> بزرگسال</span><span class="passenger-counts child-count inline-block text-textColor h-6 leading-6 text-sm mr-2"><span class="count">0</span> کودک</span>
+              </div>
+            </div>
+            <div class="passengerbox hidden-box hidden bg-white w-full relative z-10 border-type-1 rounded-type-1 p-2">
+              <div class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600" onclick="close_passenger(this)">
+                <svg width="15" height="15" class="align-middle">
+                    <use xlink:href="[##cms.cms.cdn##]/images/sprite-icons.svg#engine-close-icon"></use>
+                </svg>
+              </div>
+              <div class="passenger-item clear-both w-full mb-4 relative">
+                <label for="passenger-adultcount6" class="float-right text-sm leading-8 text-textColor"><span>بزرگسال</span></label>
+                <ul class="float-left h-8 leading-8">
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span>+</span></div></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-adultcount6" type="text" class="adultcount w-full text-center" name="adult" maxlength="4000" value="1" readonly></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span>-</span></div></li>
+                </ul>
+                <div class="clr"></div>
+              </div>
+              <div class="passenger-item clear-both w-full mb-4 relative">
+                <label for="passenger-childcount6" class="float-right text-sm leading-8 text-textColor"><span>کودک</span></label>
+                <input type="hidden" value="0" class="childcountinput" name="child" aria-label="childcount">
+                <ul class="float-left h-8 leading-8">
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span>+</span></div></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-childcount6" type="text" class="childcount w-full text-center" maxlength="4000" value="0" readonly></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span>-</span></div></li>
+                </ul>
+                <div class="clr"></div>
+              </div>
+              <div class="section-select-age clear-both"></div>
+              <div class="clr"></div>
+            </div>
+          </div>
+          <div class="reserve-search w-auto h-20 max-xl:w-full">
+            <button type="submit" class="search-cip w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary">جستجو</button>
+          </div>
+        </form>
+      </div>

@@ -1,0 +1,110 @@
+<input type="hidden" class="insurance-module" value="[##cms.Host.insurance-module##]"/>
+      <div id="r-insurance" class="r-insurance module-form relative hidden">
+        <form action="/Tem3_Insurance_Search.bc" method="post" data-form="insurance" id="insuranceSearch" onsubmit="form_search_isSubmited(this,event)" class="form-search forminsurance flex gap-2 max-xl:block max-xl:gap-0">
+          <input type="hidden" name="persiancurrent" class="persiancurrent" value=""/>
+          <input value='' name="birthday" class="birthday" type="hidden">
+          <div class="reserve-field w-1/3 h-20 departure-route relative max-xl:w-full max-xl:mb-4">
+            <div onclick="empty_value(this)" class="click-content border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="departure9">
+                <i class="fa map-label-icon" aria-hidden="true"></i>
+                <span class="text-sm">مقصد</span>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor hidden">ترکیه</p>
+              <input id="departure9" name="insurancecountry" type="text" class="departure text-value text-textColor w-full cursor-pointer relative bg-inherit text-base" required="" aria-label="departure" autocomplete="off" value="Turkey" placeholder="مبدا خود را انتخاب کنید"/>
+            </div>
+            <input value="1002247" class="locationId from" type="hidden" name="countryid" aria-label="locationId"/>
+            <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+              <div class="flex relative mb-2 float-right w-full clear-both">
+                <div class="h-9 leading-9">
+                  <i class="fa map-label-icon" aria-hidden="true"></i>
+                </div>
+                <input type="text" aria-label="reserve-location" placeholder="مبدا" oninput="city_search(this)" data-type="5" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right" autocomplete="off" value="" />
+              </div>
+              <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner"><i class="fas spinner-label-icon fa-spin not-italic"></i></span>
+              <div class="locationResult"></div>
+            </div>
+          </div>
+          <div class="Basis_Date_Box w-1/3 flex gap-2 max-xl:w-full max-xl:mb-4">
+            <div class="reserve-field departure-date w-1/2 h-20 relative">
+              <div class="border-type-1 h-full rounded-type-1 px-2">
+                <label class="float-right w-full" for="fromdate7">
+                  <i class="fa calendar-label-icon" aria-hidden="true"></i>
+                  <span class="text-sm">تاریخ رفت</span>
+                </label>
+                <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span class="selected-month"></span></p>
+                <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+                  <input type="text" aria-label ="تاریخ رفت" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate7" required="" placeholder="تاریخ رفت"/>
+                </basis>
+                <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+                  <input type="text" aria-label ="تاریخ رفت" value="" class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="fdate" id="fromdate7" required="" placeholder="تاریخ رفت"/>
+                  <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate"/>
+                </basis>
+                <div class="clr"></div>
+              </div>
+            </div>
+            <div class="reserve-field return-date w-1/2 h-20 relative">
+              <div class="border-type-1 h-full rounded-type-1 px-2">
+                <label class="float-right w-full" for="todate7">
+                  <i class="fa calendar-label-icon" aria-hidden="true"></i>
+                  <span class="text-sm">تاریخ برگشت</span>
+                </label>
+                <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span class="selected-month"></span></p>
+                <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+                  <input type="text" aria-label ="تاریخ برگشت" value="" class="Basis_Date end_date nextCalOpening text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="tdate" id="todate7" required="" placeholder="تاریخ برگشت"/>
+                </basis>
+                <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+                  <input type="text" aria-label ="تاریخ برگشت" value="" class="Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2" onclick="Basis_Calendar(this,'[##cms.cms.date##]')"  data-lang="fa"  data-active="0" data-cache="0" readonly="" name="tdate" id="todate7" required="" placeholder="تاریخ برگشت"/>
+                  <input value="" class="mstring_date mstring_tdate" type="hidden" aria-label="mstring_tdate"/>
+                </basis>
+                <div class="clr"></div>
+              </div>
+            </div>
+          </div>
+          <div class="reserve-field passengers-field w-1/5 h-20 relative max-xl:w-full max-xl:mb-4">
+            <div onclick="show_passengerbox(this)" class="border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="passenger1">
+                <i class="fa passenger-label-icon" aria-hidden="true"></i>
+                <span class="text-sm">تعداد مسافران</span>
+                <i class="fa down-label-icon h-full float-left"></i>
+              </label>
+              <div>
+                <span class="passenger-counts passenger-count inline-block text-textColor h-6 leading-6 text-sm"><span class="count">1</span> مسافر</span>
+              </div>
+            </div>
+            <div class="passengerbox hidden-box hidden bg-white w-full relative z-10 border-type-1 rounded-type-1 p-2">
+              <div class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600" onclick="close_passenger(this)"><i class="fa close-label-icon"></i></div>
+              <div class="passenger-item clear-both w-full mb-4 relative">
+                <label for="passenger-count1" class="float-right text-sm leading-8 text-textColor"><span>مسافر</span></label>
+                <ul class="float-left h-8 leading-8">
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_passenger_insurance(this)"><span>+</span></div></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-count1" type="text" class="passengercount w-full text-center" name="passengercount" maxlength="4000" value="1" readonly></li>
+                  <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer"><div class="h-full leading-8" onclick="Change_passenger_insurance(this)"><span>-</span></div></li>
+                </ul>
+                <div class="clr"></div>
+              </div>
+              <button type="button" class="toggle-calendar rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200">تبدیل به تقویم شمسی</button>
+              <div class="section-passenger-birthday clear-both">
+                <div class="createPassengerDropdown mb-4 w-full float-right clear-both">
+                  <label class="float-right text-sm leading-8 text-textColor" for="passenger-birthday1">تاریخ تولد مسافر 1</label>
+                  <input type="hidden" class="passenger-bithdate" value=""/>
+                  <div class="birthdate-dates clear-both flex gap-2">
+                    <div class="birthdate-day relative">
+                      <input type="text" maxlength="2" class="birthdate-day-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200" value="" placeholder="روز"/>
+                    </div>
+                    <div class="birthdate-month relative">
+                      <input type="text" maxlength="" class="birthdate-month-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200" value="" placeholder="ماه"/>
+                    </div>
+                    <div class="birthdate-year relative">
+                      <input type="text" maxlength="4" class="birthdate-year-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200" value="" placeholder="سال"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clr"></div>
+            </div>
+          </div>
+          <div class="reserve-search w-auto h-20 max-xl:w-full">
+            <button type="submit" class="search-insurance w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary">جستجو</button>
+          </div>
+        </form>
+      </div>

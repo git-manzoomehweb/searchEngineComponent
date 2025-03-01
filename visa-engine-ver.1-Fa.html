@@ -1,0 +1,43 @@
+<input type="hidden" class="visa-module" value="[##cms.Host.visa-module##]"/>
+      <div id="r-visa" class="r-visa module-form relative hidden">
+        <form action="/Tem3_Visa_Search.bc" method="post" data-form="visa" id="visaSearch" onsubmit="form_search_isSubmited(this,event)" class="form-search formvisa flex gap-2 max-xl:block max-xl:gap-0">
+          <input type="hidden" name="persiancurrent" class="persiancurrent" value=""/>
+          <div class="reserve-field w-full h-20 departure-route relative max-xl:w-full max-xl:mb-4">
+            <div onclick="empty_value(this)" class="click-content border-type-1 h-full rounded-type-1 px-2">
+              <label class="float-right w-full" for="departure7">
+                <svg width="15" height="19" class="align-middle">
+                    <use xlink:href="images/sprite-icons.svg#engine-departurevisa-icon"></use>
+                  </svg>
+                <span class="text-sm">کشور</span>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor">Turkey</p>
+              <input id="departure7" type="text" class="departure text-value text-textColor w-full cursor-pointer relative bg-inherit text-sm" required="" aria-label="departure" autocomplete="off" value="ترکیه - Turkey" name="visa-country" placeholder="مقصد خود را انتخاب کنید"/>
+            </div>
+            <input value="1002247" class="locationId from" type="hidden" name="countryid" aria-label="locationId"/>
+            <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+              <div class="flex relative mb-2 float-right w-full clear-both">
+                <div class="h-9 leading-9">
+                    <svg width="15" height="19" class="align-middle">
+                        <use xlink:href="images/sprite-icons.svg#engine-location-icon"></use>
+                      </svg>
+                </div>
+                <input type="text" aria-label="reserve-location" placeholder="مقصد" oninput="city_search(this)" data-type="5" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right" autocomplete="off" value="" />
+              </div>
+              <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+                <svg class="spinner-label-icon align-middle" width="15" height="19">
+                    <use xlink:href="images/sprite-icons.svg#engine-spinner-icon"></use>
+                  </svg>
+              </span>
+              <div class="locationResult"></div>
+              <div class="load-location-options"></div>
+            </div>
+          </div>
+          <div class="reserve-search w-auto h-20 max-xl:w-full">
+            <button type="submit" class="search-visa flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary">جستجو
+                <svg width="32" height="33" class="align-middle">
+                    <use xlink:href="images/sprite-icons.svg#engine-search-icon"></use>
+                  </svg>
+            </button>
+          </div>
+        </form>
+      </div>

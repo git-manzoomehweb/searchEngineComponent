@@ -1,0 +1,241 @@
+<input type="hidden" class="service-module" value="[##cms.Host.service-module##]" />
+<div id="r-service" class="r-service module-form relative hidden pt-5" data-module="service">
+  <div class="close-module-form w-1/4 h-6 mb-4 cursor-pointer" onclick="close_module_form(this)">
+    <svg class="rightarrow-icon align-middle rotate-180" width="24" height="24">
+      <use xlink:href="images/sprite-icons-mobile.svg#engine-rightarrow-icon"></use>
+    </svg>
+    <span>Service</span>
+  </div>
+  <form action="/Tem3_TouristPanel_Search.bc?lid=2" method="post" data-form="service" id="serviceSearch"
+    onsubmit="form_search_isSubmited(this,event)" class="form-search block">
+    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+    <input type="hidden" value="0" name="select-age" class="select-age-value" aria-label="select-age" />
+    <div class="reserve-field h-20 departure-route relative w-full mb-4">
+      <div onclick="empty_value(this)" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-routes label-departure-service float-right w-full cursor-pointer relative" for="departure8">
+          <svg width="15" height="19" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-departureservice-icon"></use>
+          </svg>
+          <span class="label-text text-sm">City</span>
+          <svg class="down-icon float-left align-middle mt-2 absolute right-0 top-0 h-2 hidden" width="15" height="8">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <p class="auto-fit clear-both text-base text-textColor cursor-pointer">Kish</p>
+        <input id="departure8" type="text" name="coHotel"
+          class="departure text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-base"
+          required="" aria-label="departure" autocomplete="off" value="Iran - Kish" placeholder="Where to?" />
+      </div>
+      <input value="1211110" class="locationId from" type="hidden" name="cityid" aria-label="locationId" />
+      <div
+        class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 w-full">
+        <div class="w-full flex items-center justify-between mb-4">
+          <div class="float-right px-2 text-xs h-fit py-2 relative rounded-lg text-primary label-search-list">
+            <span class="z-10"> Select Origin</span>
+          </div>
+          <div
+            class="close-searchList bg-primary h-fit px-3 rounded-lg py-2 leading-5   clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600"
+            onclick="close_searchList(this)">
+            <svg width="15" height="15" class=" hidden">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+            </svg>
+            <span class="text-white close-text">Confirm and Close</span>
+          </div>
+        </div>
+        <div class="flex relative mb-2 float-right w-full clear-both">
+          <div class="h-9 leading-9">
+            <svg width="15" height="19" class="align-middle">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-location-icon"></use>
+            </svg>
+          </div>
+          <input type="text" aria-label="reserve-location" placeholder="City" oninput="city_search(this)" data-type="1"
+            class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-left text-base"
+            autocomplete="off" value="" />
+        </div>
+        <span class="mini-loading absolute hidden top-14 left-4" aria-label="spinner">
+          <svg class="spinner-label-icon align-middle" width="15" height="19">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-spinner-icon"></use>
+          </svg>
+        </span>
+        <div class="locationResult clear-both"></div>
+        <div class="load-location-options"></div>
+      </div>
+    </div>
+    <div class="date__searched__container Basis_Date_Box flex gap-2 w-full mb-4">
+      <div class="reserve-field departure-date w-full h-20 relative">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-fdate-service float-right w-full relative" for="fromdate8">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-departurecalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">Date</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute right-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="Date" value=""
+              class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-left bg-inherit leading-6 float-left absolute top-0 right-0 px-2 text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="en" data-active="0" data-cache="0"
+              readonly="" name="fdate" id="fromdate8" required="" placeholder="Date" />
+          </basis>
+          <basis core="group" name="calendar-type-multi" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="Date" value="" data-role="depart"
+              class="js-date-input departure__date Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-left bg-inherit leading-6 float-left absolute top-0 right-0 px-2 text-base"
+              readonly="" name="fdate" id="fromdate8" required="" placeholder="Date" />
+            <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+        <div class="reserve-field return-date hidden">
+          <input type="text" value="" class="Basis_Date end_date text-base" data-lang="en" data-active="0"
+            data-cache="0" disabled />
+        </div>
+      </basis>
+    </div>
+    <div class="reserve-field passengers-field h-20 relative w-full mb-4">
+      <div onclick="show_passengerbox(this)"
+        class="show-passengers-dropdown show-passengers-dropdown-service border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-passengers label-passengers-service float-right w-full cursor-pointer" for="passenger8">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-passenger-icon"></use>
+          </svg>
+          <span class="label-text text-sm">Passengers</span>
+          <svg class="down-icon h-full float-right align-middle mt-2" width="15" height="8">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <div class="cursor-pointer">
+          <span class="passenger-counts adult-count inline-block text-textColor h-6 leading-6 text-sm"><span
+              class="count min-w-3 inline-block">1</span> Adult</span><span
+            class="passenger-counts child-count inline-block text-textColor h-6 leading-6 text-sm ml-2 hidden"><span
+              class="count min-w-3 inline-block">0</span> Child</span><span
+            class="passenger-counts infant-count inline-block text-textColor h-6 leading-6 text-sm ml-2 hidden"><span
+              class="count min-w-3 inline-block">0</span> Infant</span>
+        </div>
+      </div>
+      <div class="passengerbox hidden-box hidden bg-white w-full py-3.5 px-4">
+        <input type="hidden" value="0" class="childcountinput" name="child" aria-label="childcount">
+        <div
+          class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-right hover:text-red-600"
+          onclick="close_passenger(this)">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+          </svg>
+        </div>
+        <div class="passenger-item adult-passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-adultcount8"
+            class="label-passengeradult label-passengeradult-flight float-left text-sm leading-8 text-textColor"><span
+              class="adult-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons-mobile.svg#engine-adult-icon"></use>
+              </svg></span><span>Adult</span><span class="exp-age text-grays-400 ml-2">(12 years and up)</span></label>
+          <ul class="float-right h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)">
+                <span class="count-icon-simple">+</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-plus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-adultcount8"
+                type="text" class="adultcount w-full text-center text-base" name="adult" maxlength="4000" value="1"
+                readonly></li>
+            <li
+              class="minus-count  deactive-change-button inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)">
+                <span class="count-icon-simple">-</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-minus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <div class="passenger-item child-passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-childcount8"
+            class="label-passengerchild label-passengerchild-flight float-left text-sm leading-8 text-textColor"><span
+              class="child-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons-mobile.svg#engine-child-icon"></use>
+              </svg></span><span>Child</span><span class="exp-age text-grays-400 ml-2">(2 to 12 years)</span></label>
+
+          <ul class="float-right h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildrenCount_Flight(this,'child','infant')">
+                <span class="count-icon-simple">+</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-plus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-childcount8"
+                type="text" class="childcount w-full text-center text-base" maxlength="4000" value="0" readonly></li>
+            <li
+              class="minus-count  deactive-change-button inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildrenCount_Flight(this,'child','infant')">
+                <span class="count-icon-simple">-</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-minus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <div class="passenger-item infant-passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-infantcount8"
+            class="label-passengerinfant label-passengerinfant-flight float-left text-sm leading-8 text-textColor"><span
+              class="infant-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons-mobile.svg#engine-infant-icon"></use>
+              </svg></span><span>Infant</span><span class="exp-age text-grays-400 ml-2">(10 days to 2
+              years)</span></label>
+          <ul class="float-right h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildrenCount_Flight(this,'infant','child')">
+                <span class="count-icon-simple">+</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-plus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-infantcount8"
+                type="text" class="infantcount w-full text-center text-base" maxlength="4000" value="0" readonly></li>
+            <li
+              class="minus-count  deactive-change-button inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildrenCount_Flight(this,'infant','child')">
+                <span class="count-icon-simple">-</span>
+                <span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-minus-icon"></use>
+                  </svg></span>
+              </div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <div
+          class="confirm-passenger hidden w-full h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer text-sm clear-both"
+          onclick="close_passenger(this)"><span class="confirmpass-tlt-icon mr-1 hidden"><svg class="align-middle"
+              width="15" height="15">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-confirmpass-icon"></use>
+            </svg></span><span>confirm</span></div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    <div class="reserve-search h-20 w-full">
+      <button type="submit"
+        class="search-service flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary"><span>Search</span>
+        <svg width="32" height="33" class="align-middle">
+          <use xlink:href="images/sprite-icons-mobile.svg#engine-search-icon"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>

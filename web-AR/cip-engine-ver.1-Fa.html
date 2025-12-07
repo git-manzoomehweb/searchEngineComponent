@@ -1,0 +1,259 @@
+<input type="hidden" class="cip-module" value="[##cms.Host.cip-module##]" />
+<div id="r-cip" class="r-cip module-form relative hidden" data-module="cip">
+  <form action="/Tem3_Cip_Search.bc?lid=3" method="post" data-form="cip" id="cipSearch"
+    onsubmit="form_search_isSubmited(this,event)" class="form-search flex gap-2 max-xl:block max-xl:gap-0">
+    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+    <input type="hidden" value="0" name="select-age" class="select-age-value" aria-label="select-age" />
+    <div class="reserve-field w-1/5 h-20 departure-route relative max-xl:w-full max-xl:mb-4">
+      <div onclick="empty_value(this)" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-routes label-departure-cip float-right w-full cursor-pointer relative" for="departure6">
+          <svg width="15" height="19" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-departurecip-icon"></use>
+          </svg>
+          <span class="label-text text-sm">رحيل</span>
+          <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+            <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <p class="auto-fit clear-both text-base text-textColor cursor-pointer">طهران</p>
+        <input id="departure6" type="text"
+          class="departure text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-sm max-xl:text-base"
+          required="" aria-label="departure" autocomplete="off" value="طهران - جميع المطارات"
+          placeholder="حدد المغادرة" />
+      </div>
+      <input value="1203548" class="locationId from" type="hidden" name="from" aria-label="locationId" />
+      <div
+        class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-20 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+        <div class="flex relative mb-2 float-right w-full clear-both">
+          <div class="h-9 leading-9">
+            <svg width="15" height="19" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-location-icon"></use>
+            </svg>
+          </div>
+          <input type="text" aria-label="reserve-location" placeholder="رحيل" oninput="city_search(this)" data-type="1"
+            class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right max-xl:text-base"
+            autocomplete="off" value="" />
+        </div>
+        <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+          <svg class="spinner-label-icon align-middle" width="15" height="19">
+            <use xlink:href="images/sprite-icons.svg#engine-spinner-icon"></use>
+          </svg>
+        </span>
+        <div class="locationResult"></div>
+        <div class="load-location-options"></div>
+      </div>
+    </div>
+    <div class="date__searched__container Basis_Date_Box ar_Basis_Date_Box w-1/5 flex gap-2 max-xl:w-full max-xl:mb-4">
+      <div class="reserve-field departure-date w-full h-20 relative">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-fdate-cip float-right w-full relative" for="fromdate6">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-departurecalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">الدخول أو الخروج</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="Entry or Exit" value=""
+              class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="ar" data-active="0" data-cache="0"
+              readonly="" name="fdate" id="fromdate6" required="" placeholder="الدخول أو الخروج" />
+          </basis>
+          <basis core="group" name="calendar-type-multi" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="Entry or Exit" value="" data-role="depart"
+              class="js-date-input departure__date Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              readonly="" name="fdate" id="fromdate6" required="" placeholder="الدخول أو الخروج" />
+            <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+        <div class="reserve-field return-date hidden">
+          <input type="text" value="" class="Basis_Date end_date max-xl:text-base" data-lang="ar" data-active="0"
+            data-cache="0" disabled />
+        </div>
+      </basis>
+    </div>
+    <div class="reserve-field w-1/5 traveltype-field h-20 relative max-xl:w-full max-xl:mb-4">
+      <div onclick="show_traveltype(this)" class="border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-traveltype label-traveltype-cip float-right w-full cursor-pointer" for="traveltype">
+          <svg width="15" height="11" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-traveltype-icon"></use>
+          </svg>
+          <span class="label-text text-sm">نوع السفر</span>
+          <svg class="down-icon h-full float-left align-middle mt-2" width="15" height="8">
+            <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <input type="hidden" name="traveltype" value="0" class="traveltype-value" id="traveltype" />
+        <span class="traveltype-text float-right cursor-pointer">الجميع</span>
+        <div class="clr"></div>
+      </div>
+      <ul
+        class="traveltype hidden-box hidden absolute z-20 bg-white w-full clear-both border-type-1 rounded-type-1 pr-2">
+        <li
+          class="active-TravelType group leading-8 text-right cursor-pointer text-base hover:text-primary hover:text-traveltype-hover-color"
+          data-value="0" onclick="select_traveltype(this)">
+          <label
+            class="label-traveltype-item cursor-pointer text-sm text-textColor group-hover:text-primary">الجميع</label>
+        </li>
+        <li class="group leading-8 cursor-pointer text-base hover:text-primary hover:text-traveltype-hover-color"
+          data-value="1" onclick="select_traveltype(this)">
+          <label class="label-traveltype-item cursor-pointer text-sm text-textColor group-hover:text-primary">السفر
+            المحلي</label>
+        </li>
+        <li class="group leading-8 cursor-pointer text-base hover:text-primary hover:text-traveltype-hover-color"
+          data-value="2" onclick="select_traveltype(this)">
+          <label class="label-traveltype-item cursor-pointer text-sm text-textColor group-hover:text-primary">السفر
+            الخارجي</label>
+        </li>
+        <div class="clr"></div>
+      </ul>
+    </div>
+    <div class="reserve-field w-1/5 flighttype-field h-20 relative max-xl:w-full max-xl:mb-4">
+      <div onclick="show_flighttype(this)" class="border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-flighttype label-flighttype-cip float-right w-full cursor-pointer" for="flighttype">
+          <svg width="15" height="11" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-flighttype-icon"></use>
+          </svg>
+          <span class="label-text text-sm">نوع الرحلة</span>
+          <svg class="down-icon h-full float-left align-middle mt-2" width="15" height="8">
+            <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <input type="hidden" name="flighttype" value="0" class="flighttype-value" id="flighttype" />
+        <span class="flighttype-text float-right cursor-pointer">جميع الرحلات الجوية</span>
+        <div class="clr"></div>
+      </div>
+      <ul
+        class="flighttype hidden-box hidden absolute z-20 bg-white w-full clear-both border-type-1 rounded-type-1 pr-2">
+        <li
+          class="active-FlightType group leading-8 text-right cursor-pointer text-base hover:text-primary hover:text-cipflighttype-hover-color"
+          data-value="0" onclick="select_flighttype(this)">
+          <label class="label-flighttype-item cursor-pointer text-sm text-textColor group-hover:text-primary">جميع
+            الرحلات الجوية</label>
+        </li>
+        <li class="group leading-8 cursor-pointer text-base hover:text-primary hover:text-cipflighttype-hover-color"
+          data-value="1" onclick="select_flighttype(this)">
+          <label class="label-flighttype-item cursor-pointer text-sm text-textColor group-hover:text-primary">رحلة
+            قادمة</label>
+        </li>
+        <li class="group leading-8 cursor-pointer text-base hover:text-primary hover:text-cipflighttype-hover-color"
+          data-value="2" onclick="select_flighttype(this)">
+          <label class="label-flighttype-item cursor-pointer text-sm text-textColor group-hover:text-primary">رحلة
+            خارجية</label>
+        </li>
+        <div class="clr"></div>
+      </ul>
+    </div>
+    <div class="reserve-field passengers-field w-1/5 h-20 relative max-xl:w-full max-xl:mb-4">
+      <div onclick="show_passengerbox(this)"
+        class="show-passengers-dropdown show-passengers-dropdown-cip border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-passengers label-passengers-cip float-right w-full cursor-pointer" for="passenger6">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-passenger-icon"></use>
+          </svg>
+          <span class="label-text text-sm">المسافرين</span>
+          <svg class="down-icon h-full float-left align-middle mt-2" width="15" height="8">
+            <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <div class="cursor-pointer">
+          <span class="passenger-counts adult-count inline-block text-textColor h-6 leading-6 text-sm"><span
+              class="count min-w-3 inline-block">1</span> البالغ</span><span
+            class="passenger-counts child-count inline-block text-textColor h-6 leading-6 text-sm ml-2 hidden"><span
+              class="count min-w-3 inline-block">0</span> الطفل</span>
+        </div>
+      </div>
+      <div class="passengerbox hidden-box hidden bg-white w-full absolute z-20 border-type-1 rounded-type-1 p-2">
+        <div
+          class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600"
+          onclick="close_passenger(this)">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-close-icon"></use>
+          </svg>
+        </div>
+        <div class="passenger-item adult-passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-adultcount6"
+            class="label-passengeradult label-passengeradult-cip float-right text-sm leading-8 text-textColor"><span
+              class="adult-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons.svg#engine-adult-icon"></use>
+              </svg></span><span>البالغ</span><span class="exp-age text-grays-400 mr-2">(12 سنة فما فوق)</span></label>
+          <ul class="float-left h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span
+                  class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use>
+                  </svg></span></div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-adultcount6"
+                type="text" class="adultcount w-full text-center max-xl:text-base" name="adult" maxlength="4000"
+                value="1" readonly></li>
+            <li
+              class="minus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_AdultCount_Flight(this)"><span
+                  class="count-icon-simple">-</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons.svg#engine-minus-icon"></use>
+                  </svg></span></div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <div class="passenger-item child-passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-childcount6"
+            class="label-passengerchild label-passengerchild-cip float-right text-sm leading-8 text-textColor"><span
+              class="child-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons.svg#engine-child-icon"></use>
+              </svg></span><span>الطفل</span><span class="exp-age text-grays-400 mr-2">(0 إلى 12 سنة)</span></label>
+          <input type="hidden" value="0" class="childcountinput" name="child" aria-label="childcount">
+          <ul class="float-left h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span
+                  class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use>
+                  </svg></span></div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-childcount6"
+                type="text" class="childcount w-full text-center max-xl:text-base" maxlength="4000" value="0" readonly>
+            </li>
+            <li
+              class="minus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_ChildCount_Flight(this)"><span
+                  class="count-icon-simple">-</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons.svg#engine-minus-icon"></use>
+                  </svg></span></div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <div class="section-select-age clear-both"></div>
+        <div
+          class="confirm-passenger hidden w-full h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer text-sm clear-both"
+          onclick="close_passenger(this)"><span class="confirmpass-tlt-icon ml-1 hidden"><svg class="align-middle"
+              width="15" height="15">
+              <use xlink:href="images/sprite-icons.svg#engine-confirmpass-icon"></use>
+            </svg></span><span>التأكيد</span></div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    <div class="reserve-search w-auto h-20 max-xl:w-full">
+      <button type="submit"
+        class="search-cip flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary hover:text-search-button-hover-color hover:text-search-cip-hover-color"><span>يبحث</span>
+        <svg width="32" height="33" class="align-middle">
+          <use xlink:href="images/sprite-icons.svg#engine-search-icon"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>

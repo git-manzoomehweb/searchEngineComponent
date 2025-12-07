@@ -1,0 +1,188 @@
+<input type="hidden" class="bus-module" value="[##cms.Host.bus-module##]" />
+<div id="r-bus" class="r-bus module-form relative hidden" data-module="bus">
+  <ul class="bustype-items bustype-items-ul w-full clear-both mb-3 hidden">
+    <li id="oneway-bus"
+      class="active-r-btn group inline-block leading-6 cursor-pointer text-base border-type-1 h-full rounded-type-1">
+      <label for="bustype-oneway">
+        <input type="radio" id="bustype-oneway" name="bustype" value="oneway" class="hidden" checked>
+        <span
+          class="cursor-pointer text-sm text-textColor px-2 group-hover:text-primary group-hover:text-bustype-hover-color">یک
+          طرفه</span>
+      </label>
+    </li>
+    <li id="backtoback-bus"
+      class="group inline-block leading-6 cursor-pointer text-base border-type-1 h-full rounded-type-1">
+      <label for="bustype-btb">
+        <input type="radio" id="bustype-btb" name="bustype" value="backtoback" class="hidden">
+        <span
+          class="cursor-pointer text-sm text-textColor px-2 group-hover:text-primary group-hover:text-bustype-hover-color">رفت
+          و برگشت</span>
+      </label>
+    </li>
+    <div class="clr"></div>
+  </ul>
+  <form action="bus/search" method="post" data-form="bus" data-schema="391" data-bustype="1" id="busSearch"
+    onsubmit="form_search_isSubmited(this,event,true)" class="form-search formbus flex gap-2 max-xl:block max-xl:gap-0">
+    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+    <div class="bus-routes w-2/3 flex gap-2 max-xl:w-full max-xl:block max-xl:gap-0">
+      <div class="reserve-field departure-route w-1/2 h-20 relative max-xl:w-full max-xl:mb-4">
+        <div onclick="empty_value(this)" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+          <label class="label-routes label-departure-bus float-right w-full cursor-pointer relative" for="departureBus">
+            <svg width="15" height="19" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-departurebus-icon"></use>
+            </svg>
+            <span class="label-text text-sm">مبدا</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor cursor-pointer">تهران</p>
+          <input id="departureBus" type="text"
+            class="departure text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-sm max-xl:text-base"
+            required aria-label="departure" autocomplete="off" value="تهران - Tehran"
+            placeholder="مبدا خود را انتخاب کنید" />
+        </div>
+        <input value="1203548" class="locationId from" type="hidden" name="from" aria-label="locationId" />
+        <div
+          class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-20 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+          <div class="flex relative mb-2 float-right w-full clear-both">
+            <div class="h-9 leading-9">
+              <svg width="15" height="19" class="align-middle">
+                <use xlink:href="images/sprite-icons.svg#engine-location-icon"></use>
+              </svg>
+            </div>
+            <input type="text" aria-label="reserve-location" placeholder="مبدا" oninput="city_search(this)"
+              data-type="3"
+              class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right text-sm max-xl:text-base"
+              autocomplete="off" value />
+          </div>
+          <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+            <svg class="spinner-label-icon align-middle" width="15" height="19">
+              <use xlink:href="images/sprite-icons.svg#engine-spinner-icon"></use>
+            </svg>
+          </span>
+          <div class="locationResult"></div>
+          <div class="load-location-options"></div>
+        </div>
+        <span
+          class="exchangeRoute absolute top-[25%] left-1 z-[1] cursor-pointer w-10 h-10 leading-10 text-center rounded-type-2 text-white bg-bgColor-500 hover:bg-primary max-xl:rotate-90 max-xl:top-[65px]"
+          data-index="0" onclick="ExchangeRoute_Bus(this)">
+          <svg width="15" height="11" class="align-middle">
+            <use xlink:href="images/sprite-icons.svg#engine-exchange-icon"></use>
+          </svg>
+        </span>
+      </div>
+      <div class="reserve-field destination-route w-1/2 h-20 relative max-xl:w-full max-xl:mb-4">
+        <div onclick="empty_value(this)"
+          class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2 pr-4">
+          <label class="label-routes label-destination-bus float-right w-full cursor-pointer relative"
+            for="destinationBus">
+            <svg width="15" height="19" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-destinationbus-icon"></use>
+            </svg>
+            <span class="label-text text-sm">مقصد</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor cursor-pointer">استانبول</p>
+          <input id="destinationBus" type="text"
+            class="destination text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-sm max-xl:text-base"
+            required aria-label="destination" autocomplete="off" value="استانبول - Istanbul"
+            placeholder="مقصد خود را انتخاب کنید" />
+        </div>
+        <input value="1177676" class="locationId to" type="hidden" name="to" aria-label="locationId" />
+        <div
+          class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-right text-sm absolute z-20 clear-both top-full right-0  bg-white text-right leading-6 max-xl:w-full">
+          <div class="flex relative mb-2 float-right w-full clear-both">
+            <div class="h-9 leading-9">
+              <svg width="15" height="19" class="align-middle">
+                <use xlink:href="images/sprite-icons.svg#engine-location-icon"></use>
+              </svg>
+            </div>
+            <input type="text" aria-label="reserve-location" placeholder="مقصد" oninput="city_search(this)"
+              data-type="3"
+              class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right text-sm max-xl:text-base"
+              autocomplete="off" value />
+          </div>
+          <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+            <svg class="spinner-label-icon align-middle" width="15" height="19">
+              <use xlink:href="images/sprite-icons.svg#engine-spinner-icon"></use>
+            </svg>
+          </span>
+          <div class="locationResult"></div>
+          <div class="load-location-options"></div>
+        </div>
+      </div>
+    </div>
+    <div class="date__searched__container Basis_Date_Box w-1/3 flex gap-2 max-xl:w-full max-xl:mb-4">
+      <div class="reserve-field departure-date w-full h-20 relative">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-fdate-bus float-right w-full relative" for="fromdateBus">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-departurecalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">تاریخ</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="تاریخ" value=""
+              class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="fa" data-active="0" data-cache="0"
+              readonly="" name="fdate" id="fromdateBus" required="" placeholder="تاریخ" />
+            <input value="" class="mstring_date mstring_fdate" name="mstring_fdate" type="hidden"
+              aria-label="mstring_fdate" />
+          </basis>
+          <basis core="group" name="calendar-type-multi" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="تاریخ" value="" data-role="depart"
+              class="js-date-input departure__date Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              readonly="" name="fdate" id="fromdateBus" required="" placeholder="تاریخ" />
+            <input value="" class="mstring_date mstring_fdate" name="mstring_fdate" type="hidden"
+              aria-label="mstring_fdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <div class="reserve-field return-date w-1/2 h-20 relative no-activedate hidden">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-tdate-bus float-right w-full relative" for="todateBus">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons.svg#engine-returncalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">تاریخ برگشت</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="تاریخ برگشت" value=""
+              class="Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="fa" data-active="0" data-cache="0"
+              readonly="" name="tdate" id="todateBus" required="" placeholder="تاریخ برگشت" disabled />
+          </basis>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="تاریخ برگشت" value="" data-role="return"
+              class="js-date-input arrival__date Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 text-sm px-2 max-xl:text-base"
+              readonly="" name="tdate" id="todateBus" required="" placeholder="تاریخ برگشت" disabled />
+            <input value="" class="mstring_date mstring_tdate" type="hidden" aria-label="mstring_tdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+    </div>
+    <div class="reserve-search w-auto h-20 max-xl:w-full">
+      <button type="submit"
+        class="search-bus flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary hover:text-search-button-hover-color hover:text-search-bus-hover-color"><span>جستجو</span>
+        <svg width="32" height="33" class="align-middle">
+          <use xlink:href="images/sprite-icons.svg#engine-search-icon"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>

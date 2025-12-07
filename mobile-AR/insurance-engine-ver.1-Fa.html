@@ -1,0 +1,214 @@
+<input type="hidden" class="insurance-module" value="[##cms.Host.insurance-module##]" />
+<div id="r-insurance" class="r-insurance module-form relative hidden" data-module="insurance">
+  <div class="close-module-form w-1/4 h-6 mb-4 cursor-pointer" onclick="close_module_form(this)">
+    <svg class="rightarrow-icon align-middle" width="24" height="24">
+      <use xlink:href="images/sprite-icons-mobile.svg#engine-rightarrow-icon"></use>
+    </svg>
+    <span>تأمين</span>
+  </div>
+  <form action="/Tem3_Insurance_Search.bc?lid=3" method="post" data-form="insurance" id="insuranceSearch"
+    onsubmit="form_search_isSubmited(this,event)" class="form-search forminsurance block">
+    <input type="hidden" name="persiancurrent" class="persiancurrent" value="" />
+    <input value='' name="birthday" class="birthday" type="hidden">
+    <div class="reserve-field h-20 departure-route relative w-full mb-4">
+      <div onclick="empty_value(this)" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-routes label-departure-ins float-right w-full cursor-pointer relative" for="departure9">
+          <svg width="15" height="19" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-departureinsurance-icon"></use>
+          </svg>
+          <span class="label-text text-sm">وجهة</span>
+          <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <p class="auto-fit clear-both text-base text-textColor hidden cursor-pointer">تركيا</p>
+        <input id="departure9" name="insurancecountry" type="text"
+          class="departure text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-base"
+          required="" aria-label="departure" autocomplete="off" value="Turkey" placeholder="حدد الوجهة" />
+      </div>
+      <input value="1002247" class="locationId from" type="hidden" name="countryid" aria-label="locationId" />
+      <div
+        class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 w-full">
+        <div
+          class="close-searchList w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600"
+          onclick="close_searchList(this)">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+          </svg>
+        </div>
+        <div class="flex relative mb-2 float-right w-full clear-both">
+          <div class="h-9 leading-9">
+            <svg width="15" height="19" class="align-middle">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-location-icon"></use>
+            </svg>
+          </div>
+          <input type="text" aria-label="reserve-location" placeholder="وجهة" oninput="city_search(this)" data-type="5"
+            class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right text-base"
+            autocomplete="off" value="" />
+        </div>
+        <span class="mini-loading absolute hidden top-14 left-4" aria-label="spinner">
+          <svg class="spinner-label-icon align-middle" width="15" height="19">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-spinner-icon"></use>
+          </svg>
+        </span>
+        <div class="locationResult clear-both"></div>
+      </div>
+    </div>
+    <div class="ate__searched__container Basis_Date_Box ar_Basis_Date_Box flex gap-2 w-full mb-4">
+      <div class="reserve-field departure-date w-1/2 h-20 relative">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-fdate-ins float-right w-full relative" for="fromdate7">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-departurecalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">رحيل</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="رحيل" value=""
+              class="Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 px-2 text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="ar" data-active="0" data-cache="0"
+              readonly="" name="fdate" id="fromdate7" required="" placeholder="رحيل" />
+          </basis>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="رحيل" value="" data-role="depart"
+              class="js-date-input departure__date Basis_Date start_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 px-2 text-base"
+              readonly="" name="fdate" id="fromdate7" required="" placeholder="رحيل" />
+            <input value="" class="mstring_date mstring_fdate" type="hidden" aria-label="mstring_fdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <div class="reserve-field return-date w-1/2 h-20 relative">
+        <div class="border-type-1 h-full rounded-type-1 px-2">
+          <label class="label-dates label-tdate-ins float-right w-full relative" for="todate7">
+            <svg width="15" height="15" class="align-middle">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-returncalendar-icon"></use>
+            </svg>
+            <span class="label-text text-sm">يعود</span>
+            <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+            </svg>
+          </label>
+          <p class="auto-fit clear-both text-base text-textColor"><span class="selected-day"></span><span
+              class="selected-month"></span></p>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='simple'">
+            <input type="text" aria-label="يعود" value=""
+              class="Basis_Date end_date nextCalOpening text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 px-2 text-base"
+              onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-lang="ar" data-active="0" data-cache="0"
+              readonly="" name="tdate" id="todate7" required="" placeholder="يعود" />
+          </basis>
+          <basis core="group" name="calendar-type-simple" if="'[##cms.Host.calendar-type##]'='multi'">
+            <input type="text" aria-label="يعود" value="" data-role="return"
+              class="js-date-input arrival__date Basis_Date end_date text-textColor cursor-pointer h-full pt-12 w-full text-right bg-inherit leading-6 float-right absolute top-0 right-0 px-2 text-base"
+              readonly="" name="tdate" id="todate7" required="" placeholder="يعود" />
+            <input value="" class="mstring_date mstring_tdate" type="hidden" aria-label="mstring_tdate" />
+          </basis>
+          <div class="clr"></div>
+        </div>
+      </div>
+    </div>
+    <div class="reserve-field passengers-field cursor-pointer h-20 relative w-full mb-4">
+      <div onclick="show_passengerbox(this)"
+        class="show-passengers-dropdown show-passengers-dropdown-insurace border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+        <label class="label-passengers label-passengers-ins float-right w-full cursor-pointer" for="passenger1">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-passenger-icon"></use>
+          </svg>
+          <span class="label-text text-sm">المسافرين</span>
+          <svg class="down-icon h-full float-left align-middle mt-2" width="15" height="8">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use>
+          </svg>
+        </label>
+        <div class="cursor-pointer">
+          <span class="passenger-counts passenger-count inline-block text-textColor h-6 leading-6 text-sm"><span
+              class="count min-w-3 inline-block">1</span> راكب</span>
+        </div>
+      </div>
+      <div class="passengerbox hidden-box hidden bg-white w-full py-3.5 px-4">
+        <div
+          class="close-passenger-box w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600"
+          onclick="close_passenger(this)">
+          <svg width="15" height="15" class="align-middle">
+            <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+          </svg>
+        </div>
+        <div class="passenger-item clear-both w-full mb-4 relative">
+          <label for="passenger-count1"
+            class="label-passenger label-passenger-ins float-right text-sm leading-8 text-textColor"><span
+              class="adult-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15">
+                <use xlink:href="images/sprite-icons-mobile.svg#engine-adult-icon"></use>
+              </svg></span><span>راكب</span></label>
+          <ul class="float-left h-8 leading-8">
+            <li
+              class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_passenger_insurance(this)"><span
+                  class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-plus-icon"></use>
+                  </svg></span></div>
+            </li>
+            <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary"><input id="passenger-count1"
+                type="text" class="passengercount w-full text-center text-base" name="passengercount" maxlength="4000"
+                value="1" readonly></li>
+            <li
+              class="minus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+              <div class="h-full leading-8" onclick="Change_passenger_insurance(this)"><span
+                  class="count-icon-simple">-</span><span class="count-icon-svg hidden"><svg class="align-middle"
+                    width="10" height="10">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-minus-icon"></use>
+                  </svg></span></div>
+            </li>
+          </ul>
+          <div class="clr"></div>
+        </div>
+        <button type="button"
+          class="toggle-calendar hidden rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200">تحويل
+          إلى التقويم الشمسي</button>
+        <div class="section-passenger-birthday clear-both">
+          <div class="createPassengerDropdown mb-4 w-full float-right clear-both">
+            <label class="label-birthdate label-birthdate-ins float-right text-sm leading-8 text-textColor"
+              for="passenger-birthday1">عيد ميلاد الراكب الأول</label>
+            <input type="hidden" class="passenger-bithdate" value="" />
+            <div class="birthdate-dates clear-both flex gap-2">
+              <div class="birthdate-day relative">
+                <input type="text" maxlength="2"
+                  class="birthdate-day-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200 text-base"
+                  value="" placeholder="يوم" />
+              </div>
+              <div class="birthdate-month relative">
+                <input type="text" maxlength=""
+                  class="birthdate-month-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200 text-base"
+                  value="" placeholder="شهر" />
+              </div>
+              <div class="birthdate-year relative">
+                <input type="text" maxlength="4"
+                  class="birthdate-year-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200 text-base"
+                  value="" placeholder="سنة" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="confirm-passenger hidden w-full h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer text-sm clear-both"
+          onclick="close_passenger(this)"><span class="confirmpass-tlt-icon ml-1 hidden"><svg class="align-middle"
+              width="15" height="15">
+              <use xlink:href="images/sprite-icons-mobile.svg#engine-confirmpass-icon"></use>
+            </svg></span><span>التأكيد</span></div>
+        <div class="clr"></div>
+      </div>
+    </div>
+    <div class="reserve-search h-20 w-full">
+      <button type="submit"
+        class="search-insurance flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary"><span>يبحث</span>
+        <svg width="32" height="33" class="align-middle">
+          <use xlink:href="images/sprite-icons-mobile.svg#engine-search-icon"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>

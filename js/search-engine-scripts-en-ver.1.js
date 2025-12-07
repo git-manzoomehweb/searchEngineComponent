@@ -3,84 +3,84 @@ if (document.querySelector(".flight-module")) {
   var flight_module = document.querySelector(".flight-module").value;
   if (document.querySelector(".flighttype-dropDown")) {
     if (document.querySelector(".flighttype-dropDown")) {
-      const list = document.querySelector(".flighttype-items");
-      const dropdown = document.querySelector(".flighttype-dropDown");
-      const label = document.querySelector(".flighttype-dropDown-text");
-      const icon = document.querySelector(".flighttype-field-icon svg");
-
-      const setIcon = (isOpen) => {
-        if (!icon) return;
-        icon.classList.toggle("icon-rotate", !!isOpen);
-      };
-
-      if (list) {
-        list.classList.add("hidden");
-        list.hidden = true;
-        list.style.display = "none";
-        list.style.opacity = "0";
-        list.style.transition = "";
-      }
-      if (label) label.classList.remove("hidden");
-      setIcon(false);
-
-      list?.addEventListener('click', function (e) {
-        e.stopPropagation();
-      });
-
-      dropdown.addEventListener("click", function () {
-        if (!list) return;
-
-        const isClosed = list.hidden || list.classList.contains("hidden");
-
-        if (window.innerWidth > 1024) {
-          if (isClosed) {
-            list.hidden = false;
-            list.classList.remove("hidden");
-            list.style.display = "";
-            list.style.transition = "opacity 0.7s";
-            requestAnimationFrame(() => {
-              void list.offsetHeight;
-              list.style.opacity = "1";
-            });
-            setIcon(true);
-          } else {
-            setIcon(false);
-            list.style.transition = "opacity 0.7s";
-            list.style.opacity = "0";
-            list.addEventListener(
-              "transitionend",
-              () => {
-                list.classList.add("hidden");
-                list.hidden = true;
-                list.style.display = "none";
-                list.style.transition = "";
-                setIcon(false);
-              },
-              { once: true }
-            );
-          }
-        } else {
-          if (isClosed) {
-            list.hidden = false;
-            list.classList.remove("hidden");
-            list.style.display = "";
-            list.style.opacity = "1";
-            list.classList.add("fixed-Dropdownflighttype");
-            document.querySelector("body").classList.add("overflow-hidden");
-            setIcon(true);
-          } else {
-            list.classList.remove("fixed-Dropdownflighttype");
-            document.querySelector("body").classList.remove("overflow-hidden");
-            list.classList.add("hidden");
-            list.hidden = true;
-            list.style.display = "none";
-            list.style.transition = "";
-            list.style.opacity = "0";
-            setIcon(false);
-          }
+        const list = document.querySelector(".flighttype-items");
+        const dropdown = document.querySelector(".flighttype-dropDown");
+        const label = document.querySelector(".flighttype-dropDown-text");
+        const icon = document.querySelector(".flighttype-field-icon svg");
+  
+        const setIcon = (isOpen) => {
+          if (!icon) return;
+          icon.classList.toggle("icon-rotate", !!isOpen);
+        };
+  
+        if (list) {
+          list.classList.add("hidden");
+          list.hidden = true;
+          list.style.display = "none";
+          list.style.opacity = "0";
+          list.style.transition = "";
         }
-      });
-    }
+        if (label) label.classList.remove("hidden");
+        setIcon(false);
+  
+        list?.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+  
+        dropdown.addEventListener("click", function () {
+          if (!list) return;
+  
+          const isClosed = list.hidden || list.classList.contains("hidden");
+  
+          if (window.innerWidth > 1024) {
+            if (isClosed) {
+              list.hidden = false;
+              list.classList.remove("hidden");
+              list.style.display = "";
+              list.style.transition = "opacity 0.7s";
+              requestAnimationFrame(() => {
+                void list.offsetHeight;
+                list.style.opacity = "1";
+              });
+              setIcon(true);
+            } else {
+              setIcon(false);
+              list.style.transition = "opacity 0.7s";
+              list.style.opacity = "0";
+              list.addEventListener(
+                "transitionend",
+                () => {
+                  list.classList.add("hidden");
+                  list.hidden = true;
+                  list.style.display = "none";
+                  list.style.transition = "";
+                  setIcon(false);
+                },
+                { once: true }
+              );
+            }
+          } else {
+            if (isClosed) {
+              list.hidden = false;
+              list.classList.remove("hidden");
+              list.style.display = "";
+              list.style.opacity = "1";
+              list.classList.add("fixed-Dropdownflighttype");
+              document.querySelector("body").classList.add("overflow-hidden");
+              setIcon(true);
+            } else {
+              list.classList.remove("fixed-Dropdownflighttype");
+              document.querySelector("body").classList.remove("overflow-hidden");
+              list.classList.add("hidden");
+              list.hidden = true;
+              list.style.display = "none";
+              list.style.transition = "";
+              list.style.opacity = "0";
+              setIcon(false);
+            }
+          }
+        });
+      }
 
     function close_Dropdownflighttype(t) {
       const el = t.closest(".flighttype-items");
@@ -246,6 +246,9 @@ if (document.querySelector(".train-module")) {
 if (document.querySelector(".bus-module")) {
   var bus_module = document.querySelector(".bus-module").value;
 }
+if (document.querySelector("#flight-list-v2")) {
+  var flight_list_v2 = document.querySelector("#flight-list-v2").value;
+}
 // add this condition code in mobile
 if (window.innerWidth < 1024) {
   if (document.querySelector("#hide-forms")) {
@@ -326,7 +329,6 @@ if (document.querySelector("#module-order")) {
 //     }
 //   }
 // }
-
 if (document.querySelector("#empty-fields")) {
   if (!document.querySelector(".landing-search-engine")) {
     if (document.querySelector("#empty-fields").value === "true") {
@@ -422,80 +424,7 @@ if (document.querySelector("#empty-fields")) {
     }
   }
 }
-
-
-
-
-
-
-// if (document.querySelector("#empty-fields")) {
-//   if (!document.querySelector(".landing-search-engine")) {
-//     if (document.querySelector("#empty-fields").value === "true") {
-//       // اول برای بقیه ماژول‌ها همیشه خالی کن (حفظ ماهیت قبلی)
-//       document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])').forEach(function(form) {
-//         form.querySelectorAll(".text-value").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//         form.querySelectorAll(".auto-fit").forEach(function (field) {
-//           if (field.textContent !== "") {
-//             field.textContent = "";
-//           }
-//         });
-//         form.querySelectorAll(".locationId").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//       });
-//       // سپس برای پرواز (flight/multi)، فقط اگر هیستوری خالی بود خالی کن
-//       document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]').forEach(function(form) {
-//         const type = form.getAttribute('data-form');
-//         const history = get_searchHistory(type, langid);
-//         if (history.length === 0) {
-//           form.querySelectorAll(".text-value").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//           form.querySelectorAll(".auto-fit").forEach(function (field) {
-//             if (field.textContent !== "") {
-//               field.textContent = "";
-//             }
-//           });
-//           form.querySelectorAll(".locationId").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//         }
-//       });
-//     }
-//   }
-// }
-
-
-
-
-
-if (document.querySelector("#empty-fields")) {
-  if (!document.querySelector(".landing-search-engine")) {
-
-    console.log("emptyfieldddddddddd:")
-    if (document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])')) {
-      console.log(document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])'));
-    }
-
-    if (document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]')) {
-      console.log(document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]'))
-    }
-
-  }
-}
-
-
-function empty_value(t) {
+function empty_value(t, nationality) {
   const reserveField = t.closest(".reserve-field");
   reserveField.querySelector(".reserve-location").value = "";
   document.querySelectorAll(".searchList").forEach((e) => {
@@ -530,7 +459,6 @@ function empty_value(t) {
   reserveField
     .querySelector(".reserve-location")
     .focus({ preventScroll: true });
-
   // add this code in mobile
   if (window.innerWidth < 1024) {
     searchList.classList.add("fixed-searchList");
@@ -546,9 +474,14 @@ function empty_value(t) {
     const siblingSearchList = sibling.querySelector(".searchList");
     if (siblingSearchList) siblingSearchList.classList.add("hidden");
   });
+  let module_type;
+  if (nationality) {
+    module_type = nationality;
+  } else {
+    module_type = t.closest("form").getAttribute("data-form");
+  }
   if (t.closest(".reserve-field").querySelector(".load-location-options")) {
-    const url = "Client_Search_engine_Locations.bc?lid=1";
-    const module_type = t.closest("form").getAttribute("data-form");
+    const url = "Client_Search_engine_Locations.bc?lid=2";
     const params = new URLSearchParams({ "module-type": module_type });
     fetch(`${url}&${params.toString()}`)
       .then((response) => response.text())
@@ -594,19 +527,21 @@ function check_landing(t) {
           }
         }
       }
+
       if (document.querySelector("#landing-change-url")) {
         const activeItem = document.querySelector(`[data-nav="${t}"]`);
         if (activeItem) {
           const navValue = activeItem.getAttribute("data-nav");
-          // const newUrl = `/${navValue}-FA`;
+          // const newUrl = `/${navValue}-EN`;
           if (document.querySelector("#multi-language").value == "true") {
-            var newUrl = `/fa-${navValue}`;
+            var newUrl = `/en-${navValue}`;
           } else {
             var newUrl = `/${navValue}`;
           }
           window.history.pushState({}, "", newUrl);
         }
       }
+
       if (document.querySelector(".header-landing-items")) {
         document
           .querySelectorAll(".header-landing-items .landing-item")
@@ -652,7 +587,6 @@ function check_landing(t) {
       }
     }
   }
-
   const clickedElement = event.currentTarget;
   if (
     clickedElement.closest(".header-landing-items") ||
@@ -669,7 +603,80 @@ function check_landing(t) {
     }
   }
 }
-function city_search(t, source) {
+// function city_search(t) {
+//     if (t.which == 0 || t.ctrlKey || t.metaKey || t.altKey) return;
+//     const reserveField = t.closest(".reserve-field");
+//     const dataType = t.getAttribute("data-type");
+//     const miniLoading = reserveField.querySelector(".mini-loading");
+//     const locationResult = reserveField.querySelector(".locationResult");
+//     const ulList = reserveField.querySelector(".ul-list");
+//     const sendRequest = (params) => {
+//       miniLoading.style.display = "block";
+//       if (ulList) {
+//         ulList.style.display = "none";
+//       }
+//       fetch(`/Client_City_Search_ver.2.bc?${new URLSearchParams(params)}`)
+//         .then((response) => {
+//           if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//           }
+//           return response.text();
+//         })
+//         .then((html) => {
+//           miniLoading.style.display = "none";
+//           locationResult.innerHTML = html;
+//           locationResult.style.display = "block";
+//           const scripts = locationResult.querySelectorAll("script");
+//           scripts.forEach((script) => {
+//             const newScript = document.createElement("script");
+//             newScript.textContent = script.textContent;
+//             document.body.appendChild(newScript);
+//             document.body.removeChild(newScript);
+//           });
+//         })
+//         .catch((error) => {
+//           miniLoading.style.display = "none";
+//           console.error("Error:", error);
+//         });
+//     };
+//     if (dataType == "4") {
+//       t.value = "";
+//       reserveField.querySelector(".locationId").value = "";
+//       miniLoading.style.display = "block";
+//       if (t.getAttribute("data-active") !== "1") {
+//         sendRequest({ type: dataType, lid: "2" });
+//         t.setAttribute("data-active", "1");
+//       } else {
+//         locationResult.style.display = "block";
+//       }
+//     } else {
+//       const value = t.value.trim();
+//       t.value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+//       if (dataType == "3" && (value == "رم" || value == "قم")) {
+//         if (value.length > 1) {
+//           sendRequest({
+//             term: value,
+//             type: dataType,
+//             lid: "2",
+//             select_value: "0",
+//           });
+//         } else {
+//           locationResult.innerHTML = "";
+//           if (ulList) {
+//             ulList.style.display = "block";
+//           }
+//         }
+//       } else if (value.length > 2) {
+//         sendRequest({ term: value, type: dataType, lid: "2", select_value: "0" });
+//       } else {
+//         locationResult.innerHTML = "";
+//         if (ulList) {
+//           ulList.style.display = "block";
+//         }
+//       }
+//     }
+//   }
+function city_search(t) {
   if (t.which == 0 || t.ctrlKey || t.metaKey || t.altKey) return;
 
   const reserveField = t.closest(".reserve-field");
@@ -684,6 +691,8 @@ function city_search(t, source) {
       ulList.style.display = "none";
     }
 
+    const requestedTerm = (params.term || "").trim();
+
     fetch(`/Client_City_Search_ver.2.bc?${new URLSearchParams(params)}`)
       .then((response) => {
         if (!response.ok) {
@@ -695,19 +704,19 @@ function city_search(t, source) {
         miniLoading.style.display = "none";
 
         const currentValue = t.value.trim();
-        
 
-        if (dataType !== "4") { 
-           const isSpecialCase = (dataType == "3" && (currentValue == "رم" || currentValue == "قم"));
-           if (!isSpecialCase && currentValue.length <= 2) {
-
-               return; 
-           }
+        if (dataType !== "4") {
+          if (currentValue.length <= 2) {
+            return;
+          }
+          if (requestedTerm && currentValue !== requestedTerm) {
+            return;
+          }
         }
- 
 
         locationResult.innerHTML = html;
         locationResult.style.display = "block";
+
         const scripts = locationResult.querySelectorAll("script");
         scripts.forEach((script) => {
           const newScript = document.createElement("script");
@@ -724,105 +733,202 @@ function city_search(t, source) {
 
   if (dataType == "4") {
     t.value = "";
-    reserveField.querySelector(".locationId").value = "";
+    const locationIdInput = reserveField.querySelector(".locationId");
+    if (locationIdInput) locationIdInput.value = "";
+
     if (t.getAttribute("data-active") !== "1") {
       miniLoading.style.display = "block";
-      sendRequest({ type: dataType, lid: "1", source: source });
+      sendRequest({ type: dataType, lid: "2" });
       t.setAttribute("data-active", "1");
     } else {
       locationResult.style.display = "block";
     }
   } else {
-    const value = t.value.trim();
-    t.value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-    
-    const currentValue = t.value.trim();
-    if (dataType == "3" && (currentValue == "رم" || currentValue == "قم")) {
-      if (currentValue.length > 1) {
-        sendRequest({
-          term: currentValue,
-          type: dataType,
-          lid: "1",
-          select_value: "0",
-        });
-      } else {
-        locationResult.innerHTML = "";
-        locationResult.style.display = "none";
-        if (ulList) {
-          ulList.style.display = "block";
-        }
-      }
-    } else if (currentValue.length > 2) {
-      sendRequest({ term: currentValue, type: dataType, lid: "1", select_value: "0" });
+    const rawValue = t.value.trim();
+    const normalized =
+      rawValue.charAt(0).toUpperCase() + rawValue.slice(1).toLowerCase();
+    t.value = normalized;
+
+    const currentValue = normalized;
+
+    if (currentValue.length > 2) {
+      sendRequest({
+        term: currentValue,
+        type: dataType,
+        lid: "2",
+        select_value: "0",
+      });
     } else {
       locationResult.innerHTML = "";
-      locationResult.style.display = "none"; 
+      locationResult.style.display = "none";
       if (ulList) {
         ulList.style.display = "block";
       }
     }
   }
 }
+
 function SelectPlace(t) {
   const check_place = t.getAttribute("data-id");
-  let duplicate = false;
-  if (!t.closest("form").classList.contains("multicity-flight-form")) {
-    t.closest("form")
-      .querySelectorAll(".locationId")
-      .forEach((element) => {
-        if (
-          !t.closest(".reserve-field").contains(element) &&
-          element.value === check_place
-        ) {
-          duplicate = true;
+
+   const isAllHotels = !check_place || check_place === "";
+
+   const hotelNameKeyMap = {
+    "1168092": "hotel-name",
+    "1177676": "hotel-name2",
+    "1168073": "hotel-name3",
+    "1169499": "hotel-name4",
+  };
+
+   const hotelNameKey = hotelNameKeyMap[check_place] || "hotel-name";
+
+  if (t.closest("form").querySelector(".check-nationality-hotel")) {
+    if (t.closest(".check-destination-hotel")) {
+       const hotelNameContainer = t
+        .closest("form")
+        .querySelector(".hotel-name-container");
+      if (!hotelNameContainer) {
+
+         const hotelNameHTML = `
+        <div class="reserve-field w-1/3 h-20 departure-route relative max-xl:w-full max-xl:mb-4 hotel-name-container">
+          <div onclick="empty_value(this,'${hotelNameKey}')" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+            <label class="label-routes label-departure-hotel float-right w-full cursor-pointer relative" for="departure2">
+              <svg width="15" height="19" class="align-middle">
+                <use xlink:href="images/sprite-icons.svg#engine-departurehotel-icon"></use>
+              </svg>
+              <span class="label-text text-sm">Hotel</span>
+              <svg class="down-icon float-left align-middle mt-2 absolute right-0 top-0 h-2 hidden" width="15" height="8">
+                <use xlink:href="images/sprite-icons.svg#engine-down-icon"></use>
+              </svg>
+            </label>
+            <p class="auto-fit clear-both text-base text-textColor cursor-pointer"></p>
+            <input id="departure2" type="text" class="departure text-value line-clamp-1 text-textColor w-full cursor-pointer relative bg-inherit text-sm max-xl:text-base" aria-label="departure" autocomplete="off" value="All Hotels" name="" placeholder="Hotel?" />
+          </div>
+          <input value="" class="locationId from" type="hidden" name="hotelid" aria-label="locationId" />
+          <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-left text-sm absolute z-20 clear-both top-full right-0 bg-white text-left leading-6 max-xl:w-full">
+           ${
+             window.innerWidth < 1024
+               ? `
+              <div class="close-searchList w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-right hover:text-red-600" onclick="close_searchList(this)">
+                <svg width="15" height="15" class="align-middle">
+                  <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+                </svg>
+              </div>
+            `
+               : ""
+           }
+          <div class="flex relative mb-2 float-right w-full clear-both">
+              <div class="h-9 leading-9">
+                <svg width="15" height="19" class="align-middle">
+                  <use xlink:href="images/sprite-icons.svg#engine-location-icon"></use>
+                </svg>
+              </div>
+              <input type="text" aria-label="reserve-location" placeholder="Destination" oninput="autoCompleteEngineSearch(this)" data-type="3" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-left max-xl:text-base" autocomplete="off" value="" />
+            </div>
+            <span class="mini-loading absolute hidden top-6 left-4" aria-label="spinner">
+              <svg class="spinner-label-icon align-middle" width="15" height="19">
+                <use xlink:href="images/sprite-icons.svg#engine-spinner-icon"></use>
+              </svg>
+            </span>
+            <div class="locationResult"></div>
+            <div class="load-location-options"></div>
+          </div>
+        </div>
+      `;
+
+         t.closest(".check-destination-hotel").insertAdjacentHTML(
+          "afterend",
+          hotelNameHTML
+        );
+      } else {
+         const existingClickContent = hotelNameContainer.querySelector(
+          ".click-content"
+        );
+        if (existingClickContent) {
+          existingClickContent.setAttribute(
+            "onclick",
+            `empty_value(this,'${hotelNameKey}')`
+          );
         }
-      });
-    if (duplicate) {
-      if (!t.closest(".searchList").querySelector(".duplicate-place-error")) {
-        const error = document.createElement("div");
-        error.className =
-          "duplicate-place-error text-sm warningColor-100 text-right";
-        error.textContent = "مبدا و مقصد نمیتوانند یکسان باشند.";
-        t.closest(".searchList").appendChild(error);
-        setTimeout(() => {
-          error.remove();
-        }, 3000);
       }
-      return;
-    }
-    const oldError = t
-      .closest(".searchList")
-      .querySelector(".duplicate-place-error");
-    if (oldError) oldError.remove();
-  } else if (t.closest("form").classList.contains("multicity-flight-form")) {
-    t.closest(".flight-routes")
-      .querySelectorAll(".locationId")
-      .forEach((element) => {
-        if (
-          !t.closest(".reserve-field").contains(element) &&
-          element.value === check_place
-        ) {
-          duplicate = true;
+
+       if (
+        check_place != "1168092" &&
+        check_place != "1177676" &&
+        check_place != "1168073" &&
+        check_place != "1169499"
+      ) {
+        const hotelNameContainerToRemove = t
+          .closest("form")
+          .querySelector(".hotel-name-container");
+        if (hotelNameContainerToRemove) {
+          hotelNameContainerToRemove.remove();
         }
-      });
-    if (duplicate) {
-      if (!t.closest(".searchList").querySelector(".duplicate-place-error")) {
-        const error = document.createElement("div");
-        error.className =
-          "duplicate-place-error text-sm warningColor-100 text-right";
-        error.textContent = "مبدا و مقصد نمیتوانند یکسان باشند.";
-        t.closest(".searchList").appendChild(error);
-        setTimeout(() => {
-          error.remove();
-        }, 3000);
       }
-      return;
     }
-    const oldError = t
-      .closest(".searchList")
-      .querySelector(".duplicate-place-error");
-    if (oldError) oldError.remove();
   }
+
+   if (!isAllHotels) {
+    let duplicate = false;
+    if (!t.closest("form").classList.contains("multicity-flight-form")) {
+      t.closest("form")
+        .querySelectorAll(".locationId")
+        .forEach((element) => {
+          if (
+            !t.closest(".reserve-field").contains(element) &&
+            element.value === check_place
+          ) {
+            duplicate = true;
+          }
+        });
+      if (duplicate) {
+        if (!t.closest(".searchList").querySelector(".duplicate-place-error")) {
+          const error = document.createElement("div");
+          error.className =
+            "duplicate-place-error text-sm warningColor-100 text-right";
+          error.textContent = "The origin and destination cannot be the same.";
+          t.closest(".searchList").appendChild(error);
+          setTimeout(() => {
+            error.remove();
+          }, 3000);
+        }
+        return;
+      }
+      const oldError = t
+        .closest(".searchList")
+        .querySelector(".duplicate-place-error");
+      if (oldError) oldError.remove();
+    } else if (t.closest("form").classList.contains("multicity-flight-form")) {
+      t.closest(".flight-routes")
+        .querySelectorAll(".locationId")
+        .forEach((element) => {
+          if (
+            !t.closest(".reserve-field").contains(element) &&
+            element.value === check_place
+          ) {
+            duplicate = true;
+          }
+        });
+      if (duplicate) {
+        if (!t.closest(".searchList").querySelector(".duplicate-place-error")) {
+          const error = document.createElement("div");
+          error.className =
+            "duplicate-place-error text-sm warningColor-100 text-right";
+          error.textContent = "The origin and destination cannot be the same.";
+          t.closest(".searchList").appendChild(error);
+          setTimeout(() => {
+            error.remove();
+          }, 3000);
+        }
+        return;
+      }
+      const oldError = t
+        .closest(".searchList")
+        .querySelector(".duplicate-place-error");
+      if (oldError) oldError.remove();
+    }
+  }
+
   const element = t.getAttribute("data-id");
   const spanText = t.querySelector("span").textContent;
   const splitText = spanText.split("-");
@@ -831,6 +937,7 @@ function SelectPlace(t) {
   Element.querySelector(".locationId").value = element;
   Element.querySelector(".auto-fit").textContent = splitText[0];
   Element.querySelector(".searchList").classList.add("hidden");
+
   const nextCity = Element.nextElementSibling;
   if (nextCity) {
     const nextSearchList = nextCity.querySelector(".searchList");
@@ -859,6 +966,8 @@ function SelectPlace(t) {
     document.querySelector("body").classList.remove("overflow-hidden");
   }
 }
+
+
 function show_passengerbox(e) {
   const element = e.closest(".reserve-field").querySelector(".hidden-box");
   const icon = e.closest(".reserve-field").querySelector(".down-icon");
@@ -932,13 +1041,13 @@ function close_passenger(e) {
   }
 }
 function createChildDropdown(t) {
-  const ordinalWords = ["اول", "دوم", "سوم", "چهارم"];
+  const ordinalWords = ["first", "second", "third", "fourth"];
   const e = document.createElement("div");
   e.className = "createChildDropdown mb-4 w-full float-right clear-both";
   const label = document.createElement("label");
-  label.className = "float-right text-sm leading-8 text-textColor";
+  label.className = "float-left text-sm leading-8 text-textColor";
   label.setAttribute("for", "select-age-" + t);
-  label.textContent = "سن کودک " + (ordinalWords[t - 1] || t);
+  label.textContent = "Child age" + (ordinalWords[t - 1] || t);
   e.appendChild(label);
   const select = document.createElement("select");
   select.className =
@@ -946,18 +1055,18 @@ function createChildDropdown(t) {
   select.id = "select-age" + t;
   e.appendChild(select);
   const options = [
-    "تا 1 سال",
-    "1 تا 2 سال ",
-    "2 تا 3 سال",
-    "3 تا 4 سال ",
-    "4 تا 5 سال",
-    "5 تا 6 سال",
-    "6 تا 7 سال",
-    "7 تا 8 سال",
-    "8 تا 9 سال",
-    "9 تا 10 سال",
-    "10 تا 11 سال",
-    "11 تا 12 سال",
+    "Up to 1 year",
+    "1 to 2",
+    "2 to 3",
+    "3 to 4",
+    "4 to 5",
+    "5 to 6",
+    "6 to 7",
+    "7 to 8",
+    "8 to 9",
+    "9 to 10",
+    "10 to 11",
+    "11 to 12",
   ];
   options.forEach((text, i) => {
     const option = document.createElement("option");
@@ -1055,7 +1164,7 @@ document.addEventListener("click", function (event) {
 document.addEventListener("click", function (event) {
   if (
     !event.target.closest(
-      ".passengerbox,.passengers-field label,.passengers-field div,passengers-field span,.birthdate-dates,.birthdate-dates div,.birthdate-dates input,.passenger-birthday-dropdown,.passenger-birthday-dropdown li,.contentRoom .deleteRoom,.passengerbox .flightclass-field"
+      ".passengerbox,.passengers-field label,.passengers-field div,passengers-field span,.birthdate-dates,.birthdate-dates div,.birthdate-dates input,.passenger-birthday-dropdown,.passenger-birthday-dropdown li,.contentRoom .deleteRoom"
     )
   ) {
     document.querySelectorAll(".passengerbox").forEach((element) => {
@@ -1184,102 +1293,13 @@ document.addEventListener("click", function (event) {
     });
   }
 });
-// persain current
-var PersianDate = {
-  g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-  j_days_in_month: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29],
-};
-PersianDate.GregorianToPersian = function (gYear, gMonth, gDay) {
-  gYear = parseInt(gYear);
-  gMonth = parseInt(gMonth) - 1;
-  gDay = parseInt(gDay);
-
-  var gy = gYear - 1600,
-    gm = gMonth,
-    gd = gDay - 1,
-    gDayNo =
-      365 * gy +
-      Math.floor((gy + 3) / 4) -
-      Math.floor((gy + 99) / 100) +
-      Math.floor((gy + 399) / 400);
-
-  for (var i = 0; i < gm; ++i) gDayNo += PersianDate.g_days_in_month[i];
-  if (gm > 1 && ((gy % 4 == 0 && gy % 100 !== 0) || gy % 400 == 0)) gDayNo++;
-
-  gDayNo += gd;
-
-  var jDayNo = gDayNo - 79;
-
-  var jNp = Math.floor(jDayNo / 12053);
-  jDayNo %= 12053;
-
-  var jy = 979 + 33 * jNp + 4 * Math.floor(jDayNo / 1461);
-  jDayNo %= 1461;
-
-  if (jDayNo >= 366) {
-    jy += Math.floor((jDayNo - 1) / 365);
-    jDayNo = (jDayNo - 1) % 365;
-  }
-
-  for (var j = 0; j < 11 && jDayNo >= PersianDate.j_days_in_month[j]; ++j)
-    jDayNo -= PersianDate.j_days_in_month[j];
-
-  var jm = j + 1;
-  var jd = jDayNo + 1;
-
-  return [jy, jm < 10 ? "0" + jm : jm, jd < 10 ? "0" + jd : jd].join("-");
-};
+// show date in engine
 var today = new Date();
 var gYear = today.getFullYear();
 var gMonth = today.getMonth() + 1;
 var gDay = today.getDate();
-var persianCurrent = PersianDate.GregorianToPersian(gYear, gMonth, gDay);
+var persianCurrent = gYear + "-" + gMonth + "-" + gDay;
 document.querySelector(".persiancurrent").value = persianCurrent;
-// show date in engine
-var PersianDate = {
-  g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-  j_days_in_month: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29],
-};
-PersianDate.GregorianToPersian = function (gYear, gMonth, gDay) {
-  gYear = parseInt(gYear);
-  gMonth = parseInt(gMonth) - 1; // Zero-based
-  gDay = parseInt(gDay);
-
-  var gy = gYear - 1600,
-    gm = gMonth,
-    gd = gDay - 1,
-    gDayNo =
-      365 * gy +
-      Math.floor((gy + 3) / 4) -
-      Math.floor((gy + 99) / 100) +
-      Math.floor((gy + 399) / 400);
-
-  for (var i = 0; i < gm; ++i) gDayNo += PersianDate.g_days_in_month[i];
-  if (gm > 1 && ((gy % 4 == 0 && gy % 100 !== 0) || gy % 400 == 0)) gDayNo++;
-
-  gDayNo += gd;
-
-  var jDayNo = gDayNo - 79;
-
-  var jNp = Math.floor(jDayNo / 12053); // 33-year cycles
-  jDayNo %= 12053;
-
-  var jy = 979 + 33 * jNp + 4 * Math.floor(jDayNo / 1461);
-  jDayNo %= 1461;
-
-  if (jDayNo >= 366) {
-    jy += Math.floor((jDayNo - 1) / 365);
-    jDayNo = (jDayNo - 1) % 365;
-  }
-
-  for (var j = 0; j < 11 && jDayNo >= PersianDate.j_days_in_month[j]; ++j)
-    jDayNo -= PersianDate.j_days_in_month[j];
-
-  var jm = j + 1;
-  var jd = jDayNo + 1;
-
-  return [jy, jm < 10 ? "0" + jm : jm, jd < 10 ? "0" + jd : jd].join("-");
-};
 // Calculate future dates
 var currentTime = new Date();
 currentTime.setDate(currentTime.getDate() + 2);
@@ -1291,33 +1311,31 @@ tomorrow.setDate(tomorrow.getDate() + 4);
 var gregorian_month_tomorrow = tomorrow.getMonth() + 1;
 var gregorian_day_tomorrow = tomorrow.getDate();
 var gregorian_year_tomorrow = tomorrow.getFullYear();
-// Convert Gregorian to Persian
-var persian_today = PersianDate.GregorianToPersian(
-  gregorian_year,
-  gregorian_month,
-  gregorian_day
-);
-var persian_tomorrow = PersianDate.GregorianToPersian(
-  gregorian_year_tomorrow,
-  gregorian_month_tomorrow,
-  gregorian_day_tomorrow
-);
+
+var persian_today =
+  gregorian_year + "-" + gregorian_month + "-" + gregorian_day;
+var persian_tomorrow =
+  gregorian_year_tomorrow +
+  "-" +
+  gregorian_month_tomorrow +
+  "-" +
+  gregorian_day_tomorrow;
 var persian_today_split = persian_today.split("-");
 var persian_tomorrow_split = persian_tomorrow.split("-");
-// Persian months
+// months
 var months = {
-  "01": "فروردین",
-  "02": "اردیبهشت",
-  "03": "خرداد",
-  "04": "تیر",
-  "05": "مرداد",
-  "06": "شهریور",
-  "07": "مهر",
-  "08": "آبان",
-  "09": "آذر",
-  10: "دی",
-  11: "بهمن",
-  12: "اسفند",
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
 };
 // Update `.start_date` and `.end_date`
 document.querySelectorAll(".start_date").forEach(function (startElement) {
@@ -1443,7 +1461,7 @@ document.addEventListener("click", function (event) {
         const alertDiv = document.createElement("div");
         alertDiv.className =
           "alert-adults alert-for-passenger text-sm warningColor-100 text-right";
-        alertDiv.textContent = "باید تعداد بزرگسال کمتر از 15 باشد !";
+        alertDiv.textContent = "The number of adults must be less than 15!";
         event.target.closest(".adult-passenger-item").after(alertDiv);
         setTimeout(() => {
           alertDiv.remove();
@@ -1459,7 +1477,7 @@ document.addEventListener("click", function (event) {
         alertDiv.className =
           "alert-passengers alert-for-passenger text-sm warningColor-100 text-right";
         alertDiv.textContent =
-          "باید مجموع تعداد بزرگسال و کودک کمتر از 10 باشد !";
+          "The total number of adults and children must be less than 10!";
         event.target
           .closest(".passengerbox")
           .querySelector(".child-passenger-item")
@@ -1471,6 +1489,7 @@ document.addEventListener("click", function (event) {
     }
   }
 });
+
 if (flight_module == "true") {
   // start flight module scripts
   if (window.innerWidth <= 750) {
@@ -1482,6 +1501,18 @@ if (flight_module == "true") {
 
     if (flightSearch.getAttribute("action") == "/Tem3_Oneway_Search.bc") {
       flightSearch.setAttribute("action", "/M_Oneway_Search.bc");
+    }
+  } else if (window.innerWidth > 750) {
+    if (flight_list_v2 == "true") {
+      const flightSearch = document.getElementById("flightSearch");
+
+      if (flightSearch.getAttribute("action") == "/Tem3_Roundtrip_Search.bc") {
+        flightSearch.setAttribute("action", "/Tem_Roundtrip_Search.bc");
+      }
+
+      if (flightSearch.getAttribute("action") == "/Tem3_Oneway_Search.bc") {
+        flightSearch.setAttribute("action", "/Tem_Oneway_Search.bc");
+      }
     }
   }
   // new version of the following function
@@ -1513,13 +1544,14 @@ if (flight_module == "true") {
       if (alertText) {
         alertText.remove();
       }
+
       if (infants > adults) {
         event.preventDefault();
         form
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">به ازای هر بزرگسال تنها یک نوزاد انتخاب کنید!</div>`
+            `<div class="alert-text alert-for-passenger">Choose only one infant per adult!</div>`
           );
       }
       if (totalPassengers > 10) {
@@ -1528,7 +1560,7 @@ if (flight_module == "true") {
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">باید مجموع تعداد بزرگسال , کودک و نوزاد کمتر از 10 باشد !</div>`
+            `<div class="alert-text alert-for-passenger">The total number of adults, children, and infants must be less than 10!</div>`
           );
       }
       if (adults < 1) {
@@ -1537,7 +1569,7 @@ if (flight_module == "true") {
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">حداقل یک بزرگسال انتخاب کنید !</div>`
+            `<div class="alert-text alert-for-passenger">Choose at least one adult!</div>`
           );
       }
     });
@@ -1566,13 +1598,9 @@ if (flight_module == "true") {
     }
     check_searchHistory("flight");
     document.querySelector("#flightSearch").setAttribute("method", "get");
-    this.classList.add("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#oneway")
-      .classList.remove("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#multi")
-      .classList.remove("active-r-btn", "book-active__module__type");
+    this.classList.add("active-r-btn");
+    document.querySelector("#oneway").classList.remove("active-r-btn");
+    document.querySelector("#multi").classList.remove("active-r-btn");
     document.querySelector("#flightSearch").setAttribute("data-form", "flight");
     document
       .querySelector("#flightSearch")
@@ -1580,6 +1608,13 @@ if (flight_module == "true") {
     document
       .querySelector("#flightSearch")
       .setAttribute("action", "/Tem3_Roundtrip_Search.bc");
+    if (window.innerWidth > 750) {
+      if (flight_list_v2 == "true") {
+        document
+          .querySelector("#flightSearch")
+          .setAttribute("action", "/Tem_Roundtrip_Search.bc");
+      }
+    }
     const end_date = document.querySelector("#flightSearch .end_date");
     if (end_date) {
       end_date.disabled = false;
@@ -1633,13 +1668,9 @@ if (flight_module == "true") {
     }
     check_searchHistory("flight");
     document.querySelector("#flightSearch").setAttribute("method", "get");
-    this.classList.add("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#backtoback")
-      .classList.remove("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#multi")
-      .classList.remove("active-r-btn", "book-active__module__type");
+    this.classList.add("active-r-btn");
+    document.querySelector("#backtoback").classList.remove("active-r-btn");
+    document.querySelector("#multi").classList.remove("active-r-btn");
     document.querySelector("#flightSearch").setAttribute("data-form", "flight");
     document
       .querySelector("#flightSearch")
@@ -1647,6 +1678,13 @@ if (flight_module == "true") {
     document
       .querySelector("#flightSearch")
       .setAttribute("action", "/Tem3_Oneway_Search.bc");
+    if (window.innerWidth > 750) {
+      if (flight_list_v2 == "true") {
+        document
+          .querySelector("#flightSearch")
+          .setAttribute("action", "/Tem_Oneway_Search.bc");
+      }
+    }
     const end_date = document.querySelector("#flightSearch .end_date");
     if (end_date) {
       end_date.disabled = true;
@@ -1731,9 +1769,6 @@ if (flight_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -1771,9 +1806,6 @@ if (flight_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
     //simple-calendar
     if (calendar_type == "simple-calendar") {
@@ -1783,7 +1815,7 @@ if (flight_module == "true") {
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
 
-        if (typeDate) typeDate.textContent = "تاریخ رفت :";
+        if (typeDate) typeDate.textContent = "Departure :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
@@ -1792,38 +1824,34 @@ if (flight_module == "true") {
   });
   function ExchangeRoute(t) {
     const FlightRoute = t.closest(".flight-routes");
-    if (FlightRoute) {
-      const departureInput = FlightRoute.querySelector(".departure");
-      const destinationInput = FlightRoute.querySelector(".destination");
-      const locationIdInput =
-        FlightRoute.querySelector(".departure-route").querySelector(
-          ".locationId"
-        );
-      const nextLocationIdInput =
-        FlightRoute.querySelector(".destination-route").querySelector(
-          ".locationId"
-        );
-      const autoFitText =
-        FlightRoute.querySelector(".departure-route").querySelector(
-          ".auto-fit"
-        );
-      const nextAutoFitText =
-        FlightRoute.querySelector(".destination-route").querySelector(
-          ".auto-fit"
-        );
-      const departureValue = departureInput.value;
-      const destinationValue = destinationInput.value;
-      const locationIdValue = locationIdInput.value;
-      const nextLocationIdValue = nextLocationIdInput.value;
-      const autoFitValue = autoFitText.textContent;
-      const nextAutoFitValue = nextAutoFitText.textContent;
-      departureInput.value = destinationValue;
-      destinationInput.value = departureValue;
-      locationIdInput.value = nextLocationIdValue;
-      nextLocationIdInput.value = locationIdValue;
-      autoFitText.textContent = nextAutoFitValue;
-      nextAutoFitText.textContent = autoFitValue;
-    }
+    const departureInput = FlightRoute.querySelector(".departure");
+    const destinationInput = FlightRoute.querySelector(".destination");
+    const locationIdInput =
+      FlightRoute.querySelector(".departure-route").querySelector(
+        ".locationId"
+      );
+    const nextLocationIdInput =
+      FlightRoute.querySelector(".destination-route").querySelector(
+        ".locationId"
+      );
+    const autoFitText =
+      FlightRoute.querySelector(".departure-route").querySelector(".auto-fit");
+    const nextAutoFitText =
+      FlightRoute.querySelector(".destination-route").querySelector(
+        ".auto-fit"
+      );
+    const departureValue = departureInput.value;
+    const destinationValue = destinationInput.value;
+    const locationIdValue = locationIdInput.value;
+    const nextLocationIdValue = nextLocationIdInput.value;
+    const autoFitValue = autoFitText.textContent;
+    const nextAutoFitValue = nextAutoFitText.textContent;
+    departureInput.value = destinationValue;
+    destinationInput.value = departureValue;
+    locationIdInput.value = nextLocationIdValue;
+    nextLocationIdInput.value = locationIdValue;
+    autoFitText.textContent = nextAutoFitValue;
+    nextAutoFitText.textContent = autoFitValue;
   }
   // end flight module scripts
 }
@@ -1832,9 +1860,18 @@ if (multiflight_module == "true") {
   if (window.innerWidth <= 750) {
     const flightSearch = document.getElementById("flightSearch");
     if (
-      flightSearch.getAttribute("action") == "/Tem3_Multicity_Search.bc?lid=1"
+      flightSearch.getAttribute("action") == "/Tem3_Multicity_Search.bc?lid=2"
     ) {
-      flightSearch.setAttribute("action", "/M_Multicity_Search.bc?lid=1");
+      flightSearch.setAttribute("action", "/M_Multicity_Search.bc?lid=2");
+    }
+  } else if (window.innerWidth > 750) {
+    if (flight_list_v2 == "true") {
+      const flightSearch = document.getElementById("flightSearch");
+      if (
+        flightSearch.getAttribute("action") == "/Tem3_Multicity_Search.bc?lid=2"
+      ) {
+        flightSearch.setAttribute("action", "/Tem_Multicity_Search.bc?lid=2");
+      }
     }
   }
   document.querySelector("#multi").addEventListener("click", function () {
@@ -1860,19 +1897,22 @@ if (multiflight_module == "true") {
         document.querySelector("#multi span").textContent;
     }
     document.querySelector("#flightSearch").setAttribute("method", "post");
-    document
-      .querySelector("#backtoback")
-      .classList.remove("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#oneway")
-      .classList.remove("active-r-btn", "book-active__module__type");
+    document.querySelector("#backtoback").classList.remove("active-r-btn");
+    document.querySelector("#oneway").classList.remove("active-r-btn");
     document.querySelector("#flightSearch").setAttribute("data-form", "multi");
     document
       .querySelector("#flightSearch")
       .setAttribute("data-flighttype", "3");
     document
       .querySelector("#flightSearch")
-      .setAttribute("action", "/Tem3_Multicity_Search.bc?lid=1");
+      .setAttribute("action", "/Tem3_Multicity_Search.bc?lid=2");
+    if (window.innerWidth > 750) {
+      if (flight_list_v2 == "true") {
+        document
+          .querySelector("#flightSearch")
+          .setAttribute("action", "/Tem_Multicity_Search.bc?lid=2");
+      }
+    }
     const end_date = document.querySelector("#flightSearch .end_date");
     if (end_date) {
       end_date.disabled = true;
@@ -1887,11 +1927,11 @@ if (multiflight_module == "true") {
     if (window.innerWidth <= 750) {
       document
         .querySelector("#flightSearch")
-        .setAttribute("action", "/M_Multicity_Search.bc?lid=1");
+        .setAttribute("action", "/M_Multicity_Search.bc?lid=2");
     }
     if (!this.classList.contains("active-r-btn")) {
       show_Multicity();
-      this.classList.add("active-r-btn", "book-active__module__type");
+      this.classList.add("active-r-btn");
     }
     var second_exchange = document
       .querySelectorAll(".route-content")[1]
@@ -1906,16 +1946,6 @@ if (multiflight_module == "true") {
     document
       .querySelector("#flightSearch")
       .classList.add("block", "multicity-flight-form");
-
-
-
-
-
-
-
-
-
-
     //empty-fields
     // if (document.querySelector("#empty-fields")) {
     //   if (!document.querySelector(".landing-search-engine")) {
@@ -1964,10 +1994,6 @@ if (multiflight_module == "true") {
     //     }
     //   }
     // }
-
-
-
-
     const searchHistoryRaw = localStorage.getItem("searchHistory_multi");
     let searchHistory = [];
     
@@ -2054,14 +2080,6 @@ if (multiflight_module == "true") {
         }
       }
     }
-    
-
-
-
-
-
-
-
     document
       .querySelectorAll("#flightSearch .return-date")
       .forEach(function (element) {
@@ -2090,10 +2108,10 @@ if (multiflight_module == "true") {
         "multi-route-tlt mb-2 text-textColor text-base w-auto";
       if (window.innerWidth < 1024) {
         titleDiv.innerHTML =
-          '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> مقصد اول';
+          '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> First Route';
       } else {
         titleDiv.innerHTML =
-          '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> مقصد اول';
+          '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> First Route';
       }
       const flexContainer = document.createElement("div");
       flexContainer.className =
@@ -2114,10 +2132,10 @@ if (multiflight_module == "true") {
       secondRouteContent.setAttribute("data-index", "2");
       if (window.innerWidth < 1024) {
         secondRouteContent.querySelector(".multi-route-tlt").innerHTML =
-          '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> مقصد دوم';
+          '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> Second Route';
       } else {
         secondRouteContent.querySelector(".multi-route-tlt").innerHTML =
-          '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> مقصد دوم';
+          '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> Second Route';
       }
       secondRouteContent
         .querySelector(".departure-route label")
@@ -2168,7 +2186,7 @@ if (multiflight_module == "true") {
       addRouteButton.setAttribute("data-key", "add-routs");
       addRouteButton.setAttribute("onclick", "addMulticityRoute(this)");
       addRouteButton.innerHTML =
-        '<span>افزودن مقصد</span><svg class="addroute-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-addroute-icon"></use></svg>';
+        '<span>Add Route</span><svg class="addroute-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-addroute-icon"></use></svg>';
       buttonWrapper.appendChild(addRouteButton);
 
       const removeAllRouteButton = document.createElement("button");
@@ -2181,7 +2199,7 @@ if (multiflight_module == "true") {
         "removeAllMulticityRoute(this)"
       );
       removeAllRouteButton.innerHTML =
-        '<span>حذف همه</span><svg class="removeall-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-removeall-icon"></use></svg>';
+        '<span>Remove All</span><svg class="removeall-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-removeall-icon"></use></svg>';
       buttonWrapper.appendChild(removeAllRouteButton);
 
       addRouteContainer.appendChild(buttonWrapper);
@@ -2320,10 +2338,10 @@ if (multiflight_module == "true") {
     }
   }
   const destination_nth_txt = [
-    "مقصد اول",
-    "مقصد دوم",
-    "مقصد سوم",
-    "مقصد چهارم",
+    "First Route",
+    "Second Route",
+    "Third Route",
+    "Fourth Route",
   ];
   function addMulticityRoute(t) {
     document
@@ -2367,12 +2385,12 @@ if (multiflight_module == "true") {
       if (window.innerWidth < 1024) {
         if (routeTitle)
           routeTitle.innerHTML =
-            '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> ' +
+            '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons-mobile.svg#engine-multiroute-icon"></use></svg></span> ' +
             destinationText;
       } else {
         if (routeTitle)
           routeTitle.innerHTML =
-            '<span class="multiroute-tlt-icon ml-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> ' +
+            '<span class="multiroute-tlt-icon mr-1 hidden"><svg class="align-middle" width="15" height="15"><use xlink:href="images/sprite-icons.svg#engine-multiroute-icon"></use></svg></span> ' +
             destinationText;
       }
       newRoute.querySelectorAll("input").forEach((input) => {
@@ -2381,7 +2399,7 @@ if (multiflight_module == "true") {
       newRoute
         .querySelector(".route-content-inner")
         .querySelector(".route-minus-btn").innerHTML =
-        '<span>حذف</span><svg class="removeroute-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-removeroute-icon"></use></svg>';
+        '<span>remove</span><svg class="removeroute-icon align-middle" width="15" height="11"><use xlink:href="images/sprite-icons.svg#engine-removeroute-icon"></use></svg>';
       newRoute
         .querySelector(".route-content-inner")
         .querySelector(".route-minus-btn")
@@ -2481,9 +2499,9 @@ if (multiflight_module == "true") {
 }
 if (hotel_module == "true") {
   // start hotel module scripts
-  if (window.innerWidth <= 950) {
+  if (window.innerWidth <= 750) {
     const hotelSearch = document.getElementById("hotelSearch");
-    hotelSearch.setAttribute("action", "/M_Hotel_Search.bc?lid=1");
+    hotelSearch.setAttribute("action", "/M_Hotel_Search.bc?lid=2");
   }
   document.querySelector(".hotel-btn").addEventListener("click", function () {
     document.querySelectorAll(".reserve-btn").forEach(function (btn) {
@@ -2538,9 +2556,6 @@ if (hotel_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -2578,9 +2593,6 @@ if (hotel_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
     //simple-calendar
     if (calendar_type == "simple-calendar") {
@@ -2590,7 +2602,7 @@ if (hotel_module == "true") {
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
 
-        if (typeDate) typeDate.textContent = "تاریخ رفت :";
+        if (typeDate) typeDate.textContent = "Departure :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
@@ -2602,7 +2614,7 @@ if (flighthotel_module == "true") {
   // start flighthotel module scripts
   if (window.innerWidth <= 750) {
     const flightHotelSearch = document.getElementById("flightHotelSearch");
-    flightHotelSearch.setAttribute("action", "/M_FlightHotel_Search.bc?lid=1");
+    flightHotelSearch.setAttribute("action", "/M_FlightHotel_Search.bc?lid=2");
   }
   document
     .querySelector(".flighthotel-btn")
@@ -2665,9 +2677,6 @@ if (flighthotel_module == "true") {
         if (topBannerResize.classList.contains("train-banner-background")) {
           topBannerResize.classList.remove("train-banner-background");
         }
-        if (topBannerResize.classList.contains("bus-banner-background")) {
-          topBannerResize.classList.remove("bus-banner-background");
-        }
       }
       const topBannerImageResize = document.querySelector(
         ".module-banner-image"
@@ -2709,9 +2718,6 @@ if (flighthotel_module == "true") {
         if (topBannerImageResize.classList.contains("train-banner-image")) {
           topBannerImageResize.classList.remove("train-banner-image");
         }
-        if (topBannerImageResize.classList.contains("bus-banner-background")) {
-          topBannerImageResize.classList.remove("bus-banner-background");
-        }
       }
       //simple-calendar
       if (calendar_type == "simple-calendar") {
@@ -2721,7 +2727,7 @@ if (flighthotel_module == "true") {
           const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
           const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
 
-          if (typeDate) typeDate.textContent = "تاریخ رفت :";
+          if (typeDate) typeDate.textContent = "Departure :";
           if (dayOfDate) dayOfDate.textContent = "---";
           if (monthOfDate) monthOfDate.textContent = " ";
         }
@@ -2753,7 +2759,7 @@ if (tour_module == "true") {
   // start tour module scripts
   if (window.innerWidth <= 750) {
     const tourSearch = document.getElementById("tourSearch");
-    tourSearch.setAttribute("action", "/M_Tour_Search.bc?lid=1");
+    tourSearch.setAttribute("action", "/M_Tour_Search.bc?lid=2");
   }
   document.querySelector(".tour-btn").addEventListener("click", function () {
     document.querySelectorAll(".reserve-btn").forEach(function (btn) {
@@ -2808,9 +2814,6 @@ if (tour_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -2848,9 +2851,6 @@ if (tour_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
     //simple-calendar
     if (calendar_type == "simple-calendar") {
@@ -2860,7 +2860,7 @@ if (tour_module == "true") {
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
 
-        if (typeDate) typeDate.textContent = "تاریخ رفت :";
+        if (typeDate) typeDate.textContent = "Departure :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
@@ -2914,13 +2914,13 @@ if (
         let newRoom = document.createElement("div");
         newRoom.className = "contentRoom";
         newRoom.innerHTML = `
-          <div class="numberOfRoom text-sm text-primary float-right clear-both w-1/2 mb-4 text-right">اتاق ${s}</div>
-          <div class="deleteRoom text-sm warningColor-100 float-left w-1/2 mb-4 text-left cursor-pointer hover:text-remove-room-hover-color" onclick="remove_Room(this)">حذف اتاق</div>
+          <div class="numberOfRoom text-sm text-primary float-left clear-both w-1/2 mb-4 text-left">Room<span class="ml-1 t1">${s}</span></div>
+          <div class="deleteRoom text-sm warningColor-100 float-right w-1/2 mb-4 text-right cursor-pointer hover:text-remove-room-hover-color" onclick="remove_Room(this)">Remove room</div>
             <div class="passenger-item adult-passenger-item clear-both w-full mb-4 relative">
-              <label for="passenger-room-adultcount${s}" class="float-right text-sm leading-8 text-textColor">
-                <span>بزرگسال</span><span class="exp-age text-grays-400 mr-2">(12 سال به بالا)</span>
+              <label for="passenger-room-adultcount${s}" class="float-left text-sm leading-8 text-textColor">
+                <span>Adult</span><span class="exp-age text-grays-400 ml-2">(12 years and up)</span>
               </label>
-              <ul class="float-left h-8 leading-8">
+              <ul class="float-right h-8 leading-8">
                 <li class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_AdultCount(this)">
                     <span class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use></svg></span>
@@ -2938,10 +2938,10 @@ if (
               <div class="clr"></div>
             </div>
             <div class="passenger-item child-passenger-item clear-both w-full mb-4 relative">
-              <label for="passenger-room-childcount${s}" class="float-right text-sm leading-8 text-textColor">
-                <span>کودک</span><span class="exp-age text-grays-400 mr-2">(0 تا 12 سال)</span>
+              <label for="passenger-room-childcount${s}" class="float-left text-sm leading-8 text-textColor">
+                <span>Child</span><span class="exp-age text-grays-400 ml-2">(0 to 12 years)</span>
               </label>
-              <ul class="float-left h-8 leading-8">
+              <ul class="float-right h-8 leading-8">
                 <li class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_ChildCount(this)">
                     <span class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use></svg></span>
@@ -2950,7 +2950,7 @@ if (
                 <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary">
                   <input id="passenger-room-childcount${s}" type="text" class="childcount w-full text-center" maxlength="4000" value="0" readonly>
                 </li>
-                <li class="minus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+                <li class="minus-count deactive-change-button inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_ChildCount(this)">
                     <span class="count-icon-simple">-</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-minus-icon"></use></svg></span>
                   </div>
@@ -2993,6 +2993,33 @@ if (
       Sum_AdultCount(t);
       Sum_ChildCount(t);
     }
+    if (n > 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (n == 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
+    }
   }
   function Add_Room_Count(t) {
     let e = parseInt(t.closest("ul").querySelector(".roomcount").value);
@@ -3021,13 +3048,13 @@ if (
         let newRoom = document.createElement("div");
         newRoom.className = "contentRoom";
         newRoom.innerHTML = `
-          <div class="numberOfRoom text-sm text-primary float-right clear-both w-1/2 mb-4 text-right">اتاق ${s}</div>
-          <div class="deleteRoom text-sm warningColor-100 float-left w-1/2 mb-4 text-left cursor-pointer hover:text-remove-room-hover-color" onclick="remove_Room(this)">حذف اتاق</div>
+          <div class="numberOfRoom text-sm text-primary float-left clear-both w-1/2 mb-4 text-left">Room<span class="ml-1 t2">${s}</span></div>
+          <div class="deleteRoom text-sm warningColor-100 float-right w-1/2 mb-4 text-right cursor-pointer hover:text-remove-room-hover-color" onclick="remove_Room(this)">Remove room</div>
             <div class="passenger-item adult-passenger-item clear-both w-full mb-4 relative">
-              <label for="passenger-room-adultcount${s}" class="float-right text-sm leading-8 text-textColor">
-                <span>بزرگسال</span><span class="exp-age text-grays-400 mr-2">(12 سال به بالا)</span>
+              <label for="passenger-room-adultcount${s}" class="float-left text-sm leading-8 text-textColor">
+                <span>Adult</span><span class="exp-age text-grays-400 ml-2">(12 years and up)</span>
               </label>
-              <ul class="float-left h-8 leading-8">
+              <ul class="float-right h-8 leading-8">
                 <li class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_AdultCount(this)">
                     <span class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use></svg></span>
@@ -3045,10 +3072,10 @@ if (
               <div class="clr"></div>
             </div>
             <div class="passenger-item child-passenger-item clear-both w-full mb-4 relative">
-              <label for="passenger-room-childcount${s}" class="float-right text-sm leading-8 text-textColor">
-                <span>کودک</span><span class="exp-age text-grays-400 mr-2">(0 تا 12 سال)</span>
+              <label for="passenger-room-childcount${s}" class="float-left text-sm leading-8 text-textColor">
+                <span>Child</span><span class="exp-age text-grays-400 ml-2">(0 to 12 years)</span>
               </label>
-              <ul class="float-left h-8 leading-8">
+              <ul class="float-right h-8 leading-8">
                 <li class="plus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_ChildCount(this)">
                     <span class="count-icon-simple">+</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-plus-icon"></use></svg></span>
@@ -3057,7 +3084,7 @@ if (
                 <li class="inline-block w-8 h-8 leading-8 text-center hover:text-primary">
                   <input id="passenger-room-childcount${s}" type="text" class="childcount w-full text-center" maxlength="4000" value="0" readonly>
                 </li>
-                <li class="minus-count inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
+                <li class="minus-count deactive-change-button inline-block w-8 h-8 leading-8 text-center hover:text-primary radius-type-1 border-type-1 cursor-pointer">
                   <div class="h-full leading-8" onclick="Change_ChildCount(this)">
                     <span class="count-icon-simple">-</span><span class="count-icon-svg hidden"><svg class="align-middle" width="10" height="10"><use xlink:href="images/sprite-icons.svg#engine-minus-icon"></use></svg></span>
                   </div>
@@ -3110,7 +3137,9 @@ if (
     let roomsContainer = document.querySelector(".Rooms");
     let rooms = roomsContainer.querySelectorAll(".contentRoom");
     rooms.forEach((room, index) => {
-      room.querySelector(".numberOfRoom").textContent = `اتاق${index + 1}`;
+      room.querySelector(".numberOfRoom").innerHTML = `Room<span class="ml-1">${
+        index + 1
+      }</span>`;
       room
         .querySelector("input.adultcount")
         .setAttribute("name", `_root.rooms__${index + 1}.adultcount`);
@@ -3145,6 +3174,7 @@ if (
       `div.contentRoom:nth-child(${count + 1})`
     );
     if (roomToRemove) roomToRemove.remove();
+
     let adult_count = 0;
     let child_count = 0;
     container.querySelectorAll(".adultcount").forEach((adult) => {
@@ -3173,11 +3203,39 @@ if (
       button.textContent.indexOf("+") > -1
         ? currentValue + 1
         : currentValue > 0
-          ? currentValue - 1
-          : 0;
+        ? currentValue - 1
+        : 0;
+    if (updatedValue < 1) return;
     if (updatedValue < 10 || updatedValue >= 1) {
       adultCountInput.value = updatedValue;
       Sum_AdultCount(button);
+    }
+    if (updatedValue > 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (updatedValue == 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
     }
     Check_Passenger_Count(t);
   }
@@ -3192,7 +3250,7 @@ if (
     form.querySelector(".adult-count .count").textContent = totalAdults;
   }
   function Change_ChildCount(t) {
-    const ordinalWords = ["اول", "دوم", "سوم", "چهارم"];
+    const ordinalWords = ["first", "second", "third", "fourth"];
     const span = t.querySelector("span");
     const room = t.closest(".contentRoom");
     const childCountInput = t.closest("ul").querySelector(".childcount");
@@ -3201,8 +3259,8 @@ if (
       span.textContent.indexOf("+") > -1
         ? currentCount + 1
         : currentCount > 0
-          ? currentCount - 1
-          : 0;
+        ? currentCount - 1
+        : 0;
 
     if (updatedCount < 5) {
       childCountInput.value = updatedCount;
@@ -3216,21 +3274,22 @@ if (
           e.className =
             "createChildDropdown mb-4 w-full float-right clear-both";
           e.innerHTML = `
-            <label for="select-age${i}" class="float-right text-sm leading-8 text-textColor">سن کودک ${ordinalWords[i - 1] || i
-            }</label>
+            <label for="select-age${i}" class="float-left text-sm leading-8 text-textColor">Child age ${
+            ordinalWords[i - 1] || i
+          }</label>
             <select class="select-age float-left w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2" id="select-age${i}">
-              <option value="1">تا 1 سال</option>
-              <option value="2">1 تا 2</option>
-              <option value="3">2 تا 3</option>
-              <option value="4">3 تا 4</option>
-              <option value="5">4 تا 5</option>
-              <option value="6">5 تا 6</option>
-              <option value="7">6 تا 7</option>
-              <option value="8">7 تا 8</option>
-              <option value="9">8 تا 9</option>
-              <option value="10">9 تا 10</option>
-              <option value="11">10 تا 11</option>
-              <option value="12">11 تا 12</option>
+              <option value="1">Up to 1 year</option>
+              <option value="2">1 to 2</option>
+              <option value="3">2 to 3</option>
+              <option value="4">3 to 4</option>
+              <option value="5">4 to 5</option>
+              <option value="6">5 to 6</option>
+              <option value="7">6 to 7</option>
+              <option value="8">7 to 8</option>
+              <option value="9">8 to 9</option>
+              <option value="10">9 to 10</option>
+              <option value="11">10 to 11</option>
+              <option value="12">11 to 12</option>
             </select>`;
           sectionSelectAge.appendChild(e);
         }
@@ -3239,6 +3298,33 @@ if (
           .closest(".contentRoom")
           .querySelector(".section-select-age");
         destroyChildDropdown(childDropdownsContainer, updatedCount);
+      }
+    }
+    if (updatedCount > 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (updatedCount == 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
       }
     }
     Sum_ChildCount(t);
@@ -3327,7 +3413,7 @@ if (insurance_module == "true") {
   // start insurance module scripts
   if (window.innerWidth <= 750) {
     const insuranceSearch = document.getElementById("insuranceSearch");
-    insuranceSearch.setAttribute("action", "/M_Insurance_Search.bc?lid=1");
+    insuranceSearch.setAttribute("action", "/M_Insurance_Search.bc?lid=2");
   }
   document
     .querySelector(".insurance-btn")
@@ -3392,9 +3478,6 @@ if (insurance_module == "true") {
         if (topBannerResize.classList.contains("train-banner-background")) {
           topBannerResize.classList.remove("train-banner-background");
         }
-        if (topBannerResize.classList.contains("bus-banner-background")) {
-          topBannerResize.classList.remove("bus-banner-background");
-        }
       }
       const topBannerImageResize = document.querySelector(
         ".module-banner-image"
@@ -3438,9 +3521,6 @@ if (insurance_module == "true") {
         if (topBannerImageResize.classList.contains("train-banner-image")) {
           topBannerImageResize.classList.remove("train-banner-image");
         }
-        if (topBannerImageResize.classList.contains("bus-banner-background")) {
-          topBannerImageResize.classList.remove("bus-banner-background");
-        }
       }
     });
   function Change_passenger_insurance(t) {
@@ -3468,27 +3548,56 @@ if (insurance_module == "true") {
         countPassengerElement.textContent = i;
       }
     }
+
+    if (i > 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (i == 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
+    }
+
     reinitializeDropdowns();
   }
   function createPassengerDropdown(t) {
     const ordinalWords = [
-      "اول",
-      "دوم",
-      "سوم",
-      "چهارم",
-      "پنجم",
-      "ششم",
-      "هفتم",
-      "هشتم",
-      "نهم",
-      "دهم",
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth",
+      "sixth",
+      "seventh",
+      "eighth",
+      "ninth",
+      "tenth",
     ];
     const e = document.createElement("div");
     e.className = "createPassengerDropdown mb-4 w-full float-right clear-both";
     const label = document.createElement("label");
-    label.className = "float-right text-sm leading-8 text-textColor";
+    label.className = "float-left text-sm leading-8 text-textColor";
     label.setAttribute("for", "passenger-birthday" + t);
-    label.textContent = "تاریخ تولد مسافر " + (ordinalWords[t - 1] || t);
+    label.textContent = "Passenger birthday " + (ordinalWords[t - 1] || t);
     e.appendChild(label);
     const div2 = document.createElement("div");
     div2.className = "birthdate-dates clear-both flex gap-2";
@@ -3498,14 +3607,13 @@ if (insurance_module == "true") {
     e.appendChild(passenger_bithdate);
 
     const div3 = document.createElement("div");
-    div3.className = "birthdate-day relative";
-    const input_day = document.createElement("input");
-    input_day.className =
-      "birthdate-day-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200";
-    input_day.maxLength = 2;
-    input_day.placeholder = "روز";
-    input_day.addEventListener("click", reinitializeDropdowns);
-    div3.appendChild(input_day);
+    div3.className = "birthdate-year relative";
+    const input_year = document.createElement("input");
+    input_year.className =
+      "birthdate-year-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200";
+    input_year.placeholder = "year";
+    input_year.addEventListener("click", reinitializeDropdowns);
+    div3.appendChild(input_year);
     div2.appendChild(div3);
 
     const div4 = document.createElement("div");
@@ -3513,19 +3621,20 @@ if (insurance_module == "true") {
     const input_month = document.createElement("input");
     input_month.className =
       "birthdate-month-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200";
-    input_month.placeholder = "ماه";
+    input_month.placeholder = "month";
     input_month.addEventListener("click", reinitializeDropdowns);
     div4.appendChild(input_month);
     div2.appendChild(div4);
 
     const div5 = document.createElement("div");
-    div5.className = "birthdate-year relative";
-    const input_year = document.createElement("input");
-    input_year.className =
-      "birthdate-year-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200";
-    input_year.placeholder = "سال";
-    input_year.addEventListener("click", reinitializeDropdowns);
-    div5.appendChild(input_year);
+    div5.className = "birthdate-day relative";
+    const input_day = document.createElement("input");
+    input_day.className =
+      "birthdate-day-value w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2 cursor-pointer hover:bg-bgColor-200";
+    input_day.maxLength = 2;
+    input_day.placeholder = "day";
+    input_day.addEventListener("click", reinitializeDropdowns);
+    div5.appendChild(input_day);
     div2.appendChild(div5);
     e.appendChild(div2);
     return e;
@@ -3651,8 +3760,8 @@ if (insurance_module == "true") {
   document.querySelector(".toggle-calendar").addEventListener("click", () => {
     isSolarCalendar = !isSolarCalendar;
     document.querySelector(".toggle-calendar").textContent = isSolarCalendar
-      ? "تبدیل به تقویم میلادی"
-      : "تبدیل به تقویم شمسی";
+      ? "Convert to gregorian calendar"
+      : "Convert to solar calendar";
     if (
       document.querySelector(".toggle-calendar").getAttribute("data-active") !=
       1
@@ -3728,7 +3837,7 @@ if (insurance_module == "true") {
     }
 
     if (day < 1 || day > maxDays || year < 1) {
-      showErrorMessage(container, "تاریخ وارد شده نامعتبر است.");
+      showErrorMessage(container, "The date entered is invalid..");
       container.querySelector(".birthdate-day-value").value = "";
       container.querySelector(".birthdate-month-value").value = "";
       container.querySelector(".birthdate-year-value").value = "";
@@ -3788,7 +3897,7 @@ if (cip_module == "true") {
   // start cip module scripts
   if (window.innerWidth <= 750) {
     const cipSearch = document.getElementById("cipSearch");
-    cipSearch.setAttribute("action", "/M_Cip_Search.bc?lid=1");
+    cipSearch.setAttribute("action", "/M_Cip_Search.bc?lid=2");
   }
   document.querySelector(".cip-btn").addEventListener("click", function () {
     document.querySelectorAll(".reserve-btn").forEach(function (btn) {
@@ -3843,9 +3952,6 @@ if (cip_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -3883,9 +3989,6 @@ if (cip_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
     //simple-calendar
     if (calendar_type == "simple-calendar") {
@@ -3894,7 +3997,7 @@ if (cip_module == "true") {
         const typeDate = dateInfoSelected.querySelector(".type_date");
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
-        if (typeDate) typeDate.textContent = "تاریخ ورود یا خروج :";
+        if (typeDate) typeDate.textContent = "Arrival or departure date :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
@@ -4182,7 +4285,7 @@ if (
       }
     }
 
-    // ✅ همگام‌سازی نوزادها با تعداد بزرگسال‌ها
+    // ✅ sync infant with adults
     (function syncInfantWithAdults() {
       const passengerBox = t.closest(".passengerbox");
       const infantInput = passengerBox?.querySelector(".infantcount");
@@ -4193,21 +4296,18 @@ if (
 
       let infants = parseInt(infantInput.value) || 0;
 
-      // اگر نوزادها بیشتر از بزرگسال شدن → کاهش بده
+      // If infants > adults, reduce them
       if (infants > i) {
         infants = i;
         infantInput.value = infants;
       }
 
-      // اگر بزرگسال زیاد شد → دکمه + نوزاد فعال کن
+      // Enable + if adults increased
       if (infants < i) {
-        infantPlusBtn.classList.remove(
-          "disable-button",
-          "deactive-change-button"
-        );
+        infantPlusBtn.classList.remove("deactive-change-button");
       }
 
-      // بروزرسانی نمایش خلاصه نوزاد
+      // Update UI
       const field = t.closest(".reserve-field");
       const infantCountWrap = field?.querySelector(".infant-count");
       if (infantCountWrap) {
@@ -4217,16 +4317,42 @@ if (
         else infantCountWrap.classList.remove("hidden");
       }
 
-      // اگر تعداد نوزادها برابر با بزرگسال شد → بستن دکمه +
+      // Disable + if infants = adults
       if (infants >= i) {
-        infantPlusBtn.classList.add("disable-button", "deactive-change-button");
+        infantPlusBtn.classList.add("deactive-change-button");
       } else {
-        infantPlusBtn.classList.remove(
-          "disable-button",
-          "deactive-change-button"
-        );
+        infantPlusBtn.classList.remove("deactive-change-button");
       }
     })();
+
+    // original minus button logic
+    if (i > 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (i == 1) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
+    }
 
     Check_Passenger_Count(t);
   }
@@ -4275,6 +4401,34 @@ if (
         countChildElement.textContent = i;
       }
     }
+
+    if (i > 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (i == 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
+    }
     Check_Passenger_Count(t);
   }
   // new function replaced by Change_ChildCount_Flight
@@ -4289,7 +4443,7 @@ if (
 
     if (i >= 5) return;
 
-    // ✅ محدودسازی فقط برای نوزاد
+    // ✅ restrict infants by adult count
     if (selector === "infant") {
       const adultsInput = t
         .closest(".passengerbox")
@@ -4340,7 +4494,36 @@ if (
       }
     }
 
-    // ✅ کنترل فعال/غیرفعال بودن دکمه + نوزاد
+    // Original minus button logic
+    if (i > 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.remove("deactive-change-button");
+        }
+      }
+    } else if (i == 0) {
+      if (t.closest("ul").querySelector(".minus-count")) {
+        if (
+          !t
+            .closest("ul")
+            .querySelector(".minus-count")
+            .classList.contains("deactive-change-button")
+        ) {
+          t.closest("ul")
+            .querySelector(".minus-count")
+            .classList.add("deactive-change-button");
+        }
+      }
+    }
+
+    // ✅ enable/disable infant + based on adults
     if (selector === "infant") {
       const adultsInput = t
         .closest(".passengerbox")
@@ -4351,15 +4534,9 @@ if (
         ?.querySelector(".plus-count");
       if (infantPlusBtn) {
         if (i >= adults) {
-          infantPlusBtn.classList.add(
-            "disable-button",
-            "deactive-change-button"
-          );
+          infantPlusBtn.classList.add("deactive-change-button");
         } else {
-          infantPlusBtn.classList.remove(
-            "disable-button",
-            "deactive-change-button"
-          );
+          infantPlusBtn.classList.remove("deactive-change-button");
         }
       }
     }
@@ -4495,7 +4672,7 @@ if (visa_module == "true") {
   // start visa module scripts
   if (window.innerWidth <= 750) {
     const visaSearch = document.getElementById("visaSearch");
-    visaSearch.setAttribute("action", "/M_Visa_Search.bc?lid=1");
+    visaSearch.setAttribute("action", "/M_Visa_Search.bc?lid=2");
   }
   document.querySelector(".visa-btn").addEventListener("click", function () {
     document.querySelectorAll(".reserve-btn").forEach(function (btn) {
@@ -4550,9 +4727,6 @@ if (visa_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -4590,9 +4764,6 @@ if (visa_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
   });
 }
@@ -4600,7 +4771,7 @@ if (service_module == "true") {
   // start service module scripts
   if (window.innerWidth <= 750) {
     const serviceSearch = document.getElementById("serviceSearch");
-    serviceSearch.setAttribute("action", "/M_TouristPanel_Search.bc?lid=1");
+    serviceSearch.setAttribute("action", "/M_TouristPanel_Search.bc?lid=2");
   }
   document.querySelector(".service-btn").addEventListener("click", function () {
     document.querySelectorAll(".reserve-btn").forEach(function (btn) {
@@ -4657,9 +4828,6 @@ if (service_module == "true") {
       if (topBannerResize.classList.contains("train-banner-background")) {
         topBannerResize.classList.remove("train-banner-background");
       }
-      if (topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.remove("bus-banner-background");
-      }
     }
     const topBannerImageResize = document.querySelector(".module-banner-image");
     if (topBannerImageResize) {
@@ -4697,9 +4865,6 @@ if (service_module == "true") {
       if (topBannerImageResize.classList.contains("train-banner-image")) {
         topBannerImageResize.classList.remove("train-banner-image");
       }
-      if (topBannerImageResize.classList.contains("bus-banner-background")) {
-        topBannerImageResize.classList.remove("bus-banner-background");
-      }
     }
     //simple-calendar
     if (calendar_type == "simple-calendar") {
@@ -4708,14 +4873,13 @@ if (service_module == "true") {
         const typeDate = dateInfoSelected.querySelector(".type_date");
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
-        if (typeDate) typeDate.textContent = "تاریخ ورود یا خروج :";
+        if (typeDate) typeDate.textContent = "Arrival or departure date :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
     }
     //simple-calendar end
   });
-
   document.querySelectorAll("#serviceSearch").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       let ageString = "";
@@ -4744,13 +4908,14 @@ if (service_module == "true") {
       if (alertText) {
         alertText.remove();
       }
+
       if (infants > adults) {
         event.preventDefault();
         form
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">به ازای هر بزرگسال تنها یک نوزاد انتخاب کنید!</div>`
+            `<div class="alert-text alert-for-passenger">Choose only one infant per adult!</div>`
           );
       }
       if (totalPassengers > 10) {
@@ -4759,7 +4924,7 @@ if (service_module == "true") {
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">باید مجموع تعداد بزرگسال , کودک و نوزاد کمتر از 10 باشد !</div>`
+            `<div class="alert-text alert-for-passenger">The total number of adults, children, and infants must be less than 10!</div>`
           );
       }
       if (adults < 1) {
@@ -4768,7 +4933,7 @@ if (service_module == "true") {
           .querySelector(".passengerbox")
           .insertAdjacentHTML(
             "beforeend",
-            `<div class="alert-text alert-for-passenger">حداقل یک بزرگسال انتخاب کنید !</div>`
+            `<div class="alert-text alert-for-passenger">Choose at least one adult!</div>`
           );
       }
     });
@@ -4781,15 +4946,15 @@ if (train_module == "true") {
 
     if (
       trainSearch.getAttribute("action") ==
-      "/Tem3_Train_Roundtrip_Search.bc?lid=1"
+      "/Tem3_Train_Roundtrip_Search.bc?lid=2"
     ) {
-      trainSearch.setAttribute("action", "/M_Train_Roundtrip_Search.bc?lid=1");
+      trainSearch.setAttribute("action", "/M_Train_Roundtrip_Search.bc?lid=2");
     }
 
     if (
-      trainSearch.getAttribute("action") == "/Tem3_Train_Oneway_Search.bc?lid=1"
+      trainSearch.getAttribute("action") == "/Tem3_Train_Oneway_Search.bc?lid=2"
     ) {
-      trainSearch.setAttribute("action", "/M_Train_Oneway_Search.bc?lid=1");
+      trainSearch.setAttribute("action", "/M_Train_Oneway_Search.bc?lid=2");
     }
   }
   document.querySelectorAll(".formtrain").forEach(function (form) {
@@ -4828,16 +4993,16 @@ if (train_module == "true") {
       const alertText = document.querySelector(".alert-text");
       if (infants > adults) {
         event.preventDefault();
-        alertText.textContent = "به ازای هر بزرگسال تنها یک نوزاد انتخاب کنید!";
+        alertText.textContent = "Choose only one infant per adult!";
       }
       if (totalPassengers > 10) {
         event.preventDefault();
         alertText.textContent =
-          "باید مجموع تعداد بزرگسال و کودک کمتر از 10 باشد !";
+          "The total number of adults and children must be less than 10!";
       }
       if (adults < 1) {
         event.preventDefault();
-        alertText.textContent = "حداقل یک بزرگسال انتخاب کنید !";
+        alertText.textContent = "Choose at least one adult!";
       }
     });
   });
@@ -4849,17 +5014,15 @@ if (train_module == "true") {
         .setAttribute("data-change", "1");
       document.querySelector("#oneway-train").setAttribute("data-change", "0");
       check_searchHistory("train");
-      this.classList.add("active-r-btn", "book-active__module__type");
-      document
-        .querySelector("#oneway-train")
-        .classList.remove("active-r-btn", "book-active__module__type");
+      this.classList.add("active-r-btn");
+      document.querySelector("#oneway-train").classList.remove("active-r-btn");
       document.querySelector("#trainSearch").setAttribute("data-form", "train");
       document
         .querySelector("#trainSearch")
         .setAttribute("data-traintype", "2");
       document
         .querySelector("#trainSearch")
-        .setAttribute("action", "/Tem3_Train_Roundtrip_Search.bc?lid=1");
+        .setAttribute("action", "/Tem3_Train_Roundtrip_Search.bc?lid=2");
       const end_date = document.querySelector("#trainSearch .end_date");
       if (end_date) {
         end_date.disabled = false;
@@ -4879,7 +5042,7 @@ if (train_module == "true") {
       if (window.innerWidth <= 750) {
         document
           .querySelector("#trainSearch")
-          .setAttribute("action", "/M_Train_Roundtrip_Search.bc?lid=1");
+          .setAttribute("action", "/M_Train_Roundtrip_Search.bc?lid=2");
       }
     });
   document
@@ -4890,17 +5053,17 @@ if (train_module == "true") {
         .setAttribute("data-change", "0");
       document.querySelector("#oneway-train").setAttribute("data-change", "1");
       check_searchHistory("train");
-      this.classList.add("active-r-btn", "book-active__module__type");
+      this.classList.add("active-r-btn");
       document
         .querySelector("#backtoback-train")
-        .classList.remove("active-r-btn", "book-active__module__type");
+        .classList.remove("active-r-btn");
       document.querySelector("#trainSearch").setAttribute("data-form", "train");
       document
         .querySelector("#trainSearch")
         .setAttribute("data-traintype", "1");
       document
         .querySelector("#trainSearch")
-        .setAttribute("action", "/Tem3_Train_Oneway_Search.bc?lid=1");
+        .setAttribute("action", "/Tem3_Train_Oneway_Search.bc?lid=2");
       const end_date = document.querySelector("#trainSearch .end_date");
       if (end_date) {
         end_date.disabled = true;
@@ -4914,7 +5077,7 @@ if (train_module == "true") {
       if (window.innerWidth <= 750) {
         document
           .querySelector("#trainSearch")
-          .setAttribute("action", "/M_Train_Oneway_Search.bc?lid=1");
+          .setAttribute("action", "/M_Train_Oneway_Search.bc?lid=2");
       }
       document
         .getElementById("trainSearch")
@@ -5022,7 +5185,7 @@ if (train_module == "true") {
         const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
         const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
 
-        if (typeDate) typeDate.textContent = "تاریخ رفت :";
+        if (typeDate) typeDate.textContent = "Departure :";
         if (dayOfDate) dayOfDate.textContent = "---";
         if (monthOfDate) monthOfDate.textContent = " ";
       }
@@ -5192,219 +5355,6 @@ if (train_module == "true") {
   }
   // end train module scripts
 }
-if (bus_module == "true") {
-  // start bus module scripts
-  // if (window.innerWidth <= 750) {
-  //   const busSearch = document.getElementById("busSearch");
-  //   if (busSearch.getAttribute("action") == "http://basisflydemo.ir/bus/search") {
-  //     busSearch.setAttribute("action", "/M_Bus_Search.bc");
-  //   }
-  // }
-  document
-    .querySelector("#backtoback-bus")
-    .addEventListener("click", function () {
-      document
-        .querySelector("#backtoback-bus")
-        .setAttribute("data-change", "1");
-      document.querySelector("#oneway-bus").setAttribute("data-change", "0");
-      check_searchHistory("bus");
-      this.classList.add("active-r-btn", "book-active__module__type");
-      document
-        .querySelector("#oneway-bus")
-        .classList.remove("active-r-btn", "book-active__module__type");
-      document.querySelector("#busSearch").setAttribute("data-form", "bus");
-      document.querySelector("#busSearch").setAttribute("data-bustype", "2");
-      document.querySelector("#busSearch").setAttribute("data-schema", "390");
-      document.querySelector("#busSearch").setAttribute("action", "bus/search");
-      const end_date = document.querySelector("#busSearch .end_date");
-      if (end_date) {
-        end_date.disabled = false;
-      }
-      document
-        .getElementById("busSearch")
-        .querySelectorAll(".return-date")
-        .forEach(function (element) {
-          element.classList.remove("no-activedate");
-        });
-      const endDate = document.querySelector("#busSearch .end_date");
-      if (endDate) {
-        if (calendar_type == "simple-calendar") {
-          endDate.classList.add("nextCalOpening");
-        }
-      }
-    });
-  document.querySelector("#oneway-bus").addEventListener("click", function () {
-    document.querySelector("#backtoback-bus").setAttribute("data-change", "0");
-    document.querySelector("#oneway-bus").setAttribute("data-change", "1");
-    check_searchHistory("bus");
-    this.classList.add("active-r-btn", "book-active__module__type");
-    document
-      .querySelector("#backtoback-bus")
-      .classList.remove("active-r-btn", "book-active__module__type");
-    document.querySelector("#busSearch").setAttribute("data-form", "bus");
-    document.querySelector("#busSearch").setAttribute("data-bustype", "1");
-    document.querySelector("#busSearch").setAttribute("data-schema", "391");
-    document.querySelector("#busSearch").setAttribute("action", "bus/search");
-    const end_date = document.querySelector("#busSearch .end_date");
-    if (end_date) {
-      end_date.disabled = true;
-    }
-    const endDate = document.querySelector("#busSearch .end_date");
-    if (endDate) {
-      if (calendar_type == "simple-calendar") {
-        endDate.classList.remove("nextCalOpening");
-      }
-    }
-    document
-      .getElementById("busSearch")
-      .querySelectorAll(".return-date")
-      .forEach(function (element) {
-        element.classList.add("no-activedate");
-      });
-  });
-  document.querySelector(".bus-btn").addEventListener("click", function () {
-    document.querySelectorAll(".reserve-btn").forEach(function (btn) {
-      btn.classList.remove("active-module");
-    });
-    this.classList.add("active-module");
-    document.querySelectorAll(".module-form").forEach(function (form) {
-      form.classList.add("hidden");
-    });
-    document.querySelector(".r-bus").classList.remove("hidden");
-    // add this code in mobile
-    if (window.innerWidth < 1024) {
-      if (hide_forms == "true") {
-        document.querySelector(".r-bus").classList.add("visible-module-form");
-        if (
-          document
-            .querySelector(".r-bus")
-            .classList.contains("invisible-module-form")
-        ) {
-          document
-            .querySelector(".r-bus")
-            .classList.remove("invisible-module-form");
-        }
-      }
-    }
-    const topBannerResize = document.querySelector(".module-banner-background");
-    if (topBannerResize) {
-      if (!topBannerResize.classList.contains("bus-banner-background")) {
-        topBannerResize.classList.add("bus-banner-background");
-      }
-      if (topBannerResize.classList.contains("hotel-banner-background")) {
-        topBannerResize.classList.remove("hotel-banner-background");
-      }
-      if (topBannerResize.classList.contains("flighthotel-banner-background")) {
-        topBannerResize.classList.remove("flighthotel-banner-background");
-      }
-      if (topBannerResize.classList.contains("tour-banner-background")) {
-        topBannerResize.classList.remove("tour-banner-background");
-      }
-      if (topBannerResize.classList.contains("insurance-banner-background")) {
-        topBannerResize.classList.remove("insurance-banner-background");
-      }
-      if (topBannerResize.classList.contains("cip-banner-background")) {
-        topBannerResize.classList.remove("cip-banner-background");
-      }
-      if (topBannerResize.classList.contains("visa-banner-background")) {
-        topBannerResize.classList.remove("visa-banner-background");
-      }
-      if (topBannerResize.classList.contains("service-banner-background")) {
-        topBannerResize.classList.remove("service-banner-background");
-      }
-      if (topBannerResize.classList.contains("flight-banner-background")) {
-        topBannerResize.classList.remove("flight-banner-background");
-      }
-      if (topBannerResize.classList.contains("train-banner-background")) {
-        topBannerResize.classList.remove("train-banner-background");
-      }
-    }
-    const topBannerImageResize = document.querySelector(".module-banner-image");
-    if (topBannerImageResize) {
-      if (!topBannerImageResize.classList.contains("bus-banner-image")) {
-        topBannerImageResize.classList.add("bus-banner-image");
-      }
-      const path = topBannerImageResize.getAttribute("data-img-path");
-      if (path) {
-        topBannerImageResize.innerHTML = `<img src="${path}/images/bus-search-bg.jpg" alt="bus-search-bg">`;
-      } else {
-        topBannerImageResize.innerHTML =
-          '<img src="images/bus-search-bg.jpg" alt="bus-search-bg">';
-      }
-      if (topBannerImageResize.classList.contains("hotel-banner-image")) {
-        topBannerImageResize.classList.remove("hotel-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("flighthotel-banner-image")) {
-        topBannerImageResize.classList.remove("flighthotel-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("tour-banner-image")) {
-        topBannerImageResize.classList.remove("tour-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("insurance-banner-image")) {
-        topBannerImageResize.classList.remove("insurance-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("cip-banner-image")) {
-        topBannerImageResize.classList.remove("cip-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("visa-banner-image")) {
-        topBannerImageResize.classList.remove("visa-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("service-banner-image")) {
-        topBannerImageResize.classList.remove("service-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("flight-banner-image")) {
-        topBannerImageResize.classList.remove("flight-banner-image");
-      }
-      if (topBannerImageResize.classList.contains("train-banner-image")) {
-        topBannerImageResize.classList.remove("train-banner-image");
-      }
-    }
-    //simple-calendar
-    if (calendar_type == "simple-calendar") {
-      const dateInfoSelected = document.querySelector(".date_info_selected");
-      if (dateInfoSelected) {
-        const typeDate = dateInfoSelected.querySelector(".type_date");
-        const dayOfDate = dateInfoSelected.querySelector(".day_of_date");
-        const monthOfDate = dateInfoSelected.querySelector(".month_of_date");
-
-        if (typeDate) typeDate.textContent = "تاریخ رفت :";
-        if (dayOfDate) dayOfDate.textContent = "---";
-        if (monthOfDate) monthOfDate.textContent = " ";
-      }
-    }
-    //simple-calendar end
-  });
-  function ExchangeRoute_Bus(t) {
-    const BusRoute = t.closest(".bus-routes");
-    if (BusRoute) {
-      const departureInput = BusRoute.querySelector(".departure");
-      const destinationInput = BusRoute.querySelector(".destination");
-      const locationIdInput =
-        BusRoute.querySelector(".departure-route").querySelector(".locationId");
-      const nextLocationIdInput =
-        BusRoute.querySelector(".destination-route").querySelector(
-          ".locationId"
-        );
-      const autoFitText =
-        BusRoute.querySelector(".departure-route").querySelector(".auto-fit");
-      const nextAutoFitText =
-        BusRoute.querySelector(".destination-route").querySelector(".auto-fit");
-      const departureValue = departureInput.value;
-      const destinationValue = destinationInput.value;
-      const locationIdValue = locationIdInput.value;
-      const nextLocationIdValue = nextLocationIdInput.value;
-      const autoFitValue = autoFitText.textContent;
-      const nextAutoFitValue = nextAutoFitText.textContent;
-      departureInput.value = destinationValue;
-      destinationInput.value = departureValue;
-      locationIdInput.value = nextLocationIdValue;
-      nextLocationIdInput.value = locationIdValue;
-      autoFitText.textContent = nextAutoFitValue;
-      nextAutoFitText.textContent = autoFitValue;
-    }
-  }
-  // end bus module scripts
-}
 //function for landing page
 if (document.querySelector("#landing-change-url")) {
   const pathnamehome = window.location.pathname;
@@ -5434,9 +5384,10 @@ function close_module_form(t) {
 // add this function in mobile
 function close_searchList(t) {
   t.closest(".searchList").classList.remove("fixed-searchList");
-  document.querySelector("body").classList.remove("overflow-hidden");
+  if (document.querySelector("body").classList.contains("overflow-hidden")) {
+    document.querySelector("body").classList.remove("overflow-hidden");
+  }
   t.closest(".searchList").classList.add("hidden");
-
   const icon = t.closest(".reserve-field").querySelector(".down-icon");
   if (icon && icon.classList.contains("rotate")) {
     icon.classList.remove("rotate");
@@ -5467,10 +5418,7 @@ if (document.querySelector("#Dynamicjson")) {
               if (flight_activeType && flight_activeType.labelText !== "") {
                 const activeLi = document.getElementById(flight_activeType);
                 if (activeLi) {
-                  activeLi.classList.add(
-                    "active-r-btn",
-                    "book-active__module__type"
-                  );
+                  activeLi.classList.add("active-r-btn");
                   const radio = activeLi.querySelector('input[type="radio"]');
                   if (radio) {
                     activeLi.click();
@@ -5601,6 +5549,7 @@ if (document.querySelector("#Dynamicjson")) {
                   }
                 }
               }
+
               const flight_dates = data.flight.dates;
               if (flight_dates) {
                 const flight_labeldate_departure = document.querySelector(
@@ -5651,7 +5600,6 @@ if (document.querySelector("#Dynamicjson")) {
                     flight_dates.destination_dateplaceholder;
                 }
               }
-              //
 
               const flight_class = data.flight.flightclass;
               if (flight_class) {
@@ -6001,6 +5949,7 @@ if (document.querySelector("#Dynamicjson")) {
                   }
                 }
               }
+
               const flighthotel_dates = data.flighthotel.dates;
               if (flighthotel_dates) {
                 const flighthotel_labeldate_departure = document.querySelector(
@@ -6053,7 +6002,6 @@ if (document.querySelector("#Dynamicjson")) {
                     flighthotel_dates.destination_dateplaceholder;
                 }
               }
-              //
 
               const flighthotel_class = data.flighthotel.flightclass;
               if (flighthotel_class) {
@@ -6804,10 +6752,7 @@ if (document.querySelector("#Dynamicjson")) {
               if (train_activeType && train_activeType.labelText !== "") {
                 const activeLi = document.getElementById(train_activeType);
                 if (activeLi) {
-                  activeLi.classList.add(
-                    "active-r-btn",
-                    "book-active__module__type"
-                  );
+                  activeLi.classList.add("active-r-btn");
                   const radio = activeLi.querySelector('input[type="radio"]');
                   if (radio) {
                     activeLi.click();
@@ -6932,6 +6877,7 @@ if (document.querySelector("#Dynamicjson")) {
                   }
                 }
               }
+
               const train_dates = data.train.dates;
               if (train_dates) {
                 const train_labeldate_departure = document.querySelector(
@@ -6982,7 +6928,6 @@ if (document.querySelector("#Dynamicjson")) {
                     train_dates.destination_dateplaceholder;
                 }
               }
-              //
 
               const train_class = data.train.compartment;
               if (train_class) {
@@ -7035,10 +6980,7 @@ if (document.querySelector("#Dynamicjson")) {
               if (bus_activeType && bus_activeType.labelText !== "") {
                 const activeLi = document.getElementById(bus_activeType);
                 if (activeLi) {
-                  activeLi.classList.add(
-                    "active-r-btn",
-                    "book-active__module__type"
-                  );
+                  activeLi.classList.add("active-r-btn");
                   const radio = activeLi.querySelector('input[type="radio"]');
                   if (radio) {
                     activeLi.click();
@@ -7337,229 +7279,59 @@ if (document.querySelector("#Dynamicjson")) {
   }
 }
 
-// ---------offline tour js----------
+/**
+ * Filters the list items in an autocomplete dropdown based on the user's input.
+ *
+ * @param {HTMLElement} element - The input element where the user types the search query.
+ *
+ * Functionality:
+ * 1. Finds the dropdown list (`ul.ul-list`) related to the input element.
+ * 2. Loops through all list items (`li`) and checks if the text content of the span
+ *    or the data-id attribute contains the input value (case-insensitive).
+ * 3. Shows the matching items (`display: block`) and hides the non-matching items (`display: none`).
+ * 4. If no items match, adds a "no result found" item at the end of the list.
+ * 5. Removes the "no result found" item if there are matching results.
+ * 6. Catches and logs any errors to the console with a descriptive message.
+ */
+const autoCompleteEngineSearch = (element) => {
+  try {
+    const dropContent = element
+      .closest(".reserve-field")
+      .querySelector("ul.ul-list");
 
-function initOfflineTourCards() {
-  document.querySelectorAll(".offline-tour .tour-card").forEach((card) => {
-    const menu = card.querySelector(".tour-menu");
-    const toggle = card.querySelector(".tour-toggle");
+    let count = 0;
+    let noData = dropContent.querySelector(".nodata");
 
-    if (!menu || !toggle) return;
-
-    const isEmpty = !menu.querySelector("li");
-    if (isEmpty) {
-      menu.classList.add("hidden");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-disabled", "true");
-      toggle.classList.add(
-        "opacity-50",
-        "cursor-not-allowed",
-        "pointer-events-none"
-      );
-      toggle.addEventListener("click", (e) => e.preventDefault(), {
-        capture: true,
-      });
+    dropContent.querySelectorAll("li").forEach((e) => {
+      const matches = e.querySelector("span").textContent
+        ? e
+            .querySelector("span")
+            .textContent.toLowerCase()
+            .includes(element.value.toLowerCase()) ||
+          e.dataset.id.toLowerCase().includes(element.value.toLowerCase())
+        : e.innerText.toLowerCase().includes(element.value.toLowerCase());
+      if (matches) {
+        count++;
+        e.style.display = "block";
+      } else {
+        e.style.display = "none";
+      }
+    });
+    if (count === 0) {
+      if (!noData) {
+        dropContent.insertAdjacentHTML(
+          "beforeend",
+          `
+                  <li class="nodata hover:bg-slate-200 p-1" data-id="">
+                     <span>no result found</span>
+                  </li>
+              `
+        );
+      }
     } else {
-      toggle.classList.add("cursor-pointer");
+      if (noData) noData.remove();
     }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", initOfflineTourCards);
-
-const observerTour = new MutationObserver(() => {
-  initOfflineTourCards();
-});
-observerTour.observe(document.body, { childList: true, subtree: true });
-
-function toggleTourMenu(btn) {
-  if (btn.getAttribute("aria-disabled") === "true") return;
-
-  const card = btn.closest(".tour-card");
-  const menu = card?.querySelector(".tour-menu");
-  const icon = btn.querySelector(".fa-chevron-down");
-  const root = card?.parentElement;
-
-  if (!menu) return;
-
-  const isEmpty = !menu.querySelector("li");
-  if (isEmpty) return;
-
-  root?.querySelectorAll(".offline-tour .tour-menu").forEach((ul) => {
-    if (ul !== menu) {
-      ul.classList.add("hidden");
-      const relatedToggle = ul
-        .closest(".tour-card")
-        ?.querySelector(".tour-toggle");
-      if (relatedToggle) {
-        relatedToggle.setAttribute("aria-expanded", "false");
-        const chev = relatedToggle.querySelector(".fa-chevron-down");
-        if (chev) chev.style.transform = "rotate(0deg)";
-      }
-    }
-  });
-
-  const willOpen = menu.classList.contains("hidden");
-  menu.classList.toggle("hidden", !willOpen);
-  btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
-  if (icon) icon.style.transform = willOpen ? "rotate(180deg)" : "rotate(0deg)";
-}
-
-document.addEventListener("click", (e) => {
-  document
-    .querySelectorAll(".offline-tour .tour-menu:not(.hidden)")
-    .forEach((menu) => {
-      const card = menu.closest(".tour-card");
-      if (card && !card.contains(e.target)) {
-        menu.classList.add("hidden");
-        const tgl = card.querySelector(".tour-toggle");
-        if (tgl) {
-          tgl.setAttribute("aria-expanded", "false");
-          const chev = tgl.querySelector(".fa-chevron-down");
-          if (chev) chev.style.transform = "rotate(0deg)";
-        }
-      }
-    });
-});
-
-function SelectPlaceModule(el) {
-  const url = el.getAttribute("data-link");
-  if (url) window.location.href = url;
-}
-
-function openOfflineTourMenu(el) {
-  const wrapper = el.closest(".r-tour");
-  const listCity = wrapper.querySelector(".list-city");
-
-  if (!listCity) return;
-
-  const isOpen = !listCity.classList.contains("hidden");
-
-  if (isOpen) {
-    listCity.classList.add("hidden");
-    listCity.classList.remove("grid", "block");
-    return;
+  } catch (error) {
+    console.error("autoCompleteEngineSearch : " + error.message);
   }
-
-  document
-    .querySelectorAll(".r-tour .list-city.grid, .r-tour .list-city.block")
-    .forEach((menu) => {
-      menu.classList.add("hidden");
-      menu.classList.remove("grid", "block");
-    });
-
-  const isMobile = window.innerWidth < 1024;
-
-  listCity.classList.remove("hidden");
-  listCity.classList.add(isMobile ? "block" : "grid");
-
-  const closeOnClickOutside = (e) => {
-    if (!listCity.contains(e.target) && !el.contains(e.target)) {
-      listCity.classList.add("hidden");
-      listCity.classList.remove("grid", "block");
-      document.removeEventListener("click", closeOnClickOutside);
-    }
-  };
-
-  setTimeout(() => {
-    document.addEventListener("click", closeOnClickOutside);
-  }, 0);
-}
-
-function closeofflineMenu(el) {
-  const wrapper = el.closest(".r-tour");
-  const listCity = wrapper?.querySelector(".list-city");
-  if (!listCity) return;
-
-  listCity.classList.add("hidden");
-  listCity.classList.remove("grid", "block");
-}
-
-function checkElementsExist() {
-  const rTour = document.getElementById("r-tour");
-  const offlineTourForm = document.getElementById("offline-tour-form");
-  const tourSelectBtn = rTour ? rTour.querySelector(".tour-select-btn") : null;
-  const onlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector("#online-tour-btn")
-    : null;
-  const offlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector("#offline-tour-btn")
-    : null;
-  const onlineTourForm = document.getElementById("online-tour-form");
-
-  if (
-    rTour &&
-    offlineTourForm &&
-    tourSelectBtn &&
-    onlineTourBtn &&
-    offlineTourBtn &&
-    onlineTourForm
-  ) {
-    if (!offlineTourForm) {
-      if (tourSelectBtn) {
-        tourSelectBtn.classList.add("hidden");
-      }
-    }
-
-    window.switchToOnlineTour = function () {
-      if (offlineTourForm) offlineTourForm.style.display = "none";
-      if (onlineTourForm) onlineTourForm.style.display = "block";
-
-      onlineTourBtn.classList.add("active-r-btn");
-      if (offlineTourBtn) offlineTourBtn.classList.remove("active-r-btn");
-    };
-
-    window.switchToOfflineTour = function () {
-      if (onlineTourForm) onlineTourForm.style.display = "none";
-      if (offlineTourForm) offlineTourForm.style.display = "block";
-
-      offlineTourBtn.classList.add("active-r-btn");
-      if (onlineTourBtn) onlineTourBtn.classList.remove("active-r-btn");
-    };
-
-    if (onlineTourBtn) {
-      onlineTourBtn.addEventListener("click", function () {
-        switchToOnlineTour();
-      });
-    }
-
-    if (offlineTourBtn) {
-      offlineTourBtn.addEventListener("click", function () {
-        switchToOfflineTour();
-      });
-    }
-  } else {
-    setTimeout(checkElementsExist, 100);
-  }
-}
-
-const searchEngineObserver = new MutationObserver((mutationsList, observer) => {
-
-  const rTour = document.getElementById('r-tour')
-  const offlineTourForm = document.getElementById('offline-tour-form')
-  const tourSelectBtn = rTour ? rTour.querySelector('.tour-select-btn') : null
-  const onlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector('#online-tour-btn')
-    : null
-  const offlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector('#offline-tour-btn')
-    : null
-  const onlineTourForm = document.getElementById('tourSearch')
-
-  if (
-    rTour &&
-    offlineTourForm &&
-    tourSelectBtn &&
-    onlineTourBtn &&
-    offlineTourBtn &&
-    onlineTourForm
-  ) {
-    checkElementsExist()
-
-    searchEngineObserver.disconnect()
-  }
-})
-
-const config = { childList: true, subtree: true }
-
-searchEngineObserver.observe(document.body, config)
+};

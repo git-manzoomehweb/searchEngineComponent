@@ -1,0 +1,62 @@
+<input type="hidden" class="visa-module" value="[##cms.Host.visa-module##]"/>
+      <div id="r-visa" class="r-visa module-form relative hidden">
+        <div class="close-module-form w-1/4 h-6 mb-4 cursor-pointer" onclick="close_module_form(this)">
+            <svg class="rightarrow-icon align-middle" width="24" height="24">
+                <use xlink:href="images/sprite-icons-mobile.svg#engine-rightarrow-icon"></use>
+            </svg>
+            <span>ویزا</span>
+        </div>
+        <form action="/Tem3_Visa_Search.bc?lid=1" method="post" data-form="visa" id="visaSearch" onsubmit="form_search_isSubmited(this,event)" class="form-search formvisa block">
+          <input type="hidden" name="persiancurrent" class="persiancurrent" value=""/>
+          <div class="reserve-field h-20 departure-route relative w-full mb-4">
+            <div onclick="empty_value(this)" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
+              <label class="label-routes label-departure-visa float-right w-full cursor-pointer relative" for="departure7">
+                <svg width="15" height="19" class="align-middle">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-departurevisa-icon"></use>
+                  </svg>
+                <span class="label-text text-sm">کشور</span>
+                <svg class="down-icon float-left align-middle mt-2 absolute left-0 top-0 h-2 hidden" width="15" height="8"><use xlink:href="images/sprite-icons-mobile.svg#engine-down-icon"></use></svg>
+              </label>
+              <p class="auto-fit clear-both text-base text-textColor cursor-pointer hidden"></p>
+              <input id="departure7" type="text" class="departure text-value line-clamp--1 text-textColor w-full cursor-pointer relative bg-inherit text-base" required="" aria-label="departure" autocomplete="off" value="ترکیه - Turkey" name="visa-country" placeholder="مقصد خود را انتخاب کنید"/>
+            </div>
+            <input value="1002247" class="locationId from" type="hidden" name="countryid" aria-label="locationId"/>
+            <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 min-w-full float-right text-sm absolute z-50 clear-both top-full right-0  bg-white text-right leading-6 w-full">
+                 <div class="w-full flex items-center justify-between mb-4">
+                        <div class="float-right px-2 h-fit py-2 relative text-xs rounded-lg text-primary  label-search-list">
+                            <span class="z-10">انتخاب مقصد</span>
+                            </div>
+                        <div class="close-searchList bg-primary px-3 rounded-lg py-2 leading-5   clear-both text-center text-textColor cursor-pointer text-sm float-left hover:text-red-600"
+                        onclick="close_searchList(this)">
+                        <svg width="15" height="15" class=" hidden">
+                            <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
+                        </svg>
+                        <span class="text-white close-text"> تایید و بستن</span>
+                    </div>
+                    </div>
+              <div class="flex relative mb-2 float-right w-full clear-both">
+                <div class="h-9 leading-9">
+                    <svg width="15" height="19" class="align-middle">
+                        <use xlink:href="images/sprite-icons-mobile.svg#engine-location-icon"></use>
+                      </svg>
+                </div>
+                <input type="text" aria-label="reserve-location" placeholder="مقصد" oninput="city_search(this)" data-type="5" class="reserve-location form-search-input h-9 leading-9 pr-3 bg-transparent text-right text-base" autocomplete="off" value="" />
+              </div>
+              <span class="mini-loading absolute hidden top-14 left-4" aria-label="spinner">
+                <svg class="spinner-label-icon align-middle" width="15" height="19">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-spinner-icon"></use>
+                  </svg>
+              </span>
+              <div class="locationResult clear-both"></div>
+              <div class="load-location-options"></div>
+            </div>
+          </div>
+          <div class="reserve-search h-20 w-full">
+            <button type="submit" class="search-visa flex items-center justify-center gap-2 w-full h-full m-auto px-3 rounded-type-1 bg-bgColor-100 cursor-pointer hover:bg-secondary"><span>جستجو</span>
+                <svg width="32" height="33" class="align-middle">
+                    <use xlink:href="images/sprite-icons-mobile.svg#engine-search-icon"></use>
+                  </svg>
+            </button>
+          </div>
+        </form>
+      </div>

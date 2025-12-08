@@ -482,13 +482,10 @@ if (document.querySelector("#empty-fields")) {
 if (document.querySelector("#empty-fields")) {
   if (!document.querySelector(".landing-search-engine")) {
 
-    console.log("emptyfieldddddddddd:")
     if (document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])')) {
-      console.log(document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])'));
     }
 
     if (document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]')) {
-      console.log(document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]'))
     }
 
   }

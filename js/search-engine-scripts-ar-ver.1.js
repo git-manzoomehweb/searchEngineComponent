@@ -6652,3 +6652,16 @@ if (document.querySelector("#Dynamicjson")) {
     // Dynamic Data End
   }
 }
+
+// form target
+
+const formTargetInput= document.getElementById('form-target');
+if(formTargetInput){
+   const targetValue = targetInput.value?.trim();
+  if(targetValue){
+     document.querySelectorAll('form.form-search').forEach(form => {
+    form.setAttribute('target', targetValue);
+  });
+  }
+
+}

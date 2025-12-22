@@ -1129,6 +1129,7 @@ function form_search_isSubmited(element, event, isFlightChunck) {
 
             const isB2B = isTrue(element.dataset.b2b); // data-b2b="true|false"
             const isMob = isTrue(element.dataset.mob); // data-mob="true|false"
+            const lid = getLidFromScriptUrl();
 
             // if not B2B -> /flight/search
             // if B2B and mob=true -> /flight/search
@@ -2343,7 +2344,9 @@ function update_searchHistory(type, lang) {
                };
             }
             //here
+
             if (jsonArrayHistory[i].value.searchLang === lang) {
+
                document.querySelectorAll(".form-search").forEach((e) => {
                   if (e.getAttribute("data-form") == type) {
                      e.setAttribute("action", jsonArrayHistory[i].value.action);
@@ -2381,7 +2384,9 @@ function update_searchHistory(type, lang) {
                            document.querySelector(".route-container");
                         const routeContents =
                            routeContainer.querySelectorAll(".route-content");
+
                         for (let y = 0; y < routeContents.length; y++) {
+
                            const departure =
                               routeContents[y].querySelector(".departure");
                            const destination =
@@ -3766,4 +3771,3 @@ window.historyCardChunkSubmit = function (form, ev) {
       return true;
    }
 };
-

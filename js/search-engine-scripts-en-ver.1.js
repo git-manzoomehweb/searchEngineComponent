@@ -3,84 +3,84 @@ if (document.querySelector(".flight-module")) {
   var flight_module = document.querySelector(".flight-module").value;
   if (document.querySelector(".flighttype-dropDown")) {
     if (document.querySelector(".flighttype-dropDown")) {
-        const list = document.querySelector(".flighttype-items");
-        const dropdown = document.querySelector(".flighttype-dropDown");
-        const label = document.querySelector(".flighttype-dropDown-text");
-        const icon = document.querySelector(".flighttype-field-icon svg");
-  
-        const setIcon = (isOpen) => {
-          if (!icon) return;
-          icon.classList.toggle("icon-rotate", !!isOpen);
-        };
-  
-        if (list) {
-          list.classList.add("hidden");
-          list.hidden = true;
-          list.style.display = "none";
-          list.style.opacity = "0";
-          list.style.transition = "";
-        }
-        if (label) label.classList.remove("hidden");
-        setIcon(false);
-  
-        list?.addEventListener('click', function (e) {
-          e.stopPropagation();
-        });
-  
-        dropdown.addEventListener("click", function () {
-          if (!list) return;
-  
-          const isClosed = list.hidden || list.classList.contains("hidden");
-  
-          if (window.innerWidth > 1024) {
-            if (isClosed) {
-              list.hidden = false;
-              list.classList.remove("hidden");
-              list.style.display = "";
-              list.style.transition = "opacity 0.7s";
-              requestAnimationFrame(() => {
-                void list.offsetHeight;
-                list.style.opacity = "1";
-              });
-              setIcon(true);
-            } else {
-              setIcon(false);
-              list.style.transition = "opacity 0.7s";
-              list.style.opacity = "0";
-              list.addEventListener(
-                "transitionend",
-                () => {
-                  list.classList.add("hidden");
-                  list.hidden = true;
-                  list.style.display = "none";
-                  list.style.transition = "";
-                  setIcon(false);
-                },
-                { once: true }
-              );
-            }
-          } else {
-            if (isClosed) {
-              list.hidden = false;
-              list.classList.remove("hidden");
-              list.style.display = "";
-              list.style.opacity = "1";
-              list.classList.add("fixed-Dropdownflighttype");
-              document.querySelector("body").classList.add("overflow-hidden");
-              setIcon(true);
-            } else {
-              list.classList.remove("fixed-Dropdownflighttype");
-              document.querySelector("body").classList.remove("overflow-hidden");
-              list.classList.add("hidden");
-              list.hidden = true;
-              list.style.display = "none";
-              list.style.transition = "";
-              list.style.opacity = "0";
-              setIcon(false);
-            }
-          }
-        });
+      const list = document.querySelector(".flighttype-items");
+      const dropdown = document.querySelector(".flighttype-dropDown");
+      const label = document.querySelector(".flighttype-dropDown-text");
+      const icon = document.querySelector(".flighttype-field-icon svg");
+
+      const setIcon = (isOpen) => {
+        if (!icon) return;
+        icon.classList.toggle("icon-rotate", !!isOpen);
+      };
+
+      if (list) {
+        list.classList.add("hidden");
+        list.hidden = true;
+        list.style.display = "none";
+        list.style.opacity = "0";
+        list.style.transition = "";
       }
+      if (label) label.classList.remove("hidden");
+      setIcon(false);
+
+      list?.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      dropdown.addEventListener("click", function () {
+        if (!list) return;
+
+        const isClosed = list.hidden || list.classList.contains("hidden");
+
+        if (window.innerWidth > 1024) {
+          if (isClosed) {
+            list.hidden = false;
+            list.classList.remove("hidden");
+            list.style.display = "";
+            list.style.transition = "opacity 0.7s";
+            requestAnimationFrame(() => {
+              void list.offsetHeight;
+              list.style.opacity = "1";
+            });
+            setIcon(true);
+          } else {
+            setIcon(false);
+            list.style.transition = "opacity 0.7s";
+            list.style.opacity = "0";
+            list.addEventListener(
+              "transitionend",
+              () => {
+                list.classList.add("hidden");
+                list.hidden = true;
+                list.style.display = "none";
+                list.style.transition = "";
+                setIcon(false);
+              },
+              { once: true }
+            );
+          }
+        } else {
+          if (isClosed) {
+            list.hidden = false;
+            list.classList.remove("hidden");
+            list.style.display = "";
+            list.style.opacity = "1";
+            list.classList.add("fixed-Dropdownflighttype");
+            document.querySelector("body").classList.add("overflow-hidden");
+            setIcon(true);
+          } else {
+            list.classList.remove("fixed-Dropdownflighttype");
+            document.querySelector("body").classList.remove("overflow-hidden");
+            list.classList.add("hidden");
+            list.hidden = true;
+            list.style.display = "none";
+            list.style.transition = "";
+            list.style.opacity = "0";
+            setIcon(false);
+          }
+        }
+      });
+    }
 
     function close_Dropdownflighttype(t) {
       const el = t.closest(".flighttype-items");
@@ -378,13 +378,13 @@ if (document.querySelector("#empty-fields")) {
         const flightType = String(data.flightType);
 
         if (flightType === "1") {
-          const departureName   = data.departure?.name || "";
+          const departureName = data.departure?.name || "";
           const destinationName = data.destination?.name || "";
-          const departureId     = data.departure?.id || "";
-          const destinationId   = data.destination?.id || "";
+          const departureId = data.departure?.id || "";
+          const destinationId = data.destination?.id || "";
 
-          const startDateValue  = data.date?.start || "";   
-          const georgiaDateVal  = data.georgiaDate || "";       
+          const startDateValue = data.date?.start || "";
+          const georgiaDateVal = data.georgiaDate || "";
 
           const textFields = document.querySelectorAll(".text-value");
           if (textFields[0] && textFields[0].value === "") {
@@ -771,25 +771,28 @@ function city_search(t) {
 function SelectPlace(t) {
   const check_place = t.getAttribute("data-id");
 
-   const isAllHotels = !check_place || check_place === "";
+  const isAllHotels = !check_place || check_place === "";
 
-   const hotelNameKeyMap = {
+  const hotelNameKeyMap = {
     "1168092": "hotel-name",
     "1177676": "hotel-name2",
     "1168073": "hotel-name3",
     "1169499": "hotel-name4",
   };
 
-   const hotelNameKey = hotelNameKeyMap[check_place] || "hotel-name";
+  const hotelNameKey = hotelNameKeyMap[check_place] || "hotel-name";
+  if (document.querySelector('[data-dmnid="4932"]')) {
 
-  if (t.closest("form").querySelector(".check-nationality-hotel")) {
-    if (t.closest(".check-destination-hotel")) {
-       const hotelNameContainer = t
-        .closest("form")
-        .querySelector(".hotel-name-container");
-      if (!hotelNameContainer) {
 
-         const hotelNameHTML = `
+
+    if (t.closest("form").querySelector(".check-nationality-hotel")) {
+      if (t.closest(".check-destination-hotel")) {
+        const hotelNameContainer = t
+          .closest("form")
+          .querySelector(".hotel-name-container");
+        if (!hotelNameContainer) {
+
+          const hotelNameHTML = `
         <div class="reserve-field w-1/3 h-20 departure-route relative max-xl:w-full max-xl:mb-4 hotel-name-container">
           <div onclick="empty_value(this,'${hotelNameKey}')" class="click-content border-type-1 cursor-pointer h-full rounded-type-1 px-2">
             <label class="label-routes label-departure-hotel float-right w-full cursor-pointer relative" for="departure2">
@@ -806,17 +809,16 @@ function SelectPlace(t) {
           </div>
           <input value="" class="locationId from" type="hidden" name="hotelid" aria-label="locationId" />
           <div class="searchList hidden-box hidden py-3.5 px-4 border-type-1 rounded-type-1 w-60 min-w-full float-left text-sm absolute z-20 clear-both top-full right-0 bg-white text-left leading-6 max-xl:w-full">
-           ${
-             window.innerWidth < 1024
-               ? `
+           ${window.innerWidth < 1024
+              ? `
               <div class="close-searchList w-5 h-5 leading-5 mb-4 clear-both text-center text-textColor cursor-pointer text-sm float-right hover:text-red-600" onclick="close_searchList(this)">
                 <svg width="15" height="15" class="align-middle">
                   <use xlink:href="images/sprite-icons-mobile.svg#engine-close-icon"></use>
                 </svg>
               </div>
             `
-               : ""
-           }
+              : ""
+            }
           <div class="flex relative mb-2 float-right w-full clear-both">
               <div class="h-9 leading-9">
                 <svg width="15" height="19" class="align-middle">
@@ -836,39 +838,39 @@ function SelectPlace(t) {
         </div>
       `;
 
-         t.closest(".check-destination-hotel").insertAdjacentHTML(
-          "afterend",
-          hotelNameHTML
-        );
-      } else {
-         const existingClickContent = hotelNameContainer.querySelector(
-          ".click-content"
-        );
-        if (existingClickContent) {
-          existingClickContent.setAttribute(
-            "onclick",
-            `empty_value(this,'${hotelNameKey}')`
+          t.closest(".check-destination-hotel").insertAdjacentHTML(
+            "afterend",
+            hotelNameHTML
           );
+        } else {
+          const existingClickContent = hotelNameContainer.querySelector(
+            ".click-content"
+          );
+          if (existingClickContent) {
+            existingClickContent.setAttribute(
+              "onclick",
+              `empty_value(this,'${hotelNameKey}')`
+            );
+          }
         }
-      }
 
-       if (
-        check_place != "1168092" &&
-        check_place != "1177676" &&
-        check_place != "1168073" &&
-        check_place != "1169499"
-      ) {
-        const hotelNameContainerToRemove = t
-          .closest("form")
-          .querySelector(".hotel-name-container");
-        if (hotelNameContainerToRemove) {
-          hotelNameContainerToRemove.remove();
+        if (
+          check_place != "1168092" &&
+          check_place != "1177676" &&
+          check_place != "1168073" &&
+          check_place != "1169499"
+        ) {
+          const hotelNameContainerToRemove = t
+            .closest("form")
+            .querySelector(".hotel-name-container");
+          if (hotelNameContainerToRemove) {
+            hotelNameContainerToRemove.remove();
+          }
         }
       }
     }
   }
-
-   if (!isAllHotels) {
+  if (!isAllHotels) {
     let duplicate = false;
     if (!t.closest("form").classList.contains("multicity-flight-form")) {
       t.closest("form")
@@ -1996,14 +1998,14 @@ if (multiflight_module == "true") {
     // }
     const searchHistoryRaw = localStorage.getItem("searchHistory_multi");
     let searchHistory = [];
-    
+
     try {
       searchHistory = searchHistoryRaw ? JSON.parse(searchHistoryRaw) : [];
     } catch (e) {
       console.error("Invalid searchHistory_multi JSON", e);
       searchHistory = [];
     }
-    
+
     if (document.querySelector("#empty-fields")) {
       if (!document.querySelector(".landing-search-engine")) {
         if (document.querySelector("#empty-fields").value === "true") {
@@ -2014,7 +2016,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(".multicity-flight-form .destination")
             .forEach(function (element) {
@@ -2022,7 +2024,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(".multicity-flight-form .locationId")
             .forEach(function (element) {
@@ -2030,7 +2032,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(
               ".multicity-flight-form .departure-route .auto-fit"
@@ -2040,7 +2042,7 @@ if (multiflight_module == "true") {
                 element.textContent = "";
               }
             });
-    
+
           document
             .querySelectorAll(
               ".multicity-flight-form .destination-route .auto-fit"
@@ -2050,28 +2052,28 @@ if (multiflight_module == "true") {
                 element.textContent = "";
               }
             });
-    
+
           if (searchHistory && searchHistory.length > 0) {
             const latest = searchHistory[0];
-    
-            const flightData = latest.value || latest; 
+
+            const flightData = latest.value || latest;
             const flightType = Number(flightData.flightType);
-    
+
             if (flightType === 3) {
               const departureCity = flightData.departure?.name || "";
               const destinationCity = flightData.destination?.name || "";
-    
+
               const departureInput = document.querySelector(
                 ".multicity-flight-form .departure"
               );
               const destinationInput = document.querySelector(
                 ".multicity-flight-form .destination"
               );
-    
+
               if (departureInput && departureInput.value === "") {
                 departureInput.value = departureCity;
               }
-    
+
               if (destinationInput && destinationInput.value === "") {
                 destinationInput.value = destinationCity;
               }
@@ -3137,9 +3139,8 @@ if (
     let roomsContainer = document.querySelector(".Rooms");
     let rooms = roomsContainer.querySelectorAll(".contentRoom");
     rooms.forEach((room, index) => {
-      room.querySelector(".numberOfRoom").innerHTML = `Room<span class="ml-1">${
-        index + 1
-      }</span>`;
+      room.querySelector(".numberOfRoom").innerHTML = `Room<span class="ml-1">${index + 1
+        }</span>`;
       room
         .querySelector("input.adultcount")
         .setAttribute("name", `_root.rooms__${index + 1}.adultcount`);
@@ -3203,8 +3204,8 @@ if (
       button.textContent.indexOf("+") > -1
         ? currentValue + 1
         : currentValue > 0
-        ? currentValue - 1
-        : 0;
+          ? currentValue - 1
+          : 0;
     if (updatedValue < 1) return;
     if (updatedValue < 10 || updatedValue >= 1) {
       adultCountInput.value = updatedValue;
@@ -3259,8 +3260,8 @@ if (
       span.textContent.indexOf("+") > -1
         ? currentCount + 1
         : currentCount > 0
-        ? currentCount - 1
-        : 0;
+          ? currentCount - 1
+          : 0;
 
     if (updatedCount < 5) {
       childCountInput.value = updatedCount;
@@ -3274,9 +3275,8 @@ if (
           e.className =
             "createChildDropdown mb-4 w-full float-right clear-both";
           e.innerHTML = `
-            <label for="select-age${i}" class="float-left text-sm leading-8 text-textColor">Child age ${
-            ordinalWords[i - 1] || i
-          }</label>
+            <label for="select-age${i}" class="float-left text-sm leading-8 text-textColor">Child age ${ordinalWords[i - 1] || i
+            }</label>
             <select class="select-age float-left w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2" id="select-age${i}">
               <option value="1">Up to 1 year</option>
               <option value="2">1 to 2</option>
@@ -4593,32 +4593,32 @@ if (flight_module == "true" || flighthotel_module == "true") {
 
   function select_flightclass(e) {
     var dataValue = e.getAttribute("data-value");
-  
+
     e.closest(".FlightClass")
       .querySelectorAll("li")
       .forEach(function (li) {
         li.classList.remove("active-FlightClass");
       });
-  
+
     e.classList.add("active-FlightClass");
-  
+
     var spans = e.querySelectorAll("span");
     var dataText = "";
-  
+
     spans.forEach(function (span) {
       if (window.getComputedStyle(span).display !== "none") {
         dataText = span.textContent;
       }
     });
-  
+
     var valueInput = e.closest("form").querySelector(".FlightClass-value");
     if (valueInput) valueInput.value = dataValue;
-  
+
     var textElement = e.closest(".flightclass-field").querySelector(".FlightClass-text");
     if (textElement) textElement.textContent = dataText;
-  
+
     e.closest(".flightclass-field").querySelector(".hidden-box").classList.add("hidden");
-  
+
     if (OPEN_NEXT_MENU) {
       if (
         !e.closest(".flightclass-field")
@@ -4651,10 +4651,10 @@ if (flight_module == "true" || flighthotel_module == "true") {
         }
       }
     }
-  
+
     const icon = e.closest(".flightclass-field").querySelector(".down-icon");
     if (icon) icon.classList.toggle("rotate");
-  
+
     if (document.querySelector("body").classList.contains("overflow-hidden")) {
       document.querySelector("body").classList.remove("overflow-hidden");
     }
@@ -7297,7 +7297,7 @@ const autoCompleteEngineSearch = (element) => {
   try {
     const dropContent = element
       .closest(".reserve-field")
-      .querySelector("ul.ul-list");
+      .querySelector(".load-location-options ul");
 
     let count = 0;
     let noData = dropContent.querySelector(".nodata");
@@ -7305,10 +7305,10 @@ const autoCompleteEngineSearch = (element) => {
     dropContent.querySelectorAll("li").forEach((e) => {
       const matches = e.querySelector("span").textContent
         ? e
-            .querySelector("span")
-            .textContent.toLowerCase()
-            .includes(element.value.toLowerCase()) ||
-          e.dataset.id.toLowerCase().includes(element.value.toLowerCase())
+          .querySelector("span")
+          .textContent.toLowerCase()
+          .includes(element.value.toLowerCase()) ||
+        e.dataset.id.toLowerCase().includes(element.value.toLowerCase())
         : e.innerText.toLowerCase().includes(element.value.toLowerCase());
       if (matches) {
         count++;

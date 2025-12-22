@@ -376,13 +376,13 @@ if (document.querySelector("#empty-fields")) {
         const flightType = String(data.flightType);
 
         if (flightType === "1") {
-          const departureName   = data.departure?.name || "";
+          const departureName = data.departure?.name || "";
           const destinationName = data.destination?.name || "";
-          const departureId     = data.departure?.id || "";
-          const destinationId   = data.destination?.id || "";
+          const departureId = data.departure?.id || "";
+          const destinationId = data.destination?.id || "";
 
-          const startDateValue  = data.date?.start || "";   
-          const georgiaDateVal  = data.georgiaDate || "";       
+          const startDateValue = data.date?.start || "";
+          const georgiaDateVal = data.georgiaDate || "";
 
           const textFields = document.querySelectorAll(".text-value");
           if (textFields[0] && textFields[0].value === "") {
@@ -422,61 +422,6 @@ if (document.querySelector("#empty-fields")) {
     }
   }
 }
-
-
-
-
-
-
-// if (document.querySelector("#empty-fields")) {
-//   if (!document.querySelector(".landing-search-engine")) {
-//     if (document.querySelector("#empty-fields").value === "true") {
-//       // اول برای بقیه ماژول‌ها همیشه خالی کن (حفظ ماهیت قبلی)
-//       document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])').forEach(function(form) {
-//         form.querySelectorAll(".text-value").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//         form.querySelectorAll(".auto-fit").forEach(function (field) {
-//           if (field.textContent !== "") {
-//             field.textContent = "";
-//           }
-//         });
-//         form.querySelectorAll(".locationId").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//       });
-//       // سپس برای پرواز (flight/multi)، فقط اگر هیستوری خالی بود خالی کن
-//       document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]').forEach(function(form) {
-//         const type = form.getAttribute('data-form');
-//         const history = get_searchHistory(type, langid);
-//         if (history.length === 0) {
-//           form.querySelectorAll(".text-value").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//           form.querySelectorAll(".auto-fit").forEach(function (field) {
-//             if (field.textContent !== "") {
-//               field.textContent = "";
-//             }
-//           });
-//           form.querySelectorAll(".locationId").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//         }
-//       });
-//     }
-//   }
-// }
-
-
-
 
 
 if (document.querySelector("#empty-fields")) {
@@ -692,16 +637,16 @@ function city_search(t, source) {
         miniLoading.style.display = "none";
 
         const currentValue = t.value.trim();
-        
 
-        if (dataType !== "4") { 
-           const isSpecialCase = (dataType == "3" && (currentValue == "رم" || currentValue == "قم"));
-           if (!isSpecialCase && currentValue.length <= 2) {
 
-               return; 
-           }
+        if (dataType !== "4") {
+          const isSpecialCase = (dataType == "3" && (currentValue == "رم" || currentValue == "قم"));
+          if (!isSpecialCase && currentValue.length <= 2) {
+
+            return;
+          }
         }
- 
+
 
         locationResult.innerHTML = html;
         locationResult.style.display = "block";
@@ -732,7 +677,7 @@ function city_search(t, source) {
   } else {
     const value = t.value.trim();
     t.value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-    
+
     const currentValue = t.value.trim();
     if (dataType == "3" && (currentValue == "رم" || currentValue == "قم")) {
       if (currentValue.length > 1) {
@@ -753,7 +698,7 @@ function city_search(t, source) {
       sendRequest({ term: currentValue, type: dataType, lid: "1", select_value: "0" });
     } else {
       locationResult.innerHTML = "";
-      locationResult.style.display = "none"; 
+      locationResult.style.display = "none";
       if (ulList) {
         ulList.style.display = "block";
       }
@@ -1283,11 +1228,23 @@ currentTime.setDate(currentTime.getDate() + 2);
 var gregorian_month = currentTime.getMonth() + 1;
 var gregorian_day = currentTime.getDate();
 var gregorian_year = currentTime.getFullYear();
+var gregorian_today_str =
+  gregorian_year +
+  "-" +
+  String(gregorian_month).padStart(2, "0") +
+  "-" +
+  String(gregorian_day).padStart(2, "0")
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 4);
 var gregorian_month_tomorrow = tomorrow.getMonth() + 1;
 var gregorian_day_tomorrow = tomorrow.getDate();
 var gregorian_year_tomorrow = tomorrow.getFullYear();
+var gregorian_tomorrow_str =
+  gregorian_year_tomorrow +
+  "-" +
+  String(gregorian_month_tomorrow).padStart(2, "0") +
+  "-" +
+  String(gregorian_day_tomorrow).padStart(2, "0");
 // Convert Gregorian to Persian
 var persian_today = PersianDate.GregorianToPersian(
   gregorian_year,
@@ -1321,6 +1278,7 @@ document.querySelectorAll(".start_date").forEach(function (startElement) {
   if (startElement && !startElement.classList.contains("checkin")) {
     if (document.querySelector("#empty-fields").value !== "true") {
       startElement.value = persian_today;
+      startElement.setAttribute("data-gregorian", gregorian_today_str);
       var spStartDiv = startElement.closest("div");
       spStartDiv.querySelector(".selected-day").textContent =
         persian_today_split[2];
@@ -1333,6 +1291,7 @@ document.querySelectorAll(".end_date").forEach(function (endElement) {
   if (!endElement.disabled && !endElement.classList.contains("checkout")) {
     if (document.querySelector("#empty-fields").value !== "true") {
       endElement.value = persian_tomorrow;
+      endElement.setAttribute("data-gregorian", gregorian_tomorrow_str);
       var spEndDiv = endElement.closest("div");
       spEndDiv.querySelector(".selected-day").textContent =
         persian_tomorrow_split[2];
@@ -1967,14 +1926,14 @@ if (multiflight_module == "true") {
 
     const searchHistoryRaw = localStorage.getItem("searchHistory_multi");
     let searchHistory = [];
-    
+
     try {
       searchHistory = searchHistoryRaw ? JSON.parse(searchHistoryRaw) : [];
     } catch (e) {
       console.error("Invalid searchHistory_multi JSON", e);
       searchHistory = [];
     }
-    
+
     if (document.querySelector("#empty-fields")) {
       if (!document.querySelector(".landing-search-engine")) {
         if (document.querySelector("#empty-fields").value === "true") {
@@ -1985,7 +1944,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(".multicity-flight-form .destination")
             .forEach(function (element) {
@@ -1993,7 +1952,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(".multicity-flight-form .locationId")
             .forEach(function (element) {
@@ -2001,7 +1960,7 @@ if (multiflight_module == "true") {
                 element.value = "";
               }
             });
-    
+
           document
             .querySelectorAll(
               ".multicity-flight-form .departure-route .auto-fit"
@@ -2011,7 +1970,7 @@ if (multiflight_module == "true") {
                 element.textContent = "";
               }
             });
-    
+
           document
             .querySelectorAll(
               ".multicity-flight-form .destination-route .auto-fit"
@@ -2021,28 +1980,28 @@ if (multiflight_module == "true") {
                 element.textContent = "";
               }
             });
-    
+
           if (searchHistory && searchHistory.length > 0) {
             const latest = searchHistory[0];
-    
-            const flightData = latest.value || latest; 
+
+            const flightData = latest.value || latest;
             const flightType = Number(flightData.flightType);
-    
+
             if (flightType === 3) {
               const departureCity = flightData.departure?.name || "";
               const destinationCity = flightData.destination?.name || "";
-    
+
               const departureInput = document.querySelector(
                 ".multicity-flight-form .departure"
               );
               const destinationInput = document.querySelector(
                 ".multicity-flight-form .destination"
               );
-    
+
               if (departureInput && departureInput.value === "") {
                 departureInput.value = departureCity;
               }
-    
+
               if (destinationInput && destinationInput.value === "") {
                 destinationInput.value = destinationCity;
               }
@@ -2051,7 +2010,7 @@ if (multiflight_module == "true") {
         }
       }
     }
-    
+
 
 
 
@@ -4413,32 +4372,32 @@ if (flight_module == "true" || flighthotel_module == "true") {
 
   function select_flightclass(e) {
     var dataValue = e.getAttribute("data-value");
-  
+
     e.closest(".FlightClass")
       .querySelectorAll("li")
       .forEach(function (li) {
         li.classList.remove("active-FlightClass");
       });
-  
+
     e.classList.add("active-FlightClass");
-  
+
     var spans = e.querySelectorAll("span");
     var dataText = "";
-  
+
     spans.forEach(function (span) {
       if (window.getComputedStyle(span).display !== "none") {
         dataText = span.textContent;
       }
     });
-  
+
     var valueInput = e.closest("form").querySelector(".FlightClass-value");
     if (valueInput) valueInput.value = dataValue;
-  
+
     var textElement = e.closest(".flightclass-field").querySelector(".FlightClass-text");
     if (textElement) textElement.textContent = dataText;
-  
+
     e.closest(".flightclass-field").querySelector(".hidden-box").classList.add("hidden");
-  
+
     if (OPEN_NEXT_MENU) {
       if (
         !e.closest(".flightclass-field")
@@ -4471,10 +4430,10 @@ if (flight_module == "true" || flighthotel_module == "true") {
         }
       }
     }
-  
+
     const icon = e.closest(".flightclass-field").querySelector(".down-icon");
     if (icon) icon.classList.toggle("rotate");
-  
+
     if (document.querySelector("body").classList.contains("overflow-hidden")) {
       document.querySelector("body").classList.remove("overflow-hidden");
     }
@@ -7556,7 +7515,5 @@ const searchEngineObserver = new MutationObserver((mutationsList, observer) => {
     searchEngineObserver.disconnect()
   }
 })
-
 const config = { childList: true, subtree: true }
-
 searchEngineObserver.observe(document.body, config)

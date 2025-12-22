@@ -1002,12 +1002,23 @@ currentTime.setDate(currentTime.getDate() + 2);
 var gregorian_month = currentTime.getMonth() + 1;
 var gregorian_day = currentTime.getDate();
 var gregorian_year = currentTime.getFullYear();
+var gregorian_today_str =
+  gregorian_year +
+  "-" +
+  String(gregorian_month).padStart(2, "0") +
+  "-" +
+  String(gregorian_day).padStart(2, "0")
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 4);
 var gregorian_month_tomorrow = tomorrow.getMonth() + 1;
 var gregorian_day_tomorrow = tomorrow.getDate();
 var gregorian_year_tomorrow = tomorrow.getFullYear();
-
+var gregorian_tomorrow_str =
+  gregorian_year_tomorrow +
+  "-" +
+  String(gregorian_month_tomorrow).padStart(2, "0") +
+  "-" +
+  String(gregorian_day_tomorrow).padStart(2, "0");
 var persian_today =
   gregorian_year + "-" + gregorian_month + "-" + gregorian_day;
 var persian_tomorrow =
@@ -1038,6 +1049,7 @@ document.querySelectorAll(".start_date").forEach(function (startElement) {
   if (startElement && !startElement.classList.contains("checkin")) {
     if (document.querySelector("#empty-fields").value !== "true") {
       startElement.value = persian_today;
+      startElement.setAttribute("data-gregorian", gregorian_today_str);
       var spStartDiv = startElement.closest("div");
       spStartDiv.querySelector(".selected-day").textContent =
         persian_today_split[2];
@@ -1050,6 +1062,7 @@ document.querySelectorAll(".end_date").forEach(function (endElement) {
   if (!endElement.disabled && !endElement.classList.contains("checkout")) {
     if (document.querySelector("#empty-fields").value !== "true") {
       endElement.value = persian_tomorrow;
+      endElement.setAttribute("data-gregorian", gregorian_tomorrow_str);
       var spEndDiv = endElement.closest("div");
       spEndDiv.querySelector(".selected-day").textContent =
         persian_tomorrow_split[2];
@@ -2742,8 +2755,8 @@ if (
       button.textContent.indexOf("+") > -1
         ? currentValue + 1
         : currentValue > 0
-        ? currentValue - 1
-        : 0;
+          ? currentValue - 1
+          : 0;
     if (updatedValue < 10 || updatedValue >= 1) {
       adultCountInput.value = updatedValue;
       Sum_AdultCount(button);
@@ -2770,8 +2783,8 @@ if (
       span.textContent.indexOf("+") > -1
         ? currentCount + 1
         : currentCount > 0
-        ? currentCount - 1
-        : 0;
+          ? currentCount - 1
+          : 0;
 
     if (updatedCount < 5) {
       childCountInput.value = updatedCount;
@@ -2785,9 +2798,8 @@ if (
           e.className =
             "createChildDropdown mb-4 w-full float-right clear-both";
           e.innerHTML = `
-            <label for="select-age${i}" class="float-right text-sm leading-8 text-textColor">عمر الطفل ${
-            ordinalWords[i - 1] || i
-          }</label>
+            <label for="select-age${i}" class="float-right text-sm leading-8 text-textColor">عمر الطفل ${ordinalWords[i - 1] || i
+            }</label>
             <select class="select-age float-left w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2" id="select-age${i}">
               <option value="1">إلى سنة واحدة</option>
               <option value="2">1 إلى 2</option>
@@ -3840,7 +3852,7 @@ if (
     let n = "";
     if (i >= 5) return;
 
-     if (selector === "infant") {
+    if (selector === "infant") {
       const adultsInput = t
         .closest(".passengerbox")
         .querySelector(".adultcount");
@@ -3891,7 +3903,7 @@ if (
       }
     }
 
-     if (selector === "infant") {
+    if (selector === "infant") {
       const adultsInput = t
         .closest(".passengerbox")
         .querySelector(".adultcount");
@@ -6651,4 +6663,16 @@ if (document.querySelector("#Dynamicjson")) {
     }
     // Dynamic Data End
   }
+}
+// form target
+
+const formTargetInput = document.getElementById('form-target');
+if (formTargetInput) {
+  const targetValue = formTargetInput.value?.trim();
+  if (targetValue) {
+    document.querySelectorAll('form.form-search').forEach(form => {
+      form.setAttribute('target', targetValue);
+    });
+  }
+
 }

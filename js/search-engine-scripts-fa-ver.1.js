@@ -424,6 +424,61 @@ if (document.querySelector("#empty-fields")) {
 }
 
 
+
+
+
+
+// if (document.querySelector("#empty-fields")) {
+//   if (!document.querySelector(".landing-search-engine")) {
+//     if (document.querySelector("#empty-fields").value === "true") {
+//       // اول برای بقیه ماژول‌ها همیشه خالی کن (حفظ ماهیت قبلی)
+//       document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])').forEach(function(form) {
+//         form.querySelectorAll(".text-value").forEach(function (field) {
+//           if (field.value !== "") {
+//             field.value = "";
+//           }
+//         });
+//         form.querySelectorAll(".auto-fit").forEach(function (field) {
+//           if (field.textContent !== "") {
+//             field.textContent = "";
+//           }
+//         });
+//         form.querySelectorAll(".locationId").forEach(function (field) {
+//           if (field.value !== "") {
+//             field.value = "";
+//           }
+//         });
+//       });
+//       // سپس برای پرواز (flight/multi)، فقط اگر هیستوری خالی بود خالی کن
+//       document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]').forEach(function(form) {
+//         const type = form.getAttribute('data-form');
+//         const history = get_searchHistory(type, langid);
+//         if (history.length === 0) {
+//           form.querySelectorAll(".text-value").forEach(function (field) {
+//             if (field.value !== "") {
+//               field.value = "";
+//             }
+//           });
+//           form.querySelectorAll(".auto-fit").forEach(function (field) {
+//             if (field.textContent !== "") {
+//               field.textContent = "";
+//             }
+//           });
+//           form.querySelectorAll(".locationId").forEach(function (field) {
+//             if (field.value !== "") {
+//               field.value = "";
+//             }
+//           });
+//         }
+//       });
+//     }
+//   }
+// }
+
+
+
+
+
 if (document.querySelector("#empty-fields")) {
   if (!document.querySelector(".landing-search-engine")) {
 
@@ -7517,3 +7572,16 @@ const searchEngineObserver = new MutationObserver((mutationsList, observer) => {
 })
 const config = { childList: true, subtree: true }
 searchEngineObserver.observe(document.body, config)
+
+// form target
+
+const formTargetInput = document.getElementById('form-target');
+if (formTargetInput) {
+  const targetValue = formTargetInput.value?.trim();
+  if (targetValue) {
+    document.querySelectorAll('form.form-search').forEach(form => {
+      form.setAttribute('target', targetValue);
+    });
+  }
+
+}

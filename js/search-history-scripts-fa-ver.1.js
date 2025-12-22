@@ -3,11 +3,11 @@ const isMobile = document.querySelector('[data-mob]')?.dataset?.mob === "true";
 let langid;
 
 
-let FlightChunckStatus = false;
-let FlightChunckbool = false;
-
-// function useFlightChunck(enabled = true) {
-//   FlightChunckStatus = !!enabled;
+let FlightChunkStatus = false;
+let FlightChunkBool = false;
+const FlightChunkTarget = document.getElementById('form-target');
+// function useFlightChunk(enabled = true) {
+//   FlightChunkStatus = !!enabled;
 // }
 
 if (document.querySelector(".search-box-container").classList.contains("en")) {
@@ -116,9 +116,9 @@ function convert_jalali_toGregorian(date) {
    return JalaliDate.JalaliToGregorian(jy, jm, jd);
 }
 
-function form_search_isSubmited(element, event, isFlightChunck) {
+function form_search_isSubmited(element, event, isFlightChunk) {
 
-   FlightChunckbool = isFlightChunck;
+   FlightChunkBool = isFlightChunk;
 
    let isValid = true;
    element
@@ -323,13 +323,13 @@ function form_search_isSubmited(element, event, isFlightChunck) {
 
          let flightaction;
          let chunkuse;
-         if (isTrue(isFlightChunck)) {
+         if (isTrue(isFlightChunk)) {
             const isB2B = isTrue(element.dataset.b2b); // data-b2b="true|false"
             const isMob = isTrue(element.dataset.mob); // data-mob="true|false"
             // if not B2B -> /flight/search
             // if B2B and mob=true -> /flight/search
             // else (B2B and mob!=true) -> /flight/search/B2B
-            flightaction = (!isB2B || isMob) ? '/flight/search' : '/flight/search/B2B';
+            flightaction = (!isB2B || isMob) ? `/flight/search?lid=${langid}` : `/flight/search/B2B?lid=${langid}`;
             chunkuse = true;
          } else {
             // not a flight chunk: use form's action (fallback to /flight/search)
@@ -413,7 +413,7 @@ function form_search_isSubmited(element, event, isFlightChunck) {
             // if not B2B -> /flight/search
             // if B2B and mob=true -> /flight/search
             // else (B2B and mob!=true) -> /flight/search/B2B
-            flightaction = (!isB2B || isMob) ? '/flight/search' : '/flight/search/B2B';
+            flightaction = (!isB2B || isMob) ? `/flight/search?lid=${langid}` : `/flight/search/B2B?lid=${langid}`;
             chunkuse = true;
          } else {
             // not a flight chunk: use form's action (fallback to /flight/search)
@@ -1009,8 +1009,8 @@ function form_search_isSubmited(element, event, isFlightChunck) {
          };
          set_searchHistory(bus, "bus");
       }
-      // new code for flight chunck api
-      if (isFlightChunck === "true" || isFlightChunck === true) {
+      // new code for flight Chunk api
+      if (isFlightChunk === "true" || isFlightChunk === true) {
          event.preventDefault();
          const formType = element.getAttribute("data-form");
 
@@ -1134,9 +1134,12 @@ function form_search_isSubmited(element, event, isFlightChunck) {
             // if not B2B -> /flight/search
             // if B2B and mob=true -> /flight/search
             // else (B2B and mob!=true) -> /flight/search/B2B
-            const target = (!isB2B || isMob) ? '/flight/search' : '/flight/search/B2B';
-
-            window.location.href = target;
+            const target = (!isB2B || isMob) ? `/flight/search?lid=${langid}` : `/flight/search/B2B?lid=${langid}`;
+            if (FlightChunkTarget?.value?.trim()) {
+               window.open(target, FlightChunkTarget?.value?.trim());
+            } else {
+               window.location.href = target;
+            }
 
          } else if (["bus"].includes(formType)) {
             const schemaId = (() => {
@@ -1207,14 +1210,19 @@ function form_search_isSubmited(element, event, isFlightChunck) {
                lid: "1",
             };
             sessionStorage.setItem("sessionSearch", JSON.stringify(busSearch));
-            window.location.href = "/bus/search";
+            if (FlightChunkTarget?.value?.trim()) {
+               window.open("/bus/search", FlightChunkTarget?.value?.trim());
+            } else {
+               window.location.href = "/bus/search";
+            }
+
          }
       }
    }
 }
-function bus_search_isSubmited(element, event, isFlightChunck) {
-   // new code for flight chunck api
-   if (isFlightChunck === "true" || isFlightChunck === true) {
+function bus_search_isSubmited(element, event, isFlightChunk) {
+   // new code for flight Chunk api
+   if (isFlightChunk === "true" || isFlightChunk === true) {
       event.preventDefault();
       const schemaId = (() => {
          const mapping = {
@@ -1284,10 +1292,14 @@ function bus_search_isSubmited(element, event, isFlightChunck) {
          lid: "1",
       };
       sessionStorage.setItem("sessionSearch", JSON.stringify(busSearch));
-      window.location.href = "/bus/search";
+      if (FlightChunkTarget?.value?.trim()) {
+         window.open("/bus/search", FlightChunkTarget?.value?.trim());
+      } else {
+         window.location.href = "/bus/search";
+      }
    }
 }
-// new code for flight chunck api
+// new code for flight Chunk api
 // Retrieves the value of a specific cookie by name
 function getSearchCookie(name) {
    const value = `; ${document.cookie}`;
@@ -1295,7 +1307,7 @@ function getSearchCookie(name) {
    if (parts.length === 2) return parts.pop().split(";").shift();
    return null;
 }
-// new code for flight chunck api
+// new code for flight Chunk api
 // Extracts the Persian city name from a string, if present
 function extractCityName(modelData = "") {
    if (typeof modelData !== "string") return "";
@@ -1408,7 +1420,7 @@ const convertDateIfPersian = (value) => {
 
    return s;
 };
-// new code for flight chunck api
+// new code for flight Chunk api
 // Get Lid From URL
 function getLidFromScriptUrl() {
    const scripts = document.querySelectorAll("script[src]");
@@ -1465,7 +1477,7 @@ reserveButtons.forEach((button) => {
       var dataId = button.getAttribute("data-id");
       var type = dataId.split("-")[1];
 
-      // let FlightChunckk = FlightChunckbool;
+      // let FlightChunkk = FlightChunkBool;
       check_searchHistory(type);
    }
 });
@@ -1673,15 +1685,15 @@ function show_searchHistory(type, lang) {
          // درج فرم مولتی
          const lid = lang == "en" ? 2 : lang == "ar" ? 3 : 1;
 
-         //          const methodTypeMulti = FlightChunckStatus ? "post" : element.value.method;
-         // const onsubmitAttrMulti = FlightChunckStatus
+         //          const methodTypeMulti = FlightChunkStatus ? "post" : element.value.method;
+         // const onsubmitAttrMulti = FlightChunkStatus
          //   ? ` onsubmit="historyCardChunkSubmit(this,event,true)"`
          //   : "";
 
 
 
 
-         const shouldChunkmulti = !!(FlightChunckStatus || element?.value?.chunkuse); // per-item + وضعیت فعلی
+         const shouldChunkmulti = !!(FlightChunkStatus || element?.value?.chunkuse); // per-item + وضعیت فعلی
          const methodTypeMulti = 'post';
          const currentFlightForm = document.querySelector('.form-search[data-form="multi"]');
          const b2bFlag = (currentFlightForm?.dataset?.b2b ?? 'false');                 // مثل فرم اصلی
@@ -1690,7 +1702,7 @@ function show_searchHistory(type, lang) {
             ? ` onsubmit="historyCardChunkSubmit(this,event)"  data-b2b="${b2bFlag}" data-mob="${mobFlag}" `
             : "";
          const onsubmitActionMulti = shouldChunkmulti
-            ? `flight/search`
+            ? `flight/search?lid=${langid}`
             : `${element.value.action}`;
 
 
@@ -1878,14 +1890,14 @@ function show_searchHistory(type, lang) {
 
 
 
-            //                   let methodType = FlightChunckStatus ? "post" : element.value.method;
+            //                   let methodType = FlightChunkStatus ? "post" : element.value.method;
 
-            // const onsubmitAttr = FlightChunckStatus
+            // const onsubmitAttr = FlightChunkStatus
             //   ? ` onsubmit="form_search_isSubmited(this,event,true)"`
             //   : "";
 
 
-            const shouldChunk = !!(FlightChunckStatus || element?.value?.chunkuse); // per-item + وضعیت فعلی
+            const shouldChunk = !!(FlightChunkStatus || element?.value?.chunkuse); // per-item + وضعیت فعلی
             const methodType = shouldChunk ? "post" : (element.value.method || "get");
             const currentFlightForm = document.querySelector('.form-search[data-form="flight"]');
             const b2bFlag = (currentFlightForm?.dataset?.b2b ?? 'false');                 // مثل فرم اصلی
@@ -3414,10 +3426,10 @@ function remove_searchHistory(type) {
 
 
 
-function check_searchHistory(type, isFlightChunck) {
+function check_searchHistory(type, isFlightChunk) {
 
-   if (typeof isFlightChunck !== 'undefined') {
-      FlightChunckStatus = !!isFlightChunck;
+   if (typeof isFlightChunk !== 'undefined') {
+      FlightChunkStatus = !!isFlightChunk;
    }
 
 
@@ -3762,9 +3774,14 @@ window.historyCardChunkSubmit = function (form, ev) {
       // هدایت به اکشن خود کارت (بدون QueryString)
       const action =
          form.getAttribute("action") ||
-         (isTrue(form.dataset.b2b) && !isTrue(form.dataset.mob) ? "/flight/search/B2B" : "/flight/search");
+         (isTrue(form.dataset.b2b) && !isTrue(form.dataset.mob) ? `/flight/search/B2B?lid=${langid}` : `/flight/search?lid=${langid}`);
 
-      window.location.href = action;
+      if (FlightChunkTarget?.value?.trim()) {
+         window.open(action, FlightChunkTarget?.value?.trim());
+      } else {
+         window.location.href = action;
+      }
+
       return false;
    } catch (err) {
       console.warn("historyCardChunkSubmit failed:", err);

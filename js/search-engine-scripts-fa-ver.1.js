@@ -23,7 +23,7 @@ if (document.querySelector(".flight-module")) {
       if (label) label.classList.remove("hidden");
       setIcon(false);
 
-      list?.addEventListener('click', function (e) {
+      list?.addEventListener("click", function (e) {
         e.stopPropagation();
       });
 
@@ -305,28 +305,6 @@ if (document.querySelector("#module-order")) {
     check_searchHistory(moduleName);
   }
 }
-// if (document.querySelector("#empty-fields")) {
-//   if (!document.querySelector(".landing-search-engine")) {
-//     if (document.querySelector("#empty-fields").value === "true") {
-//       document.querySelectorAll(".text-value").forEach(function (field) {
-//         if (field.value !== "") {
-//           field.value = "";
-//         }
-//       });
-//       document.querySelectorAll(".auto-fit").forEach(function (field) {
-//         if (field.textContent !== "") {
-//           field.textContent = "";
-//         }
-//       });
-//       document.querySelectorAll(".locationId").forEach(function (field) {
-//         if (field.value !== "") {
-//           field.value = "";
-//         }
-//       });
-//     }
-//   }
-// }
-
 if (document.querySelector("#empty-fields")) {
   if (!document.querySelector(".landing-search-engine")) {
     if (document.querySelector("#empty-fields").value === "true") {
@@ -422,61 +400,6 @@ if (document.querySelector("#empty-fields")) {
     }
   }
 }
-
-
-
-
-
-
-// if (document.querySelector("#empty-fields")) {
-//   if (!document.querySelector(".landing-search-engine")) {
-//     if (document.querySelector("#empty-fields").value === "true") {
-//       // اول برای بقیه ماژول‌ها همیشه خالی کن (حفظ ماهیت قبلی)
-//       document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])').forEach(function(form) {
-//         form.querySelectorAll(".text-value").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//         form.querySelectorAll(".auto-fit").forEach(function (field) {
-//           if (field.textContent !== "") {
-//             field.textContent = "";
-//           }
-//         });
-//         form.querySelectorAll(".locationId").forEach(function (field) {
-//           if (field.value !== "") {
-//             field.value = "";
-//           }
-//         });
-//       });
-//       // سپس برای پرواز (flight/multi)، فقط اگر هیستوری خالی بود خالی کن
-//       document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]').forEach(function(form) {
-//         const type = form.getAttribute('data-form');
-//         const history = get_searchHistory(type, langid);
-//         if (history.length === 0) {
-//           form.querySelectorAll(".text-value").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//           form.querySelectorAll(".auto-fit").forEach(function (field) {
-//             if (field.textContent !== "") {
-//               field.textContent = "";
-//             }
-//           });
-//           form.querySelectorAll(".locationId").forEach(function (field) {
-//             if (field.value !== "") {
-//               field.value = "";
-//             }
-//           });
-//         }
-//       });
-//     }
-//   }
-// }
-
-
-
 
 
 if (document.querySelector("#empty-fields")) {
@@ -1288,7 +1211,7 @@ var gregorian_today_str =
   "-" +
   String(gregorian_month).padStart(2, "0") +
   "-" +
-  String(gregorian_day).padStart(2, "0")
+  String(gregorian_day).padStart(2, "0");
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 4);
 var gregorian_month_tomorrow = tomorrow.getMonth() + 1;
@@ -1917,66 +1840,6 @@ if (multiflight_module == "true") {
     document
       .querySelector("#flightSearch")
       .classList.add("block", "multicity-flight-form");
-
-
-
-
-
-
-
-
-
-
-    //empty-fields
-    // if (document.querySelector("#empty-fields")) {
-    //   if (!document.querySelector(".landing-search-engine")) {
-    //     if (document.querySelector("#empty-fields").value === "true") {
-    //       document.querySelectorAll(".text-value").forEach(function (field) {
-    //         document
-    //           .querySelectorAll(".multicity-flight-form .departure")
-    //           .forEach(function (element) {
-    //             if (element.value !== "") {
-    //               element.value = "";
-    //             }
-    //           });
-    //         document
-    //           .querySelectorAll(".multicity-flight-form .destination")
-    //           .forEach(function (element) {
-    //             if (element.value !== "") {
-    //               element.value = "";
-    //             }
-    //           });
-    //         document
-    //           .querySelectorAll(".multicity-flight-form .locationId")
-    //           .forEach(function (element) {
-    //             if (element.value !== "") {
-    //               element.value = "";
-    //             }
-    //           });
-    //         document
-    //           .querySelectorAll(
-    //             ".multicity-flight-form .departure-route .auto-fit"
-    //           )
-    //           .forEach(function (element) {
-    //             if (element.textContent !== "") {
-    //               element.textContent = "";
-    //             }
-    //           });
-    //         document
-    //           .querySelectorAll(
-    //             ".multicity-flight-form .destination-route .auto-fit"
-    //           )
-    //           .forEach(function (element) {
-    //             if (element.textContent !== "") {
-    //               element.textContent = "";
-    //             }
-    //           });
-    //       });
-    //     }
-    //   }
-    // }
-
-
 
 
     const searchHistoryRaw = localStorage.getItem("searchHistory_multi");
@@ -3183,9 +3046,9 @@ if (
     const updatedValue =
       button.textContent.indexOf("+") > -1
         ? currentValue + 1
-        : currentValue > 0
+        : currentValue > 1
           ? currentValue - 1
-          : 0;
+          : 1;
     if (updatedValue < 10 || updatedValue >= 1) {
       adultCountInput.value = updatedValue;
       Sum_AdultCount(button);
@@ -7585,3 +7448,4 @@ if (formTargetInput) {
   }
 
 }
+

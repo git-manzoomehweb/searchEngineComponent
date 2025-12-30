@@ -23,7 +23,7 @@ if (document.querySelector(".flight-module")) {
       if (label) label.classList.remove("hidden");
       setIcon(false);
 
-      list?.addEventListener('click', function (e) {
+      list?.addEventListener("click", function (e) {
         e.stopPropagation();
       });
 
@@ -423,19 +423,23 @@ if (document.querySelector("#empty-fields")) {
   }
 }
 
-
 if (document.querySelector("#empty-fields")) {
   if (!document.querySelector(".landing-search-engine")) {
-
-    if (document.querySelectorAll('form[data-form]:not([data-form="flight"]):not([data-form="multi"])')) {
+    if (
+      document.querySelectorAll(
+        'form[data-form]:not([data-form="flight"]):not([data-form="multi"])'
+      )
+    ) {
     }
 
-    if (document.querySelectorAll('form[data-form="flight"], form[data-form="multi"]')) {
+    if (
+      document.querySelectorAll(
+        'form[data-form="flight"], form[data-form="multi"]'
+      )
+    ) {
     }
-
   }
 }
-
 
 function empty_value(t) {
   const reserveField = t.closest(".reserve-field");
@@ -638,15 +642,13 @@ function city_search(t, source) {
 
         const currentValue = t.value.trim();
 
-
         if (dataType !== "4") {
-          const isSpecialCase = (dataType == "3" && (currentValue == "رم" || currentValue == "قم"));
+          const isSpecialCase =
+            dataType == "3" && (currentValue == "رم" || currentValue == "قم");
           if (!isSpecialCase && currentValue.length <= 2) {
-
             return;
           }
         }
-
 
         locationResult.innerHTML = html;
         locationResult.style.display = "block";
@@ -695,7 +697,12 @@ function city_search(t, source) {
         }
       }
     } else if (currentValue.length > 2) {
-      sendRequest({ term: currentValue, type: dataType, lid: "1", select_value: "0" });
+      sendRequest({
+        term: currentValue,
+        type: dataType,
+        lid: "1",
+        select_value: "0",
+      });
     } else {
       locationResult.innerHTML = "";
       locationResult.style.display = "none";
@@ -1233,7 +1240,7 @@ var gregorian_today_str =
   "-" +
   String(gregorian_month).padStart(2, "0") +
   "-" +
-  String(gregorian_day).padStart(2, "0")
+  String(gregorian_day).padStart(2, "0");
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 4);
 var gregorian_month_tomorrow = tomorrow.getMonth() + 1;
@@ -1863,15 +1870,6 @@ if (multiflight_module == "true") {
       .querySelector("#flightSearch")
       .classList.add("block", "multicity-flight-form");
 
-
-
-
-
-
-
-
-
-
     //empty-fields
     // if (document.querySelector("#empty-fields")) {
     //   if (!document.querySelector(".landing-search-engine")) {
@@ -1920,9 +1918,6 @@ if (multiflight_module == "true") {
     //     }
     //   }
     // }
-
-
-
 
     const searchHistoryRaw = localStorage.getItem("searchHistory_multi");
     let searchHistory = [];
@@ -2010,13 +2005,6 @@ if (multiflight_module == "true") {
         }
       }
     }
-
-
-
-
-
-
-
 
     document
       .querySelectorAll("#flightSearch .return-date")
@@ -3125,16 +3113,19 @@ if (
     const button = t.querySelector("span");
     const adultCountInput = button.closest("ul").querySelector(".adultcount");
     const currentValue = parseInt(adultCountInput.value);
+
     const updatedValue =
       button.textContent.indexOf("+") > -1
         ? currentValue + 1
-        : currentValue > 0
-          ? currentValue - 1
-          : 0;
+        : currentValue > 1
+        ? currentValue - 1
+        : 1;
+
     if (updatedValue < 10 || updatedValue >= 1) {
       adultCountInput.value = updatedValue;
       Sum_AdultCount(button);
     }
+
     Check_Passenger_Count(t);
   }
   function Sum_AdultCount(t) {
@@ -3157,8 +3148,8 @@ if (
       span.textContent.indexOf("+") > -1
         ? currentCount + 1
         : currentCount > 0
-          ? currentCount - 1
-          : 0;
+        ? currentCount - 1
+        : 0;
 
     if (updatedCount < 5) {
       childCountInput.value = updatedCount;
@@ -3172,8 +3163,9 @@ if (
           e.className =
             "createChildDropdown mb-4 w-full float-right clear-both";
           e.innerHTML = `
-            <label for="select-age${i}" class="float-right text-sm leading-8 text-textColor">سن کودک ${ordinalWords[i - 1] || i
-            }</label>
+            <label for="select-age${i}" class="float-right text-sm leading-8 text-textColor">سن کودک ${
+            ordinalWords[i - 1] || i
+          }</label>
             <select class="select-age float-left w-full rounded-type-1 bg-bgColor-100 h-8 leading-8 px-2" id="select-age${i}">
               <option value="1">تا 1 سال</option>
               <option value="2">1 تا 2</option>
@@ -4393,14 +4385,19 @@ if (flight_module == "true" || flighthotel_module == "true") {
     var valueInput = e.closest("form").querySelector(".FlightClass-value");
     if (valueInput) valueInput.value = dataValue;
 
-    var textElement = e.closest(".flightclass-field").querySelector(".FlightClass-text");
+    var textElement = e
+      .closest(".flightclass-field")
+      .querySelector(".FlightClass-text");
     if (textElement) textElement.textContent = dataText;
 
-    e.closest(".flightclass-field").querySelector(".hidden-box").classList.add("hidden");
+    e.closest(".flightclass-field")
+      .querySelector(".hidden-box")
+      .classList.add("hidden");
 
     if (OPEN_NEXT_MENU) {
       if (
-        !e.closest(".flightclass-field")
+        !e
+          .closest(".flightclass-field")
           .classList.contains("flightclass-in-passengerbox")
       ) {
         let classBox = e.closest(".reserve-field");
@@ -4422,7 +4419,9 @@ if (flight_module == "true" || flighthotel_module == "true") {
                 } else {
                   hiddenBox.classList.remove("hidden");
                   hiddenBox.classList.add("fixed-passengerbox");
-                  document.querySelector("body").classList.add("overflow-hidden");
+                  document
+                    .querySelector("body")
+                    .classList.add("overflow-hidden");
                 }
               }, 50);
             }
@@ -7490,17 +7489,16 @@ function checkElementsExist() {
 }
 
 const searchEngineObserver = new MutationObserver((mutationsList, observer) => {
-
-  const rTour = document.getElementById('r-tour')
-  const offlineTourForm = document.getElementById('offline-tour-form')
-  const tourSelectBtn = rTour ? rTour.querySelector('.tour-select-btn') : null
+  const rTour = document.getElementById("r-tour");
+  const offlineTourForm = document.getElementById("offline-tour-form");
+  const tourSelectBtn = rTour ? rTour.querySelector(".tour-select-btn") : null;
   const onlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector('#online-tour-btn')
-    : null
+    ? tourSelectBtn.querySelector("#online-tour-btn")
+    : null;
   const offlineTourBtn = tourSelectBtn
-    ? tourSelectBtn.querySelector('#offline-tour-btn')
-    : null
-  const onlineTourForm = document.getElementById('tourSearch')
+    ? tourSelectBtn.querySelector("#offline-tour-btn")
+    : null;
+  const onlineTourForm = document.getElementById("tourSearch");
 
   if (
     rTour &&
@@ -7510,22 +7508,21 @@ const searchEngineObserver = new MutationObserver((mutationsList, observer) => {
     offlineTourBtn &&
     onlineTourForm
   ) {
-    checkElementsExist()
+    checkElementsExist();
 
-    searchEngineObserver.disconnect()
+    searchEngineObserver.disconnect();
   }
-})
-const config = { childList: true, subtree: true }
-searchEngineObserver.observe(document.body, config)
-
+});
+const config = { childList: true, subtree: true };
+searchEngineObserver.observe(document.body, config);
 
 // form target
-const formTargetInput= document.getElementById('form-target');
-if(formTargetInput){
-   const targetValue = targetInput.value?.trim();
-  if(targetValue){
-     document.querySelectorAll('form.form-search').forEach(form => {
-    form.setAttribute('target', targetValue);
-  });
+const formTargetInput = document.getElementById("form-target");
+if (formTargetInput) {
+  const targetValue = targetInput.value?.trim();
+  if (targetValue) {
+    document.querySelectorAll("form.form-search").forEach((form) => {
+      form.setAttribute("target", targetValue);
+    });
   }
 }
